@@ -1,0 +1,25 @@
+
+body{
+    background-color: #262626;
+}
+/* nav*/
+
+.nav{
+  background-color: #4c4c4c;
+  justify-content: space-evenly;
+}
+
+.lupa{
+   height: auto;
+   width: auto;
+}
+
+.carousel-container{
+   margin:35px;
+   width: 70%;
+   height: 2%;
+}
+
+.carousel{
+  width: 100%;
+}
