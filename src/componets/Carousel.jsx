@@ -1,11 +1,12 @@
 import Carrousel from 'react-bootstrap/Carousel';
-import imagen1 from '../assets/pizza-napolitana-receta-1024x674.webp'
-import imagen2 from '../assets/colocar_alimentos_en_la_parrilla.jpg'
+import imagen1 from '../assets/picada_3 (1).png'
+import imagen2 from '../assets/lamb-steak-pieces-with-sauces-grilled-pepper-fresh-salad-on-wooden-board (1).jpg'
 import imagen3 from '../assets/pizza-napolitana-sin-gluten.jpg'
+import Cardsportada from './CardsPortada';
 
 
 function Carousel() {
-  return (
+  return (<>
     <div className='carousel-container'> 
     <Carrousel >
       <Carrousel.Item>
@@ -29,7 +30,10 @@ function Carousel() {
         />
       </Carrousel.Item>
     </Carrousel>
-    </div>
+    <Cardsportada/>
+    </div> 
+   
+    </>
   );
 }
 

@@ -1,11 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Carousel from './componets/Carousel'
-import Navegacion from './componets/Navegacion'
+import Home from './pages/Home'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <Navegacion/>
-  <Carousel/>
+  <Home/>
   </React.StrictMode>
 )

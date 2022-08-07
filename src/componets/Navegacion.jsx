@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import logo from '../assets/hoxton_logo.jpg';
+import logo from '../assets/hoxton_logo_recortado.png';
 import '../styles/style.css'
 import { BsSearch } from 'react-icons/bs';
 
