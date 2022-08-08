@@ -6,7 +6,8 @@ import Cardsportada from './CardsPortada';
 
 
 function Carousel() {
-  return (<>
+  return (
+  <>
     <div className='carousel-container'> 
     <Carrousel >
       <Carrousel.Item>

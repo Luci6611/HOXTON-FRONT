@@ -2,16 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Header from '../componets/Header'
 import logo from '../assets/hoxton_logo_recortado.png';
-import '../styles/style.css'
 import { BsSearch } from 'react-icons/bs';
-
-
+import {NavLink} from 'react-router-dom'
+import '../styles/style.css'
 
 
 function Navegacion() {
   return (
-    <>   
+    <>  
+    <Header/> 
       <Navbar className=' nav' variant="dark" >
           <Container  className='d-flex'>
           <Navbar.Brand >
@@ -23,9 +24,9 @@ function Navegacion() {
             />
           </Navbar.Brand>
           <Nav>
-            <Nav.Link href="#home">Nosotros</Nav.Link>
-            <Nav.Link href="#features">Tu pedido</Nav.Link>
-            <Nav.Link href="#pricing">Contacto</Nav.Link>
+          <NavLink className='nav-link' to='/'>Home</NavLink>
+          <NavLink className='nav-link' to='nosotros'>Nosotros</NavLink>
+          
           </Nav>
           <Form className='d-flex'>
             <Form.Control

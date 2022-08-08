@@ -61,3 +61,9 @@ body{
   width: 345px;
   padding: 0 10px 19px;
 }
+
+/* error */
+
+.error{
+  margin: 0 28% 0 ;  
+}
