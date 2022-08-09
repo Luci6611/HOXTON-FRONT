@@ -42,27 +42,28 @@ body{
 }
 
 .carousel-container{
-   display: flex;
-   padding: 20px;
    width: 100%;
-}
-
-.carousel{
-  width: 75%;
+   padding: 15px;
 }
 
 .container__imagenes_verticales{
-  width: 20%;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .container__imagenes_verticales > img{
-  width: 345px;
+  width: 100%;
   padding: 0 10px 19px;
 }
 
 /* error */
+
+.carousel-indicators button {
+  height: 13px !important ;
+  width: 5px;
+  border-radius:  55px; 
+}
+
 
 .error{
   margin: 0 28% 0 ;  
