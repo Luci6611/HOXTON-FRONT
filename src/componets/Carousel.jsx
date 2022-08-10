@@ -9,8 +9,8 @@ import '../styles/style.css'
 function Carousel() {
   return (
   <>
-    <div className='carousel-container'> 
-    <Carrousel className='col-xl-9 col-lg-7  '>
+    <div className='carousel-container '> 
+    <Carrousel >
       <Carrousel.Item>
         <img  className="d-block w-100"
           src={imagen1}
@@ -31,10 +31,12 @@ function Carousel() {
           alt="Third slide"
         />
       </Carrousel.Item>
-    </Carrousel>
-    <Cardsportada className='col-xl-4 col-lg-3'/>
+      
+    </Carrousel> 
+    <Cardsportada />
     </div> 
-   
+    
+  
     </>
   );
 }
