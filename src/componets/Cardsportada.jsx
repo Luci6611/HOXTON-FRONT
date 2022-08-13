@@ -9,7 +9,6 @@ const Cardsportada= () => {
     <div className='container__imagenes_verticales'>
     <img src={imagen1} alt="sandwich de milanesa" /> 
     <img src={imagen2} alt="choripan" /> 
-
     </div>
   )
 }
