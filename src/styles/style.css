@@ -38,9 +38,10 @@ body {
   justify-content: space-evenly;
 }
 
-.lupa {
+.icons {
   height: auto;
   width: auto;
+  padding: 5px;
 }
 
 .carousel-container {
@@ -55,7 +56,7 @@ body {
 
 .carousel-indicators button {
   height: 13px !important ;
-  width: 5px;
+  width: 5px; 
   border-radius: 55px;
 }
 
@@ -67,14 +68,8 @@ body {
 
 .container__imagenes_verticales > img {
   width: 100%;
-  padding: 0 10px 19px;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  background-color: #e1e1e1;
-  width: 5vh;
-  height: 5vh;
+  padding: 14px 10px 19px;
+  
 }
 
 /* error */

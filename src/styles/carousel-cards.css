@@ -1,7 +1,17 @@
+/* variables */
+
+:root {
+  --fondo__pagina: #262626;
+  --fondo__menus: #4c4c4c;
+  --color__letra: #fafaf5;
+  --fondo__header: #dd3333;
+}
+
+/* carousel */
+
 .carousel{
     width: 100%;
   }
-
 
   .carousel-indicators button {
    display: none;
@@ -20,22 +30,39 @@
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
-    
+    background-color: var(--fondo__menus);
+    height: 26rem;
+    color: var(--color__letra);
   }
   .carousel-inner {
     padding: 1em;
   }
+
+/* carousel controllers */
+
   .carousel-control-prev,
   .carousel-control-next {
-    background-color: #e1e1e1;
     width: 5vh;
     height: 5vh;
-    border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
   }
+
+/* Carousel - mobile*/
+
   @media (min-width: 768px) {
     .card img {
       height: 11em;
     }
+  
   }
+
+  @media (max-width: 768px) {
+  .cards-wrapper {
+    flex-flow: column wrap;
+  }
+  .card{
+    margin: 12px;
+    height: 500px;
+  }
+}
