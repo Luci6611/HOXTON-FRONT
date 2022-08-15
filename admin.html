@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="admin.css">
+    <title>Administración</title>
+</head>
+<body>
+    <!-- LISTA PRODUCTOS -->
+    <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+      <h3>Productos  <button type="button" id="btnCrearArt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticulo" >Crear</button></h3>
+        
+        <table id="tablaArticulos" class="table mt-2 table-bordered table striped">
+            <thead>
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <th>1</th>
+                <th>Coca</th>
+                <th>$250</th>
+                <th>37</th>
+                <th><button class="btn btn-danger">Eliminar</button><button id="btnCrear" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalArticulo">Editar</button></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- LISTA CATEGORIAS -->
+    <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+      <h3>Categorias  <button type="button" id="btnCrearCat" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCategoria" >Crear</button></h3>
+      <table id="tablaCategorias" class="table mt-2 table-bordered table striped">
+          <thead>
+              <tr class="text-center">
+                  <th>ID</th>
+                  <th>Categoría</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <th>1</th>
+              <th>Coca</th>
+              <th><button class="btn btn-danger">Eliminar</button><button id="btnCrear" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalArticulo">Editar</button></th>
+          </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <!-- LISTA PEDIDOS -->
+  <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+    <h3>Pedidos  <button type="button" id="btnCrearPedido" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPedidos" >Crear</button></h3>
+    <table id="tablaArticulos" class="table mt-2 table-bordered table striped">
+        <thead>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>Pedido</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <th>1</th>
+            <th>nose</th>
+            <th>$1500</th>
+            <th>Pendiente <button class="btn btn-success">Alta</button></th>
+            <th><button class="btn btn-danger">Eliminar</button><button id="btnCrear" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalArticulo">Editar</button></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- MODAL - PEDIDOS -->
+<div class="modal fade" id="modalPedidos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formPedido">
+          <div class="mb-3">
+            <label for="pedido" class="col-form-label">Pedido</label>
+            <input type="text" class="form-control" id="pedido">
+          </div>
+          <div class="mb-3">
+            <label for="precioPed" class="col-form-label">Precio</label>
+            <input type="number" class="form-control" id="precioPed">
+          </div>
+          <div class="mb-3">
+            <label for="estadoPed" class="col-form-label">Estado</label>
+            <input type="number" class="form-control" id="estadoPed">
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- LISTA USUARIOS -->
+<div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+  <h3>Usuarios  <button type="button" id="btnCrearUsuario" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsuarios" >Crear</button></h3>
+  <table id="tablaArticulos" class="table mt-2 table-bordered table striped">
+      <thead>
+          <tr class="text-center">
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th>Email</th>
+              <th>Contraseña</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <th>1</th>
+          <th>Luciano</th>
+          <th>Habilitado</th>
+          <th>luciano@10gmail.com</th>
+          <th>MessioD190S</th>
+          <th>ADMIN</th>
+          <th><button class="btn btn-danger">Eliminar</button><button id="btnCrear" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalUsuarios">Editar</button></th>
+      </tr>
+      </tbody>
+  </table>
+</div>
+
+<!-- MODAL USUARIO -->
+<div class="modal fade" id="modalUsuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel"> Editor de Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUsuario">
+          <div class="mb-3">
+            <label for="nombreUsuario" class="col-form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreUsuario">
+          </div>
+          <div class="mb-3">
+            <label for="Email" class="col-form-label">Email</label>
+            <input type="email" class="form-control" id="Email">
+          </div>
+          <div class="mb-3">
+            <label for="stock" class="col-form-label">Contraseña</label>
+            <input type="text" class="form-control" id="contrasenia">
+          </div>
+          <div class="mb-3">
+            <label for="rol" class="col-form-label">Rol</label>
+            <input type="text" class="form-control" id="rol">
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="col-form-label">Estado</label>
+            <input type="text" class="form-control" id="estado">
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -ARTICULO -->
+<div class="modal fade" id="modalArticulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formART">
+          <div class="mb-3">
+            <label for="descripcion" class="col-form-label">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion">
+          </div>
+          <div class="mb-3">
+            <label for="precio" class="col-form-label">Precio</label>
+            <input type="number" class="form-control" id="precio">
+          </div>
+          <div class="mb-3">
+            <label for="stock" class="col-form-label">Stock</label>
+            <input type="number" class="form-control" id="stock">
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL-- CATEGORIA -->
+<div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Categorías</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCat">
+          <div class="mb-3">
+            <label for="descripcion" class="col-form-label">Categorías</label>
+            <input type="text" class="form-control" id="descripcion">
+          </div>
+          
+          <div class="mb-3">
+            <label for="stock" class="col-form-label">Stock</label>
+            <input type="number" class="form-control" id="stock">
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="admin.js"></script>
+</body>
+</html>
