@@ -1,141 +1,97 @@
 import React from 'react'
-import '../styles/carousel-cards.css'
-import foto1 from '../assets/choripan.jpg'
 import Carrousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
+import '../styles/carousel-cards.css'
+import { apiHoxton } from "../helpers/apiHoxton";
+import 'axios'
+import { useState } from 'react';
 
+const res = await  apiHoxton.get('menus');
 
+const CarouselCards = (props) => {
+ 
 
-const CarouselCards = () => {
+  const { categoria,detalle, nombre, precio, imagen} = props;
+
+  const actualizar = () =>{
+  console.log('9')
+  };
+
+   const data = res.data.menus; 
+   console.log(data)
+  
 
   return (
-    <>
-    <Carrousel>
-    <h1 className='text-light text-center'>ofertas</h1>
-    <Carrousel.Item>
-      <div className="cards-wrapper">
-      <div className="card ">
-        <img src={foto1} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5>
-          <a href="#" className="btn btn-danger">añadir al carrito</a>
-        </div>
-      </div>
-      <div className="card  d-md-block">
-        <img src={foto1} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5>
-          <a href="#" className="btn btn-danger">añadir al carrito</a>
-        </div>
-      </div>
-      <div className="card  d-md-block">
-        <img src={foto1} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5> 
-          <a href="#" className="btn btn-danger">añadir al carrito</a>
-        </div>
-      </div>
-      <div className="card  d-md-block">
-        <img src={foto1} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5> 
-          <a href="#" className="btn btn-danger">añadir al carrito</a>
-        </div>
+    
+    <> 
+    <h1 className='text-light text-center'>{data[0].categoria.nombre}</h1>
+    <Carrousel className='item'>
+         
+    {
+    
+      
+      data.map( ( element, index) => {
+          return ( 
+           <Carrousel.Item className='item'>
+     <div className="cards-wrapper ">
+    <div className="card" key={element.index}>
+      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
+      <div className="card-body">
+        <h5 className="card-title">{data[index].nombre}</h5>
+        <p className="card-text">{element.detalle}</p>
+        <h5 className="card-title">$ {element.precio}</h5>
+        <a href="#" className="btn btn-danger">añadir al carrito</a>
       </div>
     </div>
-    </Carrousel.Item>
-    <Carrousel.Item>
-      <div className="cards-wrapper">
-        <div className="card">
-          <img src={foto1} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5>
-            <a href="#" className="btn btn-danger">añadir al carrito</a>
-          </div>
-        </div>
-        <div className="card d-md-block">
-          <img src={foto1} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <h5 className="card-title">500</h5>
-            <a href="#" className="btn btn-danger">añadir al carrito</a>
-          </div>
-        </div>
-        <div className="card  d-md-block">
-          <img src={foto1} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5>           
-            <a href="#" className="btn btn-danger">añadir al carrito</a>
-          </div>
-        </div>
-        <div className="card  d-md-block">
-        <img src={foto1} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5> 
-          <a href="#" className="btn btn-danger">añadir al carrito</a>
-        </div>
+    </div> 
+    <div className="cards-wrapper ">
+    <div className="card" key={element._id}>
+      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
+      <div className="card-body">
+        <h5 className="card-title">{data[index].nombre}</h5>
+        <p className="card-text">{element.detalle}</p>
+        <h5 className="card-title">$ {element.precio}</h5>
+        <a href="#" className="btn btn-danger">añadir al carrito</a>
       </div>
+    </div>
+    </div> 
+    <div className="cards-wrapper ">
+    <div className="card" key={element._id}>
+      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
+      <div className="card-body">
+        <h5 className="card-title">{data[index].nombre}</h5>
+        <p className="card-text">{element.detalle}</p>
+        <h5 className="card-title">$ {element.precio}</h5>
+        <a href="#" className="btn btn-danger">añadir al carrito</a>
       </div>
-      </Carrousel.Item>
-    
-    <Carrousel.Item>
-      <div className="cards-wrapper">
-        <div className="card">
-          <img src={foto1} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <h5 className="card-title">500</h5>
-            <a href="#" className="btn btn-danger">añadir al carrito</a>
-          </div>
-        </div>
-        <div className="card  d-md-block">
-          <img src={foto1}  className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <h5 className="card-title">500</h5>
-            <a href="#" className="btn btn-danger">añadir al carrito</a>
-          </div>
-        </div>
-        <div className="card  d-md-block">
-          <img src={foto1} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <h5 className="card-title">500</h5>
-        
-            <a href="#" className="btn btn-danger">añadir al carrito</a>
-          </div>
-        </div>
-        <div className="card  d-md-block">
-        <img src={foto1} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <h5 className="card-title">500</h5> 
-          <a href="#" className="btn btn-danger">añadir al carrito</a>
-        </div>
+    </div>
+    </div> 
+    <div className="cards-wrapper  ">
+    <div className="card" key={element.index}>
+      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
+      <div className="card-body">
+        <h5 className="card-title">{data[index].nombre}</h5>
+        <p className="card-text">{element.detalle}</p>
+        <h5 className="card-title">$ {element.precio}</h5>
+        <a href="#" className="btn btn-danger">añadir al carrito</a>
       </div>
-      </div>
-      </Carrousel.Item>
-  </Carrousel>
-  </>
+    </div> 
+    </div> 
+     <a className="carousel-control-prev" href="#"  role="button" data-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="sr-only"></span>
+  </a>
+  <a className="carousel-control-next" href="#"  role="button" data-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="sr-only"></span>
+  </a>
+</Carrousel.Item>
+
+    )})}  
+ 
+      </Carrousel>
+  </>  
   )
-}
+    };
 
 export default CarouselCards
