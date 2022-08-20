@@ -33,7 +33,7 @@ const LoginScreen = () => {
     <div className="container">
       <div className="row login-cuerpo">
         <div className="col-12 col-md-12  offset-md-4 ">
-          <div className="card border border-danger rounded ">
+          <div className="card   rounded ">
             <div className="card-body bg-black">
               <h3 className="text-center mb-4 text-danger">
                 <i className="fa fa-user-circle-o me-2" aria-hidden="true"></i>
