@@ -12,6 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  display: flex;
+  justify-content: center;
+}
 
 .login-cuerpo{
   width:100%;
@@ -25,5 +29,34 @@ code {
   width: 550px;
   height: 300px;
   margin:150px ;
-  border: none;
+ overflow: hidden;
+ border: none;
 }
+
+@media screen and (max-width: 991px) {
+  .card{
+    width: 550px;
+    height: 300px;
+    margin:10px auto ;
+    border: none;
+  
+  }
+}
+@media screen and (max-width: 661px) {
+
+  .card{
+    width:100%;
+    padding: 10px;
+    height: 300px;
+    border: none; 
+    margin: 0 auto;
+  
+  }
+  .card-body{
+    width: 100%;
+    border: none;
+    margin: 0 auto; 
+  }
+}
+
+

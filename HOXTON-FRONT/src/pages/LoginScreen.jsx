@@ -18,7 +18,7 @@ const LoginScreen = () => {
     if (datos?.token) {
       localStorage.setItem("token", JSON.stringify(datos.token));
       console.log(datos.token);
-      navigate("");
+      navigate("/");
     } else {
       if (datos?.errors) {
         setMessage(datos.errors);
@@ -32,8 +32,8 @@ const LoginScreen = () => {
   
     <div className="container">
       <div className="row login-cuerpo">
-        <div className="col-12 col-md-12  offset-md-4 ">
-          <div className="card   rounded ">
+        <div className="col-12 col-md-12 col-sm-12   offset-md-4 ">
+          <div className="card    ">
             <div className="card-body bg-black">
               <h3 className="text-center mb-4 text-danger">
                 <i className="fa fa-user-circle-o me-2" aria-hidden="true"></i>
