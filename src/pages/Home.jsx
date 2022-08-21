@@ -6,17 +6,10 @@ import Footer from "../componets/Footer";
 import favicon from "../assets/favicon_(1).ico";
 import "../styles/carousel-cards.css";
 import "react-bootstrap";
-import { apiHoxton } from "../helpers/apiHoxton";
 import 'axios';
 
-const res = await  apiHoxton.get('menus');
-
-console.log(res.data.menus);
-
-const data = res.data.menus;
 
 const Home = () => {
- 
 
   return (
     <>

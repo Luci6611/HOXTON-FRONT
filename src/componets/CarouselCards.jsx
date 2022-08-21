@@ -1,97 +1,74 @@
 import React from 'react'
-import Carrousel from 'react-bootstrap/Carousel';
+import { useState , useEffect} from 'react';
 import Card from 'react-bootstrap/Card';
+import Placeholder from 'react-bootstrap/Placeholder';
 import '../styles/carousel-cards.css'
-import { apiHoxton } from "../helpers/apiHoxton";
+import  {homeProducts} from "../helpers/homeProducts";
 import 'axios'
-import { useState } from 'react';
 
-const res = await  apiHoxton.get('menus');
 
-const CarouselCards = (props) => {
+const CarouselCards = () => {
  
+const [productos, setProductos] = useState([]);
 
-  const { categoria,detalle, nombre, precio, imagen} = props;
-
-  const actualizar = () =>{
-  console.log('9')
+  
+const cargarProductos = async  () => {
+    const datos = await homeProducts.get('menus?desde=10');
+    const data = datos.data;
+    setProductos(data.menus);
   };
 
-   const data = res.data.menus; 
-   console.log(data)
-  
+  useEffect(() => {
+    cargarProductos();
+  }, []);
 
+ 
   return (
     
     <> 
-    <h1 className='text-light text-center'>{data[0].categoria.nombre}</h1>
-    <Carrousel className='item'>
-         
-    {
-    
-      
-      data.map( ( element, index) => {
-          return ( 
-           <Carrousel.Item className='item'>
-     <div className="cards-wrapper ">
-    <div className="card" key={element.index}>
-      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
+    <h1 className='text-light text-center'>Pizzas</h1>
+<div className="cards-wrapper item ">
+     {
+      productos.map( (producto)  => (
+           <>
+     
+    <Card className="card" key={producto.id}>
+      <img src={producto.img} className="card-img-top" alt="imagen-producto"/>
       <div className="card-body">
-        <h5 className="card-title">{data[index].nombre}</h5>
-        <p className="card-text">{element.detalle}</p>
-        <h5 className="card-title">$ {element.precio}</h5>
+        <h5 className="card-title">{producto.nombre}</h5>
+        <p className="card-text">{producto.detalle}</p>
+        <h5 className="card-title">$ {producto.precio}</h5>
         <a href="#" className="btn btn-danger">añadir al carrito</a>
       </div>
-    </div>
-    </div> 
-    <div className="cards-wrapper ">
-    <div className="card" key={element._id}>
-      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
+    </Card>
+          
+</>
+    ) )})
+</div>
+   <h1 className='text-light text-center'>Papas</h1>
+<div className="cards-wrapper item ">
+     {
+      productos.map( (producto)  => (
+           <>
+     
+    <Card className="card" key={producto.id}>
+      <img src={producto.img} className="card-img-top" alt="imagen-producto"/>
       <div className="card-body">
-        <h5 className="card-title">{data[index].nombre}</h5>
-        <p className="card-text">{element.detalle}</p>
-        <h5 className="card-title">$ {element.precio}</h5>
+        <h5 className="card-title">{producto.nombre}</h5>
+        <p className="card-text">{producto.detalle}</p>
+        <h5 className="card-title">$ {producto.precio}</h5>
         <a href="#" className="btn btn-danger">añadir al carrito</a>
       </div>
-    </div>
-    </div> 
-    <div className="cards-wrapper ">
-    <div className="card" key={element._id}>
-      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
-      <div className="card-body">
-        <h5 className="card-title">{data[index].nombre}</h5>
-        <p className="card-text">{element.detalle}</p>
-        <h5 className="card-title">$ {element.precio}</h5>
-        <a href="#" className="btn btn-danger">añadir al carrito</a>
-      </div>
-    </div>
-    </div> 
-    <div className="cards-wrapper  ">
-    <div className="card" key={element.index}>
-      <img src={element.img} className="card-img-top" alt="imagen-producto"/>
-      <div className="card-body">
-        <h5 className="card-title">{data[index].nombre}</h5>
-        <p className="card-text">{element.detalle}</p>
-        <h5 className="card-title">$ {element.precio}</h5>
-        <a href="#" className="btn btn-danger">añadir al carrito</a>
-      </div>
-    </div> 
-    </div> 
-     <a className="carousel-control-prev" href="#"  role="button" data-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="sr-only"></span>
-  </a>
-  <a className="carousel-control-next" href="#"  role="button" data-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="sr-only"></span>
-  </a>
-</Carrousel.Item>
-
-    )})}  
- 
-      </Carrousel>
+    </Card>
+          
+</>
+    ) )})
+</div>
+  
   </>  
+  
   )
+
     };
 
 export default CarouselCards
