@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 const RoutesDos = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<HomeScreen />} /> */}
+      <Route path="/" element={<HomeScreen />} />
    
     </Routes>
   );
