@@ -36,7 +36,7 @@ code {
 @media screen and (max-width: 991px) {
   .card{
     width: 550px;
-    height: 300px;
+  
     margin:10px auto ;
     border: none;
   
@@ -47,7 +47,7 @@ code {
   .card{
     width:100%;
     padding: 10px;
-    height: 300px;
+  
     border: none; 
     margin: 0 auto;
   
