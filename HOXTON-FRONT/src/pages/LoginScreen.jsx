@@ -51,7 +51,7 @@ const LoginScreen = () => {
                 <input
                   className="form-control"
                   type="password"
-                  placeholder="*****"
+                  placeholder="ingrese constraseña"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
