@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <Navegacion/>
   <Routes>
+  
     <Route path='/' element={<Home/>}/>
     <Route path='*' element={<Error/>}/>
     <Route path="nosotros" element={<AboutScreen/>}/>
