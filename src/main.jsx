@@ -10,6 +10,7 @@ import "../src/styles/carousel-cards.css"
 import "../src/styles/style.css"
 import "../src/styles/LoginScreen.css";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <App /> */}
