@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import './styles.css' 
+import "../styles/FormularioContacto.css" 
 
 export const FormularioContacto = () => {
   const [form,setForm] = useState({
@@ -85,3 +85,4 @@ export const FormularioContacto = () => {
      </div>
     )
 }
+export default FormularioContacto;

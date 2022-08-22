@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import './styles.css' 
+import "../styles/Registro.css" 
 
 export const Registro = () => {
     const [user,setUser] = useState({
@@ -79,3 +79,4 @@ export const Registro = () => {
   )
 }
 
+export default Registro;

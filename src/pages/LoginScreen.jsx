@@ -61,7 +61,7 @@ const LoginScreen = () => {
                 <div className="mb-3 text-center text-muted">
                   <small>
                     Si no tenés cuenta podés registrarte
-                    <Link to="/signup"> aquí</Link>
+                    <Link to="/Registro"> aquí</Link>
                   </small>
                 </div>
               </form>

@@ -48,7 +48,7 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/">
                   Home
                 </NavLink>
-                <NavLink className="nav-link" to="nosotros">
+                <NavLink className="nav-link" to="<SobreNosotros/>">
                   Nosotros
                 </NavLink>
               </Nav>

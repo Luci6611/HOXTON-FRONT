@@ -1,5 +1,5 @@
 import {React} from "react"; 
-import './styles.css'
+import "../styles/SobreNosotros.css"
 
 
 export const SobreNosotros = () => {
@@ -51,3 +51,5 @@ export const SobreNosotros = () => {
     </section>
     )
 }
+
+export default SobreNosotros;

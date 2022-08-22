@@ -10,6 +10,7 @@ import AboutScreen from '../pages/AboutScreen'
 
 
 import Home from "../pages/Home";
+import SobreNosotros from '../pages/SobreNosotros'
 
 const RoutesDos = () => {
   return (
@@ -21,6 +22,7 @@ const RoutesDos = () => {
       
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Error/>}/>
+        <Route path='About' element={<SobreNosotros/>}/>
       
     
       </Routes>
