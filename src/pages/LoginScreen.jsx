@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate, Link } from "react-router-dom";
+import favicon from "../assets/favicon_(1).ico";
 import { login } from "../helpers/fetchAuth";
 
 
@@ -29,7 +31,13 @@ const LoginScreen = () => {
   };
 
   return (
- <> <main className="login__main">
+   <> <Helmet>
+    <meta charSet="utf-8" />
+    <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+  
+    <title>login</title>
+  </Helmet>
+  <main className="login__main">
     <div className="container">
       <div className="row login-cuerpo">
         <div className="col-12 col-md-12 col-sm-12   offset-md-4 ">

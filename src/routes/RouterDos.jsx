@@ -6,11 +6,12 @@ import {BrowserRouter, Routes ,Route} from 'react-router-dom'
 
 import Navegacion from '../componets/Navegacion'
 import Error from '../pages/Error'
-import AboutScreen from '../pages/AboutScreen'
+
 
 
 import Home from "../pages/Home";
 import SobreNosotros from '../pages/SobreNosotros'
+import FormularioContacto from "../pages/FormularioContacto"
 
 const RoutesDos = () => {
   return (
@@ -23,6 +24,7 @@ const RoutesDos = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Error/>}/>
         <Route path='About' element={<SobreNosotros/>}/>
+        <Route path='Contacto' element={<FormularioContacto/>}/>
       
     
       </Routes>

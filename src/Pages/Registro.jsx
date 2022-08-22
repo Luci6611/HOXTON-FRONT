@@ -1,7 +1,8 @@
 import {React,useState} from 'react'
 import "../styles/Registro.css" 
+import favicon from "../assets/favicon_(1).ico";
 
-export const Registro = () => {
+const Registro = () => {
     const [user,setUser] = useState({
         email:"",
         usuario:"",
@@ -53,6 +54,12 @@ export const Registro = () => {
   
   
     return (
+     <> <Helmet>
+      <meta charSet="utf-8" />
+      <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    
+      <title>Registro</title>
+    </Helmet>
     <div className="signupFrm">
         <form action="" onSubmit={handlerOnSubmit} className="formRegistro">
           <h1 className="title">Formulario de Registro</h1>
@@ -75,7 +82,7 @@ export const Registro = () => {
     
           <input type="submit" className="submitBtn" value="Registrarse!"/>
         </form>
-      </div>
+      </div></>
   )
 }
 

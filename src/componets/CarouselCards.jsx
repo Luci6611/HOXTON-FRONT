@@ -103,7 +103,7 @@ const CarouselCards = () => {
         ))}
         )     
       </div> 
-      };
+      
     </>
   );
 };

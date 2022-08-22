@@ -1,7 +1,9 @@
 import {React,useState} from 'react'
+import { Helmet } from 'react-helmet';
 import "../styles/FormularioContacto.css" 
+import favicon from "../assets/favicon_(1).ico";
 
-export const FormularioContacto = () => {
+ const FormularioContacto = () => {
   const [form,setForm] = useState({
     nombre:"",
     mail:"",
@@ -60,6 +62,12 @@ export const FormularioContacto = () => {
   }
 
     return(
+      <> <Helmet>
+      <meta charSet="utf-8" />
+      <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    
+      <title>Registro</title>
+    </Helmet>
         <div> 
         <h2> Formulario de contacto</h2>
         <form action="" onSubmit={handlerOnSubmit} className="FormFormulario">
@@ -82,7 +90,7 @@ export const FormularioContacto = () => {
           </button>
             
      </form>
-     </div>
+     </div></>
     )
 }
 export default FormularioContacto;
