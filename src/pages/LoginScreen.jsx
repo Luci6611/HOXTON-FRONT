@@ -29,12 +29,12 @@ const LoginScreen = () => {
   };
 
   return (
-  
+ <> <main className="login__main">
     <div className="container">
       <div className="row login-cuerpo">
         <div className="col-12 col-md-12 col-sm-12   offset-md-4 ">
-          <div className="card    ">
-            <div className="card-body bg-black">
+          <div className="card estilo    ">
+            <div className="card-body bg-black cuerpo-estilos">
               <h3 className="text-center mb-4 text-danger">
                 <i className="fa fa-user-circle-o me-2" aria-hidden="true"></i>
                 Inicio de sesión
@@ -70,12 +70,14 @@ const LoginScreen = () => {
                   <div key={index} className="alert alert-danger" role="alert">
                     {item.msg}
                   </div>
+                
+                 
                 ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>  </main> </>
   );
 };
 

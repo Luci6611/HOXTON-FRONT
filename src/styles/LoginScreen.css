@@ -1,4 +1,6 @@
-body {
+.login__main {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -25,7 +27,7 @@ code {
   align-items: center;
  
 }
-.card{
+.estilo{
   width: 550px;
 
   margin:150px ;
@@ -34,7 +36,7 @@ code {
 }
 
 @media screen and (max-width: 991px) {
-  .card{
+  .estilo{
     width: 550px;
   
     margin:10px auto ;
@@ -44,7 +46,7 @@ code {
 }
 @media screen and (max-width: 661px) {
 
-  .card{
+  .estilo{
     width:100%;
     padding: 10px;
   
@@ -52,7 +54,7 @@ code {
     margin: 0 auto;
   
   }
-  .card-body{
+  .cuerpo-estilos{
     width: 100%;
     border: none;
     margin: 0 auto; 
