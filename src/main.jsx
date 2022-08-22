@@ -7,11 +7,11 @@ import Error from './pages/Error'
 import AboutScreen from './pages/AboutScreen'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode>,,555555555555555555555555555555555555555555555555555555555
   <BrowserRouter>
   <Navegacion/>
   <Routes>
-  
+
     <Route path='/' element={<Home/>}/>
     <Route path='*' element={<Error/>}/>
     <Route path="nosotros" element={<AboutScreen/>}/>

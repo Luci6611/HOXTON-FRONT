@@ -7,13 +7,6 @@
   --fondo__header: #dd3333;
 }
 
-.btn-danger{
-  display: flex;
-  margin-top: 12px;
-  flex-flow: column;
-  justify-content: end;
-  align-items: end;
-}
 
   .card img {
     max-width: 100%;
