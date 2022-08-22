@@ -1,56 +1,52 @@
 import {React,useState} from 'react'
 import "../styles/Registro.css" 
 import favicon from "../assets/favicon_(1).ico";
+import { Link, useNavigate } from "react-router-dom";
+import { crearUsuario } from "../helpers/fetchUsuarios";
 
-const Registro = () => {
-    const [user,setUser] = useState({
-        email:"",
-        usuario:"",
-        contraseña:""
-    })
+const  Registro = () => {
+  const navigate = useNavigate();
+
+  const [formValues, setFormValues] = useState({
+    nombre: "",
+    email: "",
+    password: "",
+    role: "USER_ROLE",
+  });
     
+  const [message, setMessage] = useState([]);
 
-    async function handlerOnSubmit(e){
-        e.preventDefault();
-        
-        // try {
-        //   let result = await fetch("PASARME EL ENDPOINT", {
-        //     method: "post",
-        //     //mode: "no-cors",
-        //     headers: {
-        //       accept: "application/json",
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(user),
-        //   });
-    
-        //   let response = await result.json();
-        
-        //   if (response.isError === true) {
+  const handleChange = ({ target }) => {
+    setFormValues({
+      ...formValues,
+      [target.name]: target.value,
+    });
+  };
 
-        //   }
-        //   else{
-        //     logIn(data);
-        //  }
-            
-          
-        // } catch (error) {
-        //     console.log(error);
-        //   return error;
-        // }
-      };
+  const guardarDatos = async (e) => {
+    e.preventDefault();
 
-    function handleMailChange(e){
-        setUser({...user, email: e.target.value})
+    const respuesta = await crearUsuario(formValues);
+
+    if (respuesta?.usuario) {
+      setMessage([{ ok: true, msg: respuesta.msg }]);
+      setTimeout(() => {
+        setMessage([]);
+      }, 3000);
+    } else {
+      if (respuesta?.errors) {
+        setMessage(respuesta.errors);
+      } else {
+        setMessage([{ msg: respuesta.msg }]);
+      }
     }
-    
-    function handleUserChange(e){
-        setUser({...user, usuario: e.target.value})
-    }
-    function handlePasswordChange(e){
-        setUser({...user, contraseña: e.target.value})
-    }
-   
+    setFormValues({
+      nombre: "",
+      email: "",
+      password: "",
+      role: "USER_ROLE",
+    });
+
   
   
     return (
@@ -61,29 +57,49 @@ const Registro = () => {
       <title>Registro</title>
     </Helmet>
     <div className="signupFrm">
-        <form action="" onSubmit={handlerOnSubmit} className="formRegistro">
+        <form action="" onSubmit={guardarDatos} className="formRegistro">
           <h1 className="title">Formulario de Registro</h1>
     
           <div className="inputContainer">
-            <input type="email"  onChange={handleMailChange} className="input" placeholder="ejemplo@ejemplo.com" required/>
+            <input type="email"  onChange={handleChange} 
+            name="email"
+            value={formValues.email}
+            className="input" placeholder="ejemplo@ejemplo.com" required/>
             <label className="label">Email</label>
           </div>
     
           <div className="inputContainer">
-            <input type="text" className="input"  onChange={handleUserChange} placeholder="Nombre&Apellido" maxLength="12" minLength="4" required/>
+            <input type="text" className="input"  onChange={handleChange} 
+             name="nombre"
+             value={formValues.nombre}
+            placeholder="Nombre&Apellido" maxLength="12" minLength="4" required/>
             <label className="label">Usuario</label>
           </div>
     
           <div className="inputContainer">
-            <input type="password"  className="input" onChange={handlePasswordChange} minLength='4' placeholder="Contraseña" required/>
+            <input type="password"  className="input"  name="password"
+           value={formValues.password}
+            onChange={handleChange}minLength='4' placeholder="Contraseña" required/>
             <label className="label">Contraseña</label>
             
           </div>
     
           <input type="submit" className="submitBtn" value="Registrarse!"/>
         </form>
+        {message.length > 0 &&
+                message.map((item, index) => (
+                  <div
+                    key={index}
+                    className={
+                      item?.ok ? "alert alert-success" : "alert alert-danger"
+                    }
+                    role="alert"
+                  >
+                    {item.msg}
+                  </div>
+                ))}
       </div></>
   )
 }
-
+}
 export default Registro;
