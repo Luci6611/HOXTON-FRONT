@@ -61,7 +61,7 @@ const Registro = () => {
                 <i  className="fa fa-user-plus me-2" aria-hidden="true"></i>
                 Registro de usuario
               </h3>
-              <form className="" onSubmit={guardarDatos}>
+              <form  onSubmit={guardarDatos}>
                 <input
                   className="form-control mb-2 input"
                   type="text"

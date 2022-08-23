@@ -73,7 +73,7 @@ import favicon from "../assets/favicon_(1).ico";
         <form action="" onSubmit={handlerOnSubmit} className="FormFormulario">
         
         <input className='inputContact' type="text" onChange={handlerNameOnChange} placeholder="Nombre" required/>
-        <input className='inputContact' type="email"onChange={handlerMailOnChange} placeholder="E-Mail" required/>
+        <input className='inputContact' type="email" onChange={handlerMailOnChange} placeholder="E-Mail" required/>
         <input className='inputContact' type="text" onChange={handlerIssueOnChange} placeholder="Asunto" required/>
 
         <textarea className='inputContact' onChange={handlerIssueTextOnChange} placeholder="Por favor, escriba su mensaje" required/>

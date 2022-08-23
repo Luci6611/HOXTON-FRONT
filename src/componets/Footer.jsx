@@ -29,9 +29,9 @@ const footer = () => {
           <ul className='col-12 col-md-3 list-unstyled'>
             <li className='font-weight-bold mb-2'>Siguenos</li> 
             <li className='d-flex justify-content-between'>
-              <i class="bi bi-facebook"></i>
-              <i class="bi bi-instagram"></i>
-              <i class="bi bi-twitter"></i>
+              <i className="bi bi-facebook"></i>
+              <i className="bi bi-instagram"></i>
+              <i className="bi bi-twitter"></i>
             </li>
           </ul>
           <div className='container'>
