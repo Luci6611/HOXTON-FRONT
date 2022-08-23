@@ -12,4 +12,5 @@ export const crearUsuario = async (datos) => {
   const data = await resp.json();
 
   return data;
+  
 };

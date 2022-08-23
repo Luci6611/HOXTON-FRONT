@@ -1,10 +1,9 @@
-import {React,useState} from 'react'
-import "../styles/Registro.css" 
-import favicon from "../assets/favicon_(1).ico";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { crearUsuario } from "../helpers/fetchUsuarios";
+import "../styles/Registro.css"
 
-const  Registro = () => {
+const Registro = () => {
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -13,7 +12,7 @@ const  Registro = () => {
     password: "",
     role: "USER_ROLE",
   });
-    
+
   const [message, setMessage] = useState([]);
 
   const handleChange = ({ target }) => {
@@ -40,6 +39,7 @@ const  Registro = () => {
         setMessage([{ msg: respuesta.msg }]);
       }
     }
+
     setFormValues({
       nombre: "",
       email: "",
@@ -47,46 +47,58 @@ const  Registro = () => {
       role: "USER_ROLE",
     });
 
-  
-  
-    return (
-     <> <Helmet>
-      <meta charSet="utf-8" />
-      <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-    
-      <title>Registro</title>
-    </Helmet>
-    <div className="signupFrm">
-        <form action="" onSubmit={guardarDatos} className="formRegistro">
-          <h1 className="title">Formulario de Registro</h1>
-    
-          <div className="inputContainer">
-            <input type="email"  onChange={handleChange} 
-            name="email"
-            value={formValues.email}
-            className="input" placeholder="ejemplo@ejemplo.com" required/>
-            <label className="label">Email</label>
-          </div>
-    
-          <div className="inputContainer">
-            <input type="text" className="input"  onChange={handleChange} 
-             name="nombre"
-             value={formValues.nombre}
-            placeholder="Nombre&Apellido" maxLength="12" minLength="4" required/>
-            <label className="label">Usuario</label>
-          </div>
-    
-          <div className="inputContainer">
-            <input type="password"  className="input"  name="password"
-           value={formValues.password}
-            onChange={handleChange}minLength='4' placeholder="Contraseña" required/>
-            <label className="label">Contraseña</label>
-            
-          </div>
-    
-          <input type="submit" className="submitBtn" value="Registrarse!"/>
-        </form>
-        {message.length > 0 &&
+    // console.log(respuesta);
+  };
+
+  return (
+    <div className="contenedor">
+    <div className="container  ">
+      <div className="row login-cuerpo">
+        <div className="col-12 col-md-6 offset-md-3">
+          <div className="card">
+            <div className="card-body formRegistro  ">
+              <h3  className="text-center mb-3 title">
+                <i  className="fa fa-user-plus me-2" aria-hidden="true"></i>
+                Registro de usuario
+              </h3>
+              <form className="" onSubmit={guardarDatos}>
+                <input
+                  className="form-control mb-2 input"
+                  type="text"
+                  placeholder="Ingrese su nombre"
+                  name="nombre"
+                  value={formValues.nombre}
+                  onChange={handleChange}
+                  autoFocus={true}
+                  autoComplete="off"
+                />
+                <input
+                  className="form-control mb-2 input"
+                  type="email"
+                  placeholder="Ingrese su email"
+                  name="email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-control input"
+                  type="password"
+                  placeholder="*****"
+                  name="password"
+                  value={formValues.password}
+                  onChange={handleChange}
+                />
+
+                <div className="d-flex justify-content-end my-3">
+                  <Link className="btn btn-outline-secondary me-2 submitBtn" to="/login">
+                    Volver
+                  </Link>
+
+                  <button className="btn btn-success submitBtn">Registrarse</button>
+                </div>
+              </form>
+              </div>
+              {message.length > 0 &&
                 message.map((item, index) => (
                   <div
                     key={index}
@@ -98,8 +110,12 @@ const  Registro = () => {
                     {item.msg}
                   </div>
                 ))}
-      </div></>
-  )
-}
-}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Registro;

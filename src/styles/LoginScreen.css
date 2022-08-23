@@ -18,6 +18,9 @@ code {
   display: flex;
   justify-content: center;
 }
+.registrarse__link{
+  font-size: 1.2rem;
+}
 
 .login-cuerpo{
   width:100%;
@@ -29,7 +32,6 @@ code {
 }
 .estilo{
   width: 550px;
-
   margin:150px ;
  overflow: hidden;
  border: none;

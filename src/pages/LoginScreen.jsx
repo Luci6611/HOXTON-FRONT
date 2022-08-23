@@ -66,7 +66,7 @@ const LoginScreen = () => {
                 <div className="d-flex justify-content-center my-3">
                   <button className="btn btn-black btn-outline-danger mt-auto">Iniciar</button>
                 </div>
-                <div className="mb-3 text-center text-muted">
+                <div className="mb-3 text-center  text-secondary registrarse__link ">
                   <small>
                     Si no tenés cuenta podés registrarte
                     <Link to="/Registro"> aquí</Link>
@@ -75,7 +75,7 @@ const LoginScreen = () => {
               </form>
               {message.length > 0 &&
                 message.map((item, index) => (
-                  <div key={index} className="alert alert-danger" role="alert">
+                  <div key={index} className="login__alertas alert alert-danger" role="alert">
                     {item.msg}
                   </div>
                 
