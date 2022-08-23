@@ -1,24 +1,55 @@
 import React from 'react'
 import '../styles/style.css'
 import '../styles/admin.css'
+import Table from 'react-bootstrap/Table';
 import { useState , useEffect} from 'react';
+import cargarUsuarios from '../helpers/fetchUsuariosGET'
 import 'axios'
 
 const Admin = () => {
 
     const [usurios, setUsuarios]=useState([]);
 
+   const usuariosRender = async () =>{
+     const usuariosRecibidos = await cargarUsuarios;
+     setUsuarios(...usuariosRecibidos)
+   }
+
     useEffect(() => {
-      first
-    
-      return () => {
-        second
-      }
+      usuariosRender()
     }, [])
     
   return (
     <>
-
+     <Table className='striped bordered hover' variant="dark">
+      <thead>
+    {usuarios.map}    <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td colSpan={2}>Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </Table>
     </>
   )
 }

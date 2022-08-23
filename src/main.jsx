@@ -1,22 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {BrowserRouter, Routes ,Route} from 'react-router-dom'
-import Home from './pages/Home'
-import Navegacion from './componets/Navegacion'
-import Error from './pages/Error'
-import AboutScreen from './pages/AboutScreen'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import RouterApp from "./routes/RouterApp";
+import "../src/styles/carousel-cards.css"
+import "../src/styles/style.css"
+import "../src/styles/LoginScreen.css";
+import "../src/styles/Registro.css"
+import "../src/styles/SobreNosotros.css"
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <BrowserRouter>
-  <Navegacion/>
-  <Routes>
-
-    <Route path='/' element={<Home/>}/>
-    <Route path='*' element={<Error/>}/>
-    <Route path="nosotros" element={<AboutScreen/>}/>
-
-  </Routes>
-  </BrowserRouter>
+    <RouterApp />
   </React.StrictMode>
-)
+);
+
+

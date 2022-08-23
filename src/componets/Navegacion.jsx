@@ -48,8 +48,11 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/">
                   Home
                 </NavLink>
-                <NavLink className="nav-link" to="nosotros">
+                <NavLink className="nav-link" to="/About">
                   Nosotros
+                </NavLink>
+                <NavLink className="nav-link" to="/Contacto">
+                  Contacto
                 </NavLink>
               </Nav>
               <Form className="d-flex">

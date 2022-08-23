@@ -1,0 +1,81 @@
+.h1AboutUs {
+    margin-bottom:1rem;
+    color:rgb(151, 4, 4);
+    font-weight:600;
+    column-span:all;
+    font-size: 50px;
+}
+
+.h2AboutUs {
+    color:rgb(151, 4, 4);
+    font-weight:400;
+    font-size: 30px;
+}
+
+p {margin-bottom:1rem;}
+
+img {
+    width:100%;
+    margin:1em 0;
+    border-image: round;
+    display:block;
+    column-span:all;
+}
+
+a {
+    color:#00324b;
+}
+
+section {
+    background-color:rgb(194, 189, 189);
+    padding:3rem;
+    margin:3rem auto;
+    max-width:800px;
+    display:block;
+    column-count:4;
+    column-gap: 3em;
+	column-rule: 1px solid #bbb;
+    column-width: 140px;
+}
+article{
+    background-color:rgb(194, 189, 189);
+    padding:3rem;
+    margin:3rem auto;
+    max-width:800px;
+    display:block;
+    column-span: all;
+}
+.nosotrosFotos {
+    background-color: rgb(194, 189, 189);
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+.lasFotos {
+/* max-width: 1400px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* align-content: space-between; */
+}
+.foto {
+    object-fit: scale-down;
+    border-radius: 50%;
+   /*  border: 15px groove rgba(64, 9, 9, 0.358); */
+    width: 125px;
+    height: 125px;
+    margin: 20px;
+}
+ .carta {
+    border-radius: 100%;
+}
+
+/* .nosotrosFotos .container {
+    padding: 150px 12px;
+} */
+.nosotrosFotos h2 {
+    margin-top: 0;
+}
+.nosotrosFotos p {
+    display: none;
+}
