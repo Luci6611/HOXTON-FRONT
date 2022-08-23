@@ -33,8 +33,11 @@ code {
 .estilo{
   width: 550px;
   margin:150px ;
- overflow: hidden;
  border: none;
+}
+.boton-est{
+  width: 40%;
+  padding: 7px 7px;
 }
 
 @media screen and (max-width: 991px) {

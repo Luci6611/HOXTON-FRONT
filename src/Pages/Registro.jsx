@@ -53,7 +53,7 @@ const Registro = () => {
   return (
     <div className="contenedor">
     <div className="container  ">
-      <div className="row login-cuerpo">
+      <div className="row registro-cuerpo">
         <div className="col-12 col-sm-12 col-md-12 offset-md-3   columna-contenedor">
           <div className="card card-cont">
             <div className="card-body formRegistro  ">
@@ -96,9 +96,7 @@ const Registro = () => {
 
                   <button className="btn btn-success submitBtn">Registrarse</button>
                 </div>
-              </form>
-              </div>
-              {message.length > 0 &&
+              </form> {message.length > 0 &&
                 message.map((item, index) => (
                   <div
                     key={index}
@@ -110,6 +108,8 @@ const Registro = () => {
                     {item.msg}
                   </div>
                 ))}
+              </div>
+             
             </div>
           </div>
         </div>

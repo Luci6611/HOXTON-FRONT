@@ -42,14 +42,14 @@ const LoginScreen = () => {
       <div className="row login-cuerpo">
         <div className="col-12 col-md-12 col-sm-12   offset-md-4 ">
           <div className="card estilo    ">
-            <div className="card-body bg-black cuerpo-estilos">
+            <div className="card-body bg-black cuerpo-estilos" >
               <h3 className="text-center mb-4 text-danger">
                 <i className="fa fa-user-circle-o me-2" aria-hidden="true"></i>
                 Inicio de sesión
               </h3>
-              <form onSubmit={handleSubmit}>
+              <form className="formulario-conte" onSubmit={handleSubmit}>
                 <input
-                  className="form-control mb-2"
+                  className="form-control mb-4 p-2"
                   type="email"
                   placeholder="Ingrese su email"
                   value={email}
@@ -57,30 +57,30 @@ const LoginScreen = () => {
                   autoFocus={true}
                 />
                 <input
-                  className="form-control"
+                  className="form-control mb-4 p-2"
                   type="password"
                   placeholder="ingrese constraseña"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <div className="d-flex justify-content-center my-3">
-                  <button className="btn btn-black btn-outline-danger mt-auto">Iniciar</button>
+                  <button className="btn btn-dark btn-outline-danger   fs-5 fw-bold text-light mt-auto boton-est">Iniciar</button>
                 </div>
                 <div className="mb-3 text-center  text-secondary registrarse__link ">
                   <small>
                     Si no tenés cuenta podés registrarte
                     <Link to="/Registro"> aquí</Link>
                   </small>
-                </div>
-              </form>
-              {message.length > 0 &&
+                </div>{message.length > 0 &&
                 message.map((item, index) => (
-                  <div key={index} className="login__alertas alert alert-danger" role="alert">
+                  <div key={index} className="login__alertas   alert alert-danger" role="alert">
                     {item.msg}
                   </div>
                 
-                 
+                  
                 ))}
+              </form>
+              
             </div>
           </div>
         </div>
