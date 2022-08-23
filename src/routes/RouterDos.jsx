@@ -9,6 +9,7 @@ import Error from '../pages/Error'
 import Home from "../pages/Home";
 import SobreNosotros from '../pages/SobreNosotros'
 import FormularioContacto from "../pages/FormularioContacto"
+import Menus from '../pages/Menus'
 
 const RoutesDos = () => {
   return (
@@ -20,6 +21,7 @@ const RoutesDos = () => {
       
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Error/>}/>
+        <Route path='Menus' element={<Menus/>}/>
         <Route path='About' element={<SobreNosotros/>}/>
         <Route path='Contacto' element={<FormularioContacto/>}/>
       
