@@ -7,7 +7,7 @@ import Error from './pages/Error'
 import AboutScreen from './pages/AboutScreen'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>,,555555555555555555555555555555555555555555555555555555555
+  <React.StrictMode>
   <BrowserRouter>
   <Navegacion/>
   <Routes>

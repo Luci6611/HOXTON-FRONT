@@ -2,13 +2,7 @@ import React from 'react'
 import {Helmet} from "react-helmet";
 import favicon from '../assets/favicon_(1).ico'
 import '../styles/aboutScreen.css'
-import nico from '../assets/NicoMorales.jpeg'
-import carlos from '../assets/carlos.jpeg'
-import roman from '../assets/Roman.jpeg'
-import sol from '../assets/sol.jpeg'
-import luciano from '../assets/luciano.jpeg'
-import logo from '../assets/hoxton_logo_recortado.png'
-import cocinero from '../assets/cocinero2.webp'
+ 
 
 
 const AboutScreen = () => {
