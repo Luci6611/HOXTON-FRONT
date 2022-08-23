@@ -46,25 +46,32 @@ article{
     column-span: all;
 }
 .nosotrosFotos {
+    display: flex;
+    flex-direction: column;
+
     background-color: rgb(194, 189, 189);
     color: white;
     text-align: center;
     margin-top: 20px;
 }
+
 .lasFotos {
 /* max-width: 1400px; */
     display: flex;
     justify-content: center;
     flex-direction: row;
+    flex-wrap:wrap ;
+  
     /* align-content: space-between; */
 }
 .foto {
     object-fit: scale-down;
     border-radius: 50%;
+    
    /*  border: 15px groove rgba(64, 9, 9, 0.358); */
-    width: 125px;
-    height: 125px;
-    margin: 20px;
+    width: 155px;
+    height: 155px;
+    margin: 40px;
 }
  .carta {
     border-radius: 100%;
