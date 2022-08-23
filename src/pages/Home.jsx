@@ -6,7 +6,6 @@ import Footer from "../componets/Footer";
 import favicon from "../assets/favicon_(1).ico";
 import "../styles/carousel-cards.css";
 import "react-bootstrap";
-import 'axios';
 
 
 const Home = () => {
@@ -20,11 +19,7 @@ const Home = () => {
         <title>Home</title>
       </Helmet>
       <Carousel />
-  {/*     {data.map(element => {
-        return (
-          <CarouselCards key={element._id} categoria = {element.categoria.nombre} detalle = {element.detalle}  nombre={element.nombre} precio={element.precio} imagen={element.img} />
-        )       
-      })}     */}
+
        <CarouselCards/> 
       <Footer />
     </>
