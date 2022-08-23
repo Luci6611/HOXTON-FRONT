@@ -54,8 +54,8 @@ const Registro = () => {
     <div className="contenedor">
     <div className="container  ">
       <div className="row login-cuerpo">
-        <div className="col-12 col-md-6 offset-md-3">
-          <div className="card">
+        <div className="col-12 col-sm-12 col-md-12 offset-md-3   columna-contenedor">
+          <div className="card card-cont">
             <div className="card-body formRegistro  ">
               <h3  className="text-center mb-3 title">
                 <i  className="fa fa-user-plus me-2" aria-hidden="true"></i>

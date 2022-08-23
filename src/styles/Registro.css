@@ -7,6 +7,12 @@
   background:linear-gradient(rgb(72, 10, 10),rgb(78, 39, 5));
   font-family: "lato", sans-serif;
 }
+.columna-contenedor{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
 
 .signupFrm {
     display: flex;
@@ -15,6 +21,8 @@
     height: 100vh;
   }
   .formRegistro {
+  
+  
     background-color: rgb(27, 13, 13);
     width: 400px;
     border-radius: 8px;
@@ -83,8 +91,48 @@
     font-size: 14px;
     font-weight: 600;
   }
-  @media screen and( max-width:400px) {
+  @media screen and (max-width: 661px) {
+ 
+    
     .formRegistro{
-      width: 300px;
+      width: 350px;
     }
   }
+  @media screen and (max-width: 442px) {
+ .columna-contenedor{
+  width: 100%;
+ }
+    .card-cont{
+      width: 100%;
+    }
+    .formRegistro{
+      width: 100%;
+    }
+    .submitBtn {
+      display: block;
+      margin-left: auto;
+      padding: 10px 20px;
+      border: none;
+      background-color: rgb(92, 19, 19);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .columna-contenedor{
+     width: 100%;
+    }
+       .card-cont{
+         width: 100%;
+       }
+       .formRegistro{
+         width: 100%;
+       }
+       .submitBtn {
+         width: 100%;
+         margin: 10px;
+       }
+     }
