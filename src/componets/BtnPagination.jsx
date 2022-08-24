@@ -4,14 +4,14 @@ const BtnPagination = ({ total, registro, prevPag, nextPag }) => {
   return (
     <>
       <button
-        className="btn btn-primary me-2"
+        className="btn btn-dark btn-outline-danger  me-2"
         disabled={registro === 0 ? true : false}
         onClick={prevPag}
       >
         Prev
       </button>
       <button
-        className="btn btn-primary"
+        className="btn btn-dark btn-outline-danger"
         disabled={total - registro <= 5 ? true : false}
         onClick={nextPag}
       >
