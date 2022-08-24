@@ -4,7 +4,7 @@ import LoginScreen from "../pages/LoginScreen";
 import ProtectedRoutes from "./ProtectedRoutes";
 import RoutesDos from "../routes/RouterDos";
 import Registro from "../pages/Registro";
-import Admin from "../pages/Admin";
+
 
 const RouterApp = () => {
   return (
@@ -20,7 +20,7 @@ const RouterApp = () => {
         />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/Registro" element={<Registro />} />
-        <Route path="/Admi" element={<Admin/>} />
+        
 
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import  traerMenusPag  from "../helpers/fetchMenuspag";
 import BtnPagination from "../componets/BtnPagination";
+import favicon from "../assets/favicon_(1).ico";
+import { Helmet } from "react-helmet";
 import CarouselCards from "../componets/CarouselCards";
 import "../styles/menus.css"
 
@@ -35,7 +37,12 @@ const Menus = () => {
   };
 
   return (
-    
+   <> <Helmet>
+    <meta charSet="utf-8" />
+    <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+  
+    <title>Menus</title>
+  </Helmet>
     <div className="container my-5">
     <div className="row">
       <div className="col">
@@ -93,7 +100,7 @@ const Menus = () => {
         />
       </div>
     </div>
-  </div>
+  </div></>
 );
 };
 

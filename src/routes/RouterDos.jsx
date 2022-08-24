@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import SobreNosotros from '../pages/SobreNosotros'
 import FormularioContacto from "../pages/FormularioContacto"
 import Menus from '../pages/Menus'
+import Administrador from '../pages/Administrador'
 
 const RoutesDos = () => {
   return (
@@ -20,6 +21,7 @@ const RoutesDos = () => {
       <Routes>
       
         <Route path='/' element={<Home/>}/>
+        <Route path='Administrador' element={<Administrador/>}/>
         <Route path='*' element={<Error/>}/>
         <Route path='Menus' element={<Menus/>}/>
         <Route path='About' element={<SobreNosotros/>}/>
