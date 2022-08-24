@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.contenedor {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background:linear-gradient(rgb(72, 10, 10),rgb(78, 39, 5));
+  font-family: "lato", sans-serif;
+  height: 100vh;
+}
+
+.columna-contenedor{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  
+}
+
+.signupFrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .formRegistro {
+  
+  
+    background-color: rgb(27, 13, 13);
+    width: 400px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 25px rgb(175, 2, 2);
+  
+  }
+  
+  .title {
+    font-size: 35px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  
+.input {
+    width: 100%;
+    background-color: rgb(62, 25, 14);
+    color: #Fff;
+    border: 1px solid #000;
+  }
+  .input:focus {
+    background-color: rgb(82, 43, 31) ;
+    color: #Fff;
+    
+  }
+  
+  ::placeholder {
+    color: transparent;
+  }
+ 
+
+  .submitBtn {
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: rgb(92, 19, 19);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  
+  .submitBtn:hover {
+    background-color: #8c1313;
+    transform: translateY(-2px);
+ 
+  }
+  .input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(151, 4, 4);
+  }
+  .input:focus {
+    border: 2px solid rgb(151, 4, 4);
+  }
+  .input:not(:placeholder-shown)+ .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  @media screen and (max-width: 661px) {
+ 
+    
+    .formRegistro{
+      width: 350px;
+    }
+  }
+  @media screen and (max-width: 442px) {
+ .columna-contenedor{
+  width: 100%;
+ }
+    .card-cont{
+      width: 100%;
+    }
+    .formRegistro{
+      width: 100%;
+    }
+    .submitBtn {
+      display: block;
+      margin-left: auto;
+      padding: 10px 20px;
+      border: none;
+      background-color: rgb(92, 19, 19);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .columna-contenedor{
+     width: 100%;
+    }
+       .card-cont{
+         width: 100%;
+       }
+       .formRegistro{
+         width: 100%;
+       }
+       .submitBtn {
+         width: 100%;
+         margin: 10px;
+       }
+     }
