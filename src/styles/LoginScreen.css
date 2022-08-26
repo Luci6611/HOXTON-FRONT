@@ -31,6 +31,7 @@ code {
  
 }
 .estilo{
+  box-shadow: 0 10px 25px rgb(175, 2, 2);
   width: 550px;
   margin:150px ;
  border: none;
