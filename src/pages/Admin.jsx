@@ -1,45 +1,103 @@
-import React from 'react'
-import '../styles/style.css'
-import '../styles/admin.css'
+import React, { useEffect, useState } from 'react'
+import {menusAdmin} from "../helpers/fetchMenusAdmin"
+import "../styles/admin.css"
 import Table from 'react-bootstrap/Table';
-import { useState , useEffect} from 'react';
-import {cargarUsuarios} from '../helpers/fetchUsuariosGET'
-import 'axios'
+import axios from 'axios';
 
-const Admin = () => {
+const Administrador = () => {
+ 
+ 
+    
+    const [productos,setProductos] = useState([])
+   const recibirMenus = async ()=>{
+        
+    const datos = (await menusAdmin.get(`menus`)).data;
+    const data = datos.menus;
+    setProductos(data);
+   
+    // console.log(data)
+    }
+    const actualizarMenus = async (e) => {
+      const menPut = e.target.id;
+      const token = JSON.parse(localStorage.getItem("token"));
 
-    const [usuarios, setUsuarios]=useState([]);
+    
+        const responsePut = await axios.put(`https://hoxton-backend.herokuapp.com/api/menus/${menPut}`,{
+         headers:{"Authorization":` ${token} `}
+        });
+     console.log(responsePut);
+        location.reload(true);
+      
 
-   const usuariosRender = async () =>{
-     const usuariosRecibidos = await cargarUsuarios();
-     setUsuarios(...usuariosRecibidos)
-   }
+        
+        console.log(e.target.id)      
+                
+    }
+    // funcion para inactivar menus
+    const menusDelete  = async (e) => {
 
+      const menDelete = e.target.id;
+      const token = JSON.parse(localStorage.getItem("token"));
+
+    
+        const response = await axios.delete(`https://hoxton-backend.herokuapp.com/api/menus/${menDelete}`,{
+         headers:{"Authorization":` ${token} `}
+        });
+
+        location.reload(true);
+      
+
+        
+        console.log(e.target.id)      
+                
+    }
     useEffect(() => {
-      usuariosRender()
+        recibirMenus()
+    
+     
     }, [])
     
-  return (
-    <>
-     <Table className='striped bordered hover' variant="dark">
-      <thead> 
-     <tr>
-          <th>id</th>
-          <th>Nombre</th>
-          <th>Correo</th>
-        </tr>
-      </thead>
-      <tbody> 
-         {usuarios.map( (usuario) => (
-        <tr>
-          <td>{usuario.id}</td>
-          <td>{usuario.nombre}</td>
-          <td>{usuario.correo}</td>
-        </tr> ))} 
-      </tbody>
-    </Table>
-      </>
-  )
-}
 
-export default Admin
+
+  return (
+  <>
+    <Table striped bordered hover variant="dark">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>img</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Activo</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {productos.map((producto) => (
+        
+               <tr key={producto._id}>
+                    <th className="intro-celda">{producto._id}</th>
+                    <th>
+                      <img
+                        className="intro-img"
+                        src={producto.img}
+                       
+                      />
+                    </th>
+                    <th className="intro-celda">{producto.nombre}</th>
+                    <th className="intro-celda">{producto.precio}</th>
+                    <th className="intro-celda">{producto.disponible ? 'disponible' : 'NO disponible'}</th>
+                    <th><button onClick={actualizarMenus}  id={producto._id} className='bg-primary'>actualizar</button>
+                    <button  id={producto._id} onClick={menusDelete}>eliminar</button></th>
+                    </tr>
+                    
+                ))}   
+       
+        
+        
+        </tbody>
+    </Table></>
+  )
+    }
+
+export default Administradorgit 
