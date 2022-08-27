@@ -9,6 +9,8 @@ import SobreNosotros from "../pages/SobreNosotros";
 import Home from "../pages/Home";
 import Footer from "../componets/Footer";
 import Navegacion from "../componets/Navegacion";
+import Error from "../pages/Error";
+
 
 const RouterApp = () => {
   return (
@@ -17,7 +19,7 @@ const RouterApp = () => {
 
       <Routes>
         <Route
-          path="/*"
+          path="/cosa"
           element={
             <ProtectedRoutes/>
           }
