@@ -5,9 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
+import "../styles/Navegacion.css"
 import { BsSearch } from "react-icons/bs";
 import {BsCart4} from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import {BsFillPersonFill} from "react-icons/bs";
+import {BsPersonPlusFill} from "react-icons/bs";
+import { NavLink,Link } from "react-router-dom";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import "../styles/style.css";
 
@@ -23,7 +26,7 @@ function Navegacion() {
         className=" nav mb-3"
       >
         <Container className="d-flex">
-          <Navbar.Brand>
+          <Navbar.Brand href="/">
             <img
               src={logo}
               width="130"
@@ -58,17 +61,22 @@ function Navegacion() {
                   Contacto
                 </NavLink>
               </Nav>
-              <Form className="d-flex">
+              <Form className="d-flex align-items-center ">
                 <Form.Control
                   type="search"
                   placeholder="Buscar"
-                  className="me-2"
+                  className="me-2 m-0  barra-busqueda"
                   aria-label="Search"
                 />{" "}
-                <BsSearch className="text-light icons " />
-                <BsCart4 className="text-light icons " />
-              </Form>
-              
+                 <Link to="*">
+                <BsSearch className="text-light icons " /></Link>
+                <Link to="*">   
+                <BsCart4 className="text-light icons " /></Link>
+                      <Link to="/login">
+               <BsFillPersonFill  className="text-light icons"/></Link>
+               <Link  to="/Registro">
+               <BsPersonPlusFill  className="text-light icons "/></Link>         </Form>
+                         
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

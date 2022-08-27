@@ -14,7 +14,7 @@ const footer = () => {
           </Link>
           <ul className='col-12 col-md-3 list-unstyled'>
             <li className='font-weight-bold mb-2'>Hoxton</li>
-            <li className='text-center'>En este sitio web podras encontrar los mejores tragos de Rosario</li>
+            <li className='text-center'>En este sitio web podras encontrar los mejores tragos de Capital federal</li>
           </ul>
           <ul className='col-12 col-md-3 list-unstyled'>
             <li className='font-weight-bold mb-2'>Enlaces</li>
