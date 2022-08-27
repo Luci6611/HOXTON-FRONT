@@ -2,27 +2,31 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "../pages/LoginScreen";
 import ProtectedRoutes from "./ProtectedRoutes";
-import RoutesDos from "../routes/RouterDos";
 import Registro from "../pages/Registro";
+import Navegacion from "../componets/Navegacion";
+import Footer from "../componets/Footer";
+
 
 
 const RouterApp = () => {
   return (
     <BrowserRouter>
+      <Navegacion/>
+
       <Routes>
         <Route
-          path="/*"
+          path="/cosa"
           element={
-            <ProtectedRoutes>
-              <RoutesDos />
-            </ProtectedRoutes>
+            <ProtectedRoutes/>
           }
         />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/Registro" element={<Registro />} />
-        
+    
+
 
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 };
