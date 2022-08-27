@@ -1,4 +1,4 @@
-// "FUNCION PARA AUTENTIFICACION"
+
 const url = "https://hoxton-backend.herokuapp.com/api/auth/login";
 
 export const login = async (datos) => {
