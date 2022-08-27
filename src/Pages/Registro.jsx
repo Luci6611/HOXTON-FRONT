@@ -90,11 +90,11 @@ const Registro = () => {
                 />
 
                 <div className="d-flex justify-content-end my-3">
-                  <Link className="btn btn-primary btn-outline-danger me-2 submitBtn" to="/login">
+                  <Link className="btn btn-black btn-outline-danger  submitBtn" to="/login">
                     Volver
                   </Link>
 
-                  <button className="btn btn-black btn-outline-danger submitBtn">Registrarse</button>
+                  <button className="btn btn-black btn-outline-danger  submitBtn">Registrarse</button>
                 </div>
               </form> {message.length > 0 &&
                 message.map((item, index) => (

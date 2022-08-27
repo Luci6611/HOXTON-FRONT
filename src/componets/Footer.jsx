@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/style.css'
+import { BsFacebook } from "react-icons/bs";
 import {Link} from 'react-router-dom'
 import logoR from "../img/hoxton_logo.jpg"
 
@@ -8,30 +9,22 @@ const footer = () => {
   <div>
     <footer className='text-white py-4 bg-dark'>
       <div className='container'>
-        <nav className='row'>
+        <nav className='row d-flex justify-content-center'>
           <Link to='/' className='col-12 col-md-3 d-flex aling-items-center justify-content-center'>
             <img src={logoR} alt="Hoxton" className='mx-2' height='80'/>
           </Link>
-          <ul className='col-12 col-md-3 list-unstyled'>
-            <li className='font-weight-bold mb-2'>Hoxton</li>
+          <ul  className='text-center col-12 col-md-3 list-unstyled'>
+          <li className='font-weight-bold mb-2'>Hoxton</li>
             <li className='text-center'>En este sitio web podras encontrar los mejores tragos de Capital federal</li>
-          </ul>
-          <ul className='col-12 col-md-3 list-unstyled'>
-            <li className='font-weight-bold mb-2'>Enlaces</li>
-            <li>
-              <Link to='/' className='text-reset'>Hoxton</Link>
-            </li>
-            <li>
-              <Link to='/'  className='text-reset'>Menus</Link>
-            </li>
-
-          </ul>
+      
+       </ul>
           <ul className='col-12 col-md-3 list-unstyled'>
             <li className='font-weight-bold mb-2'>Siguenos</li> 
             <li className='d-flex justify-content-between'>
-              <i className="bi bi-facebook"></i>
+           <a href="https://www.facebook.com/Restaurante-Hoxton-110290108472772">
+               <BsFacebook  className="text-light icons"/></a>
+               
               <i className="bi bi-instagram"></i>
-              <i className="bi bi-twitter"></i>
             </li>
           </ul>
           <div className='container'>
