@@ -20,9 +20,9 @@ const footer = () => {
        </ul>
           <ul className='col-12 col-md-3 list-unstyled'>
             <li className='font-weight-bold mb-2'>Siguenos</li> 
-            <li className='d-flex justify-content-between'>
+            <li className='d-flex justify-content-between '>
            <a href="https://www.facebook.com/Restaurante-Hoxton-110290108472772">
-               <BsFacebook  className="text-light icons"/></a>
+               <BsFacebook  className="text-primary icons fs-3"/></a>
                
               <i className="bi bi-instagram"></i>
             </li>
