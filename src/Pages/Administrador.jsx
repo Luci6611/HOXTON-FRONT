@@ -5,6 +5,8 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 
 const Administrador = () => {
+ 
+ 
     
     const [productos,setProductos] = useState([])
    const recibirMenus = async ()=>{
@@ -13,20 +15,40 @@ const Administrador = () => {
     const data = datos.menus;
     setProductos(data);
    
-    console.log(data)
+    // console.log(data)
     }
-    // const actualizarMenus =(_id) => {
-    //     const res = await datos.put(`menu/${_id}`, {
+    const actualizarMenus = async (e) => {
+      const menPut = e.target.id;
+      const token = JSON.parse(localStorage.getItem("token"));
 
-    //         precio:productos.precio,
+    
+        const responsePut = await axios.put(`https://hoxton-backend.herokuapp.com/api/menus/${menPut}`,{
+         headers:{"Authorization":` ${token} `}
+        });
+     console.log(responsePut);
+        location.reload(true);
+      
 
-    //     });
-    // }
-    const menusDelete = async (id) => {
+        
+        console.log(e.target.id)      
+                
+    }
+    // funcion para inactivar menus
+    const menusDelete  = async (e) => {
 
-        const res = await datos.delete(`menu/${id}`)
+      const menDelete = e.target.id;
+      const token = JSON.parse(localStorage.getItem("token"));
 
-           
+    
+        const response = await axios.delete(`https://hoxton-backend.herokuapp.com/api/menus/${menDelete}`,{
+         headers:{"Authorization":` ${token} `}
+        });
+
+        location.reload(true);
+      
+
+        
+        console.log(e.target.id)      
                 
     }
     useEffect(() => {
@@ -53,7 +75,7 @@ const Administrador = () => {
 
     {productos.map((producto) => (
         
-               <tr>
+               <tr key={producto._id}>
                     <th className="intro-celda">{producto._id}</th>
                     <th>
                       <img
@@ -65,8 +87,8 @@ const Administrador = () => {
                     <th className="intro-celda">{producto.nombre}</th>
                     <th className="intro-celda">{producto.precio}</th>
                     <th className="intro-celda">{producto.disponible ? 'disponible' : 'NO disponible'}</th>
-                    <th><button className='bg-primary'>actualizar</button>
-                    <button  id={producto._id} onClick={menusDelete(producto._id)}>eliminar</button></th>
+                    <th><button onClick={actualizarMenus}  id={producto._id} className='bg-primary'>actualizar</button>
+                    <button  id={producto._id} onClick={menusDelete}>eliminar</button></th>
                     </tr>
                     
                 ))}   
