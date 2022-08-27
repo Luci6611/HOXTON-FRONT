@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {menusAdmin} from "../helpers/fetchMenusAdmin"
+import {menusAdmin} from "../helpers/fetchMenusAdmin";
 import "../styles/admin.css"
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
@@ -61,7 +61,8 @@ const Administrador = () => {
 
   return (
   <>
-    <Table striped bordered hover variant="dark">
+  <div className="table-responsive-lg">
+    <Table striped bordered hover variant="dark" className='w-75'>
     <thead>
       <tr>
         <th>Id</th>
@@ -87,8 +88,8 @@ const Administrador = () => {
                     <th className="intro-celda">{producto.nombre}</th>
                     <th className="intro-celda">{producto.precio}</th>
                     <th className="intro-celda">{producto.disponible ? 'disponible' : 'NO disponible'}</th>
-                    <th><button onClick={actualizarMenus}  id={producto._id} className='bg-primary'>actualizar</button>
-                    <button  id={producto._id} onClick={menusDelete}>eliminar</button></th>
+                    <th><button onClick={actualizarMenus}  id={producto._id} className='btn btn-primary '>actualizar</button>
+                    <button  id={producto._id} onClick={menusDelete} className='btn btn-danger'>eliminar</button></th>
                     </tr>
                     
                 ))}   
@@ -96,8 +97,8 @@ const Administrador = () => {
         
         
         </tbody>
-    </Table></>
+    </Table></div></>
   )
     }
 
-export default Administradorgit 
+export default Administrador
