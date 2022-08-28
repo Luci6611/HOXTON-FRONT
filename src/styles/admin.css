@@ -18,6 +18,12 @@ table img {
  width: 115px;
 }
 
+/* Modal */
+
+.modal .btn-close{
+  color: white;
+}
+
 /*  mobile*/
 
 @media (max-width: 768px) {

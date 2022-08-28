@@ -29,7 +29,7 @@ const CarouselCards = () => {
   useEffect(() => {
     setTimeout(() => {
       cambiar();
-    }, 5000);
+    }, 2000);
     
   }, []);
 

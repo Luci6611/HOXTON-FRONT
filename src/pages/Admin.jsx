@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {menusAdmin} from "../helpers/fetchMenusAdmin";
 import "../styles/admin.css"
 import Table from 'react-bootstrap/Table';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 const Administrador = () => {
@@ -58,10 +60,18 @@ const Administrador = () => {
     }, [])
     
 
+  /*  Estado modal Boostrap */
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
   <>
+  
   <div className="table-responsive-lg">
+  <h1 className='titulo__seccion text-light text-center'>Menus</h1>
     <Table striped bordered hover variant="dark" className='w-75'>
     <thead>
       <tr>
@@ -89,7 +99,7 @@ const Administrador = () => {
                     <th className="intro-celda">{producto.precio}</th>
                     <th className="intro-celda">{producto.disponible ? 'disponible' : 'NO disponible'}</th>
                     <th><button onClick={actualizarMenus}  id={producto._id} className='btn btn-primary '>actualizar</button>
-                    <button  id={producto._id} onClick={menusDelete} className='btn btn-danger'>eliminar</button></th>
+                    <button  id={producto._id}  onClick={handleShow} className='btn btn-danger'>eliminar</button></th>
                     </tr>
                     
                 ))}   
@@ -97,7 +107,25 @@ const Administrador = () => {
         
         
         </tbody>
-    </Table></div></>
+    </Table>
+    {/* fin de la tabla menus */}
+
+    {/* Inicio del modal de menus */}
+    <Modal show={show} onHide={handleClose} animation={false} className='modal'>
+        <Modal.Header closeButton className='bg-dark text-light border-dark'>
+          <Modal.Title  className='bg-dark text-light'>Confirmar</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='bg-dark text-light'>¿Esta seguro que desea eliminar el menu?</Modal.Body>
+        <Modal.Footer className='bg-dark text-light border-dark'>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button variant="danger" onClick={menusDelete}>
+            Eliminar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div></>
   )
     }
 
