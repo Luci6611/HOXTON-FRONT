@@ -109,9 +109,7 @@ const CarouselCards = () => {
          ))} 
        </div> 
     </>
-    
     :
-      
     <div className="d-flex justify-content-around placeholder" >
     <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
