@@ -65,7 +65,7 @@ const Registro = () => {
                 <input
                   className="form-control mb-2 input"
                   type="text"
-                  placeholder="Ingrese su nombre"
+                  placeholder="Ingrese su nombre o usuario"
                   name="nombre"
                   value={formValues.nombre}
                   onChange={handleChange}
@@ -81,9 +81,17 @@ const Registro = () => {
                   onChange={handleChange}
                 />
                 <input
+                  className="form-control input mt-1"
+                  type="password"
+                  placeholder="ingrese contraseña"
+                  name="password"
+                  value={formValues.password}
+                  onChange={handleChange}
+                />
+                  <input
                   className="form-control input"
                   type="password"
-                  placeholder="*****"
+                  placeholder="confirmar contraseña"
                   name="password"
                   value={formValues.password}
                   onChange={handleChange}
