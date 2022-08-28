@@ -37,8 +37,9 @@ import favicon from "../assets/favicon_(1).ico";
     <img src={cocineroDos} alt="cocina"/>
     <p>Somos un proyecto vivo que fluye en distintos sentidos, reinventándonos a paso firme. Nuestra propuesta gastronómica sorprende con un menú compuesto de platos sencillos, combinando sabores, texturas y contrastes, convirtiendo productos de alta calidad en deliciosos platos. </p>  
             <article className="nosotrosFotos">
-                <div className="container">
-                    <h2> Nuestro Equipo </h2>
+            <h2> Nuestro Equipo </h2>
+                <div className="container fotos-contenedor">
+                
                     <div className="lasFotos">
                     <div className="carta">
                         <img className="foto" src={luciano} alt="Luciano"/>
