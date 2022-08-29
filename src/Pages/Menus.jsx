@@ -43,16 +43,17 @@ const Menus = () => {
   
     <title>Menus</title>
   </Helmet>
-    <div className="container my-5">
-    <div className="row">
+  <div className="row fila-titulo">
       <div className="col">
-        <h1>Rolling Café</h1>
+        <h1 className="menus-titulo">Nuestros Menus</h1>
         <hr />
       </div>
     </div>
-    <div className="row row-cols-1 row-cols-md-3 g-4 mb-2">
+    <div className="container contenedor-menus  ">
+   
+    <div className="row fila-menus   row-cols-1 row-cols-md-3 g-4 mb-2">
       {menus.map((menus) => (
-        <div className="col" key={menus._id}>
+        <div className="col columnas-menus" key={menus._id}>
           <div className="card h-100">
             <img
               src={
@@ -90,17 +91,18 @@ const Menus = () => {
         </div>
       ))}
     </div>
-    <div className="row">
-      <div className="col">
-        <BtnPagination
+   
+  </div>
+  <div className="row ">
+      <div className="col d-flex justify-content-center ">
+        <BtnPagination  
           registro={registro}
           total={total}
           prevPag={prevPag}
           nextPag={nextPag}
         />
       </div>
-    </div>
-  </div></>
+    </div></>
 );
 };
 

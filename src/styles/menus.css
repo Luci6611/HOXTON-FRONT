@@ -1,3 +1,24 @@
+.fila-titulo{
+text-align: center;
+}
+.contenedor-menus{
+  padding: 0%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.fila-menus{
+width: 100%;
+
+}
+.columnas-menus{
+  display: flex;
+  justify-content: center;
+}
+.menus-titulo{
+color: #fff;
+text-shadow: 3px 2px 2px #000;
+}
 .precio{
     margin-left: 9px;
   
@@ -5,4 +26,8 @@
 .nombre-menu{
     text-align: center  ;
   text-shadow: 3px 2px 5px #000;
+}
+.botones-de-menus{
+  display: flex;
+  align-items: center;
 }
