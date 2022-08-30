@@ -20,8 +20,8 @@ const Administrador = () => {
     const menPut = e.target.id;
     const token = JSON.parse(localStorage.getItem("token"));
 
-    const responsePut = await axios.put(
-      `https://hoxton-backend.herokuapp.com/api/menus/${menPut}`,
+    const responsePut = await menusAdmin.put(
+      `/menus/${menPut}`,
       {
         headers: { Authorization: ` ${token} ` },
       }
@@ -36,8 +36,8 @@ const Administrador = () => {
     const menDelete = e.target.id;
     const token = JSON.parse(localStorage.getItem("token"));
 
-    const response = await axios.delete(
-      `https://hoxton-backend.herokuapp.com/api/menus/${menDelete}`,
+    const response = await menusAdmin.delete(
+      `menus/${menDelete}`,
       {
         headers: { Authorization: ` ${token} ` },
       }
@@ -79,6 +79,7 @@ const Administrador = () => {
           </thead>
           <tbody>
             {productos.map((producto) => (
+              <>
               <tr key={producto._id}>
                 <th className="intro-celda">{producto._id}</th>
                 <th>
@@ -98,7 +99,7 @@ const Administrador = () => {
                     actualizar
                   </button>
                   <button
-                    id={producto._id}
+                    
                     onClick={handleShow}
                     className="btn btn-danger"
                   >
@@ -106,6 +107,29 @@ const Administrador = () => {
                   </button>
                 </th>
               </tr>
+                {/* Inicio del modal de menus */}
+               <Modal
+               show={show}
+               onHide={handleClose}
+               animation={false}
+               className="modal"
+             >
+               <Modal.Header closeButton className="bg-dark text-light border-dark">
+                 <Modal.Title className="bg-dark text-light">Confirmar</Modal.Title>
+               </Modal.Header>
+               <Modal.Body className="bg-dark text-light">
+                 ¿Esta seguro que desea eliminar el menu?
+               </Modal.Body>
+               <Modal.Footer className="bg-dark text-light border-dark">
+                 <Button variant="secondary" onClick={handleClose}>
+                   Cancelar
+                 </Button>
+                 <Button variant="danger" id={producto._id} onClick={menusDelete}>
+                   Eliminar
+                 </Button>
+               </Modal.Footer>
+             </Modal></>
+              
             ))}
           </tbody>
         </Table>
@@ -114,28 +138,8 @@ const Administrador = () => {
         }
         {/* fin de la tabla menus */}
 
-        {/* Inicio del modal de menus */}
-        <Modal
-          show={show}
-          onHide={handleClose}
-          animation={false}
-          className="modal"
-        >
-          <Modal.Header closeButton className="bg-dark text-light border-dark">
-            <Modal.Title className="bg-dark text-light">Confirmar</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="bg-dark text-light">
-            ¿Esta seguro que desea eliminar el menu?
-          </Modal.Body>
-          <Modal.Footer className="bg-dark text-light border-dark">
-            <Button variant="secondary" onClick={handleClose}>
-              Cancelar
-            </Button>
-            <Button variant="danger" onClick={menusDelete}>
-              Eliminar
-            </Button>
-          </Modal.Footer>
-        </Modal>
+      
+       
       </div>
     </>
   );
