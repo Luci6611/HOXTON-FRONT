@@ -66,10 +66,10 @@ import favicon from "../assets/favicon_(1).ico";
       <meta charSet="utf-8" />
       <link rel="shortcut icon" href={favicon} type="image/x-icon" />
     
-      <title>Registro</title>
+      <title>Contacto</title>
     </Helmet>
-        <div> 
-        <h2> Formulario de contacto</h2>
+        <div className="container-contact"> 
+        <h2>Contactanos</h2>
         <form action="" onSubmit={handlerOnSubmit} className="FormFormulario">
         
         <input className='inputContact' type="text" onChange={handlerNameOnChange} placeholder="Nombre" required/>

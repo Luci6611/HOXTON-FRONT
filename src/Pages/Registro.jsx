@@ -53,13 +53,13 @@ const Registro = () => {
   return (
     <div className="contenedor">
     <div className="container  ">
-      <div className="row login-cuerpo">
-        <div className="col-12 col-md-6 offset-md-3">
-          <div className="card">
+      <div className="row registro-cuerpo">
+        <div className="col-12 col-sm-12 col-md-12 offset-md-3   columna-contenedor">
+          <div className="card card-cont">
             <div className="card-body formRegistro  ">
-              <h3  className="text-center mb-3 title">
-                <i  className="fa fa-user-plus me-2" aria-hidden="true"></i>
-                Registro de usuario
+              <h3  className="text-center mb-3 title text-danger">
+                <i  className="fa fa-user-plus me-2 " aria-hidden="true"></i>
+                Registrar usuario
               </h3>
               <form  onSubmit={guardarDatos}>
                 <input
@@ -90,15 +90,13 @@ const Registro = () => {
                 />
 
                 <div className="d-flex justify-content-end my-3">
-                  <Link className="btn btn-outline-secondary me-2 submitBtn" to="/login">
+                  <Link className="btn btn-black btn-outline-danger  submitBtn" to="/login">
                     Volver
                   </Link>
 
-                  <button className="btn btn-success submitBtn">Registrarse</button>
+                  <button className="btn btn-black btn-outline-danger  submitBtn">Registrarse</button>
                 </div>
-              </form>
-              </div>
-              {message.length > 0 &&
+              </form> {message.length > 0 &&
                 message.map((item, index) => (
                   <div
                     key={index}
@@ -110,6 +108,8 @@ const Registro = () => {
                     {item.msg}
                   </div>
                 ))}
+              </div>
+             
             </div>
           </div>
         </div>
