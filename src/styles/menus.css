@@ -15,13 +15,16 @@ width: 100%;
   display: flex;
   justify-content: center;
 }
-.menus-titulo{
-color: #fff;
-text-shadow: 3px 2px 2px #000;
-}
+
 .precio{
     margin-left: 9px;
   
+}
+.menus-detalle{
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ddd;
+  text-shadow: 1px 1px 1px #000;
 }
 .nombre-menu{
     text-align: center  ;
@@ -29,5 +32,6 @@ text-shadow: 3px 2px 2px #000;
 }
 .botones-de-menus{
   display: flex;
+  justify-content: center;
   align-items: center;
 }
