@@ -17,6 +17,7 @@ export const eliminar = async (area, id) => {
       }
       
     );
+    location.reload(true);
     };
 
     /* Funcion Traer */
@@ -30,6 +31,21 @@ export const eliminar = async (area, id) => {
           }
         );
 
+        return response;
+    
+        };
+
+          /* Funcion Put */
+
+    export const actualizar = async (area) => {
+
+        const response = await admin.put(
+          `/${area}`,
+          {
+            headers: { Authorization: ` ${token} ` },
+          }
+        );
+        location.reload(true);
         return response;
     
         };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { traer, eliminar } from "../helpers/fetchAdmin";
+import { traer, eliminar, actualizar } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
 import Table from "react-bootstrap/Table";
 import Modal from "react-bootstrap/Modal";
@@ -11,36 +11,24 @@ const Administrador = () => {
   const [productos, setProductos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
 
-
+ 
   /* Traer datos */
 
-  const recibirMenus = async  () => {
-    const datos = await  traer('menus');
-     const data = datos.data.menus;
-    setProductos(data); 
+  const recibirData = async  () => {
+
+    const  datosMenu = await  traer('menus');
+    const dataMenu = datosMenu.data.menus;
+    setProductos(dataMenu);   
+    const datosUsuarios= await  traer('usuarios');
+    const dataUsuarios = datosUsuarios.data.usuarios;
+    setUsuarios(dataUsuarios); 
   };
 
-  const recibirUsuarios = async  () => {
-    const datos = await  traer('usuarios');
-     const data = datos.data.usuarios;
-    setUsuarios(data); 
-  };
   /* Actualizar Menus */
 
   const actualizarMenus = async (e) => {
     const menPut = e.target.id;
-    const token = JSON.parse(localStorage.getItem("token"));
-
-    const responsePut = await menusAdmin.put(
-      `/menus/${menPut}`,
-      {
-        headers: { Authorization: ` ${token} ` },
-      }
-    );
-    console.log(responsePut);
-    location.reload(true);
-
-    console.log(e.target.id);
+    actualizar(menPut, 'menus')
   };
 
   // funcion para inactivar menus
@@ -52,8 +40,7 @@ const Administrador = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      recibirMenus();
-      recibirUsuarios()
+      recibirData();
     }, 2000);
     
   }, []);
@@ -108,6 +95,7 @@ const Administrador = () => {
       
             ))}
           </tbody>
+
         </Table>
         :
         <div className="text-center m-5"><Spinner animation="border" variant="light" /></div>
@@ -160,6 +148,7 @@ const Administrador = () => {
       
             ))}
           </tbody>
+
         </Table>
         :
         <div className="text-center m-5"><Spinner animation="border" variant="light" /></div>
