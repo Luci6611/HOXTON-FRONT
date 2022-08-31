@@ -11,11 +11,21 @@ const Administrador = () => {
 
   const [productos, setProductos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
-// Modal crear
+// estado Modal crear menus
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  // estado Modal actualizar menus
+  const [showPut, setShowPut] = useState(false);
+
+  const handlePutClose = () => setShow(false);
+  const handlePutShow = () => setShow(true);
+    // estado Modal Crear Usuarios
+    const [showUsersPost, setShowUsersPost] = useState(false);
+
+  const handleUsersPostClose = () => setShow(false);
+  const handleUsersPostShow = () => setShow(true);
   /* Traer datos */
 
   const recibirData = async  () => {
@@ -86,8 +96,7 @@ const Administrador = () => {
                 </th>
                 <th>
                   <button
-                    onClick={actualizarMenus}
-                    id={producto._id}
+                   onClick={handlePutShow}
                     className="btn btn-primary "
                   >
                     actualizar
@@ -113,7 +122,7 @@ const Administrador = () => {
         {/* fin de la tabla menus */}    
 
       </div>
-
+          {/* inicio tabla usuarios */}
        <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center">Usuarios</h1>
         {usuarios.length > 0  ?
@@ -171,7 +180,7 @@ const Administrador = () => {
 
   {/* ---------------------------MODALES :-------------------------------- */}
 
-  {/* inicio Modal crear Menu */}
+  {/* inicio Modal CREAR Menu */}
 
 
     <>
@@ -211,6 +220,14 @@ const Administrador = () => {
                 
               
             </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Detalle</Form.Label>
+              <Form.Control  as="textarea"  maxlength="30"
+                minLength="1" rows={3} />
+            </Form.Group>
            
           </Form>
         </Modal.Body>
@@ -218,13 +235,75 @@ const Administrador = () => {
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={actualizarMenus}    id={productos._id}>
             Guardar
           </Button>
         </Modal.Footer>
       </Modal>
     </>
-  {/* fin Modal crear Menu */}
+  {/* fin Modal CREAR Menu */}
+
+  {/* inicio Modal ACTUALIZAR Menu */}
+  <>
+     
+
+     <Modal  show={show} onHide={handlePutClose}>
+       <Modal.Header  closeButton>
+         <Modal.Title >Actualizar menu</Modal.Title>
+       </Modal.Header>
+       <Modal.Body >
+         <Form>
+           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+             <Form.Label>Nombre</Form.Label>
+             <Form.Control
+               type="string"
+               maxlength="15"
+               minLength="1"
+               placeholder=" ingresar nombre"
+               autoFocus
+             />
+               <Form.Label>Precio</Form.Label>
+             <Form.Control
+               type="string"
+               maxlength="6"
+               minLength="1"
+               placeholder="ingresar precio"
+               
+               autoFocus
+             />
+               <Form.Label className="m-2">Estado</Form.Label>
+            
+              <select name="estado" id="estado" form="estado">
+              <option value="false">No disponible</option>
+              <option value="true">disponible</option>
+             
+            </select>
+               
+             
+           </Form.Group>
+           <Form.Group
+             className="mb-3"
+             controlId="exampleForm.ControlTextarea1"
+           >
+             <Form.Label>Detalle</Form.Label>
+             <Form.Control  as="textarea"  maxlength="30"
+               minLength="1" rows={3} />
+           </Form.Group>
+          
+         </Form>
+       </Modal.Body>
+       <Modal.Footer>
+         <Button variant="secondary" onClick={handlePutClose}>
+           Cerrar
+         </Button>
+         <Button variant="primary" onClick={handlePutClose}>
+           Guardar
+         </Button>
+       </Modal.Footer>
+     </Modal>
+   </>
+ {/* fin Modal ACTUALIZAR Menu */}
+
 
 
 

@@ -66,7 +66,7 @@ const Menus = () => {
               
               <h5 className="card-title nombre-menu ">{menus.nombre}</h5>
             
-              <p className="card-text ">{menus.descripcion}</p>
+              <p className="card-text ">{menus.detalle}</p>
               
               
               <span className="badge mb-3 p-2  rounded-pill bg-success precio">
