@@ -4,14 +4,18 @@ import "../styles/admin.css";
 import Table from "react-bootstrap/Table";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
 import Spinner from "react-bootstrap/Spinner";
 
 const Administrador = () => {
 
   const [productos, setProductos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
+// Modal crear
+  const [show, setShow] = useState(false);
 
- 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   /* Traer datos */
 
   const recibirData = async  () => {
@@ -59,7 +63,7 @@ const Administrador = () => {
               <th>Nombre</th>
               <th>Precio</th>
               <th>Activo</th>
-              <th ><button className="btn btn-success m-0 w-100" >Crear</button></th>
+              <th ><button className="btn btn-success m-0 w-100" onClick={handleShow} >Crear</button></th>
             </tr>
             
           </thead>
@@ -162,6 +166,69 @@ const Administrador = () => {
         }
         {/* fin de la tabla usuarios */}    
       </div>
+
+
+
+  {/* ---------------------------MODALES :-------------------------------- */}
+
+  {/* inicio Modal crear Menu */}
+
+
+    <>
+     
+
+      <Modal  show={show} onHide={handleClose}>
+        <Modal.Header  closeButton>
+          <Modal.Title >Crear Menu nuevo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body >
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Nombre</Form.Label>
+              <Form.Control
+                type="string"
+                maxlength="15"
+                minLength="1"
+                placeholder=" ingresar nombre"
+                autoFocus
+              />
+                <Form.Label>Precio</Form.Label>
+              <Form.Control
+                type="string"
+                maxlength="6"
+                minLength="1"
+                placeholder="ingresar precio"
+                
+                autoFocus
+              />
+                <Form.Label className="m-2">Estado</Form.Label>
+             
+               <select name="estado" id="estado" form="estado">
+               <option value="false">No disponible</option>
+               <option value="true">disponible</option>
+              
+             </select>
+                
+              
+            </Form.Group>
+           
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cerrar
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Guardar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  {/* fin Modal crear Menu */}
+
+
+
+
     </>
   );
 };
