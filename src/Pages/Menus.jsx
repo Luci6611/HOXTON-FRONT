@@ -37,16 +37,15 @@ const Menus = () => {
   };
 
   return (
-   <> <Helmet>
+   <>
+    <Helmet>
     <meta charSet="utf-8" />
     <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-  
     <title>Menus</title>
   </Helmet>
     <div className="container my-5">
     <div className="row">
       <div className="col">
-        <h1>Rolling Café</h1>
         <hr />
       </div>
     </div>
