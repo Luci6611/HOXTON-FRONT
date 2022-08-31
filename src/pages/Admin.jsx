@@ -19,13 +19,13 @@ const Administrador = () => {
   // estado Modal actualizar menus
   const [showPut, setShowPut] = useState(false);
 
-  const handlePutClose = () => setShow(false);
-  const handlePutShow = () => setShow(true);
+  const handlePutClose = () => setShowPut(false);
+  const handlePutShow = () => setShowPut(true);
     // estado Modal Crear Usuarios
     const [showUsersPost, setShowUsersPost] = useState(false);
 
-  const handleUsersPostClose = () => setShow(false);
-  const handleUsersPostShow = () => setShow(true);
+  const handleUsersPostClose = () =>setShowUsersPost(false);
+  const handleUsersPostShow = () => setShowUsersPost(true);
   /* Traer datos */
 
   const recibirData = async  () => {
@@ -134,7 +134,7 @@ const Administrador = () => {
               <th>Nombre</th>
               <th>correo</th>
               <th>Rol</th>
-              <th ><button className="btn btn-success m-0 w-100" >Crear</button></th>
+              <th ><button className="btn btn-success m-0 w-100" onClick={handleUsersPostShow} >Crear</button></th>
             </tr>
           </thead>
           <tbody>
@@ -148,19 +148,13 @@ const Administrador = () => {
                   {usuario.role  == "USER_ROLE" ? "USUARIO" : "ADMINISTRADOR"  }
                 </th>
                 <th>
-                  <button
-                    onClick={actualizarMenus}
-                    id={usuario._id}
-                    className="btn btn-primary "
-                  >
-                    actualizar
-                  </button>
+                 
                   <button
                     id={usuario._id}
                     onClick={menusDelete}
                     className="btn btn-danger"
                   >
-                    eliminar
+                    Inactivar
                   </button>
                 </th>
               </tr>
@@ -225,7 +219,7 @@ const Administrador = () => {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Detalle</Form.Label>
-              <Form.Control  as="textarea"  maxlength="30"
+              <Form.Control  as="textarea"  maxlength="100"
                 minLength="1" rows={3} />
             </Form.Group>
            
@@ -245,9 +239,8 @@ const Administrador = () => {
 
   {/* inicio Modal ACTUALIZAR Menu */}
   <>
-     
 
-     <Modal  show={show} onHide={handlePutClose}>
+     <Modal  show={showPut} onHide={handlePutClose}>
        <Modal.Header  closeButton>
          <Modal.Title >Actualizar menu</Modal.Title>
        </Modal.Header>
@@ -286,7 +279,7 @@ const Administrador = () => {
              controlId="exampleForm.ControlTextarea1"
            >
              <Form.Label>Detalle</Form.Label>
-             <Form.Control  as="textarea"  maxlength="30"
+             <Form.Control  as="textarea"  maxlength="100"
                minLength="1" rows={3} />
            </Form.Group>
           
@@ -303,6 +296,63 @@ const Administrador = () => {
      </Modal>
    </>
  {/* fin Modal ACTUALIZAR Menu */}
+ {/* inicio Modal CREAR USUARIO */}
+ <>
+        
+        <Modal  show={showUsersPost} onHide={ handleUsersPostClose}>
+          <Modal.Header  closeButton>
+            <Modal.Title >Dar de alta nuevo usuario</Modal.Title>
+          </Modal.Header>
+          <Modal.Body >
+            <Form>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  type="string"
+                  maxlength="15"
+                  minLength="1"
+                  placeholder=" ingresar nombre"
+                  autoFocus
+                />
+                  <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  maxlength="40"
+                  minLength="1"
+                  placeholder="ingresar email"
+                  
+                  autoFocus
+                />
+                 <Form.Label>Contraseña</Form.Label>
+                <Form.Control
+                  type="password"
+                  maxlength="15"
+                  minLength="8"
+                  placeholder="ingresar contraseña"
+                  
+                  autoFocus
+                />
+                 
+               
+                 
+                  
+                
+              </Form.Group>
+              
+             
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={ handleUsersPostClose}>
+              Cerrar
+            </Button>
+            <Button variant="primary" onClick={ handleUsersPostClose}>
+              Guardar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    {/* fin Modal CREAR USUARIO */}
 
 
 
