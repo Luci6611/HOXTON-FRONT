@@ -59,11 +59,17 @@ const Administrador = () => {
               <th>Nombre</th>
               <th>Precio</th>
               <th>Activo</th>
+              <th ><button className="btn btn-success m-0 w-100" >Crear</button></th>
             </tr>
+            
           </thead>
+          
           <tbody>
+            
             {productos.map((producto) => (
+              
               <>
+            
               <tr key={producto._id}>
                 <th className="intro-celda" >{producto._id}</th>
                 <th>
@@ -115,13 +121,14 @@ const Administrador = () => {
               <th>Nombre</th>
               <th>correo</th>
               <th>Rol</th>
+              <th ><button className="btn btn-success m-0 w-100" >Crear</button></th>
             </tr>
           </thead>
           <tbody>
             {usuarios.map((usuario) => (
               <>
               <tr >
-                <th className="intro-celda"></th>
+                <th className="intro-celda">{usuario.userId}</th>
                 <th className="intro-celda">{usuario.nombre}</th>
                 <th className="intro-celda">{usuario.email}</th>
                 <th className="intro-celda">
