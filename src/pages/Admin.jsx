@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { traer, eliminar, actualizar } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
+import NavAdmin from "../componets/NavAdmin";
 import Table from "react-bootstrap/Table";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -61,8 +62,9 @@ const Administrador = () => {
 
   return (
     <>
+    <NavAdmin/>
       <div className="table-responsive-lg">
-        <h1 className="titulo__seccion text-light text-center">Menus</h1>
+        <h1 className="titulo__seccion text-light text-center" id="menus">Menus</h1>
         {productos.length > 0  ?
 
         <Table striped bordered hover variant="dark" className="w-75">
@@ -124,7 +126,7 @@ const Administrador = () => {
       </div>
           {/* inicio tabla usuarios */}
        <div className="table-responsive-lg">
-        <h1 className="titulo__seccion text-light text-center">Usuarios</h1>
+        <h1 className="titulo__seccion text-light text-center" id="usuarios">Usuarios</h1>
         {usuarios.length > 0  ?
 
         <Table striped bordered hover variant="dark" className="w-75">
