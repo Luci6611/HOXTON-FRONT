@@ -187,6 +187,15 @@ const Administrador = () => {
         <Modal.Body >
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Imagen</Form.Label>
+              <Form.Control
+                type="string"
+               
+               
+                placeholder="ingresar url"
+                
+                autoFocus
+              />
               <Form.Label>Nombre</Form.Label>
               <Form.Control
                 type="string"

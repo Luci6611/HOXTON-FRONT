@@ -17,6 +17,9 @@ table img {
  height: 100px;
  width: 115px;
 }
+.titulo__seccion{
+  text-shadow: 3px 3px 3px #000;
+}
 
 /* Modal */
 
