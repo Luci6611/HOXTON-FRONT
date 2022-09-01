@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef  } from "react";
 import { traer, eliminar, actualizar } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
 import NavAdmin from "../componets/NavAdmin";
@@ -47,10 +47,27 @@ const Administrador = () => {
   };
 
   /* Actualizar Menus */
+    const refImagen =useRef();
+    const refNombre = useRef();
+    const refPrecio = useRef();
+    const refEstado = useRef();
+    const refDetalle = useRef();
+  const actualizarMenus = async () => {
+ 
 
-  const actualizarMenus = async (e) => {
-    const menPut = e.target.id;
-    actualizar(menPut, 'menus')
+    // referencias:
+    const imagen = refImagen.current.value;
+    const nombre = refNombre.current.value;
+    const precio = refPrecio.current.value;
+    const estado = refEstado.current.value;
+    const detalle = refDetalle.current.value;
+    console.log(imagen,nombre,precio,estado,detalle);
+    
+    
+
+   
+   
+    // actualizar(menPut, 'menus')
   };
 
   // funcion para inactivar menus
@@ -258,7 +275,7 @@ const Administrador = () => {
         <Modal.Body >
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Imagen</Form.Label>
+            <Form.Label  >Imagen</Form.Label>
               <Form.Control
                 type="string"
                
@@ -327,18 +344,28 @@ const Administrador = () => {
        <Modal.Body >
          <Form>
            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+           <Form.Label  >Imagen</Form.Label>
+              <Form.Control 
+              ref={ refImagen}
+                type="string"           
+                placeholder="ingresar url"
+                
+                autoFocus
+              />
              <Form.Label>Nombre</Form.Label>
              <Form.Control
+                ref={refNombre}
                type="string"
-               maxlength="15"
+               maxLength="15"
                minLength="1"
                placeholder=" ingresar nombre"
                autoFocus
              />
                <Form.Label>Precio</Form.Label>
              <Form.Control
+                ref={refPrecio}
                type="string"
-               maxlength="6"
+               maxLength="6"
                minLength="1"
                placeholder="ingresar precio"
                
@@ -346,7 +373,7 @@ const Administrador = () => {
              />
                <Form.Label className="m-2">Estado</Form.Label>
             
-              <select name="estado" id="estado" form="estado">
+              <select    ref={refEstado} name="estado" id="estado" form="estado">
               <option value="false">No disponible</option>
               <option value="true">disponible</option>
              
@@ -359,7 +386,7 @@ const Administrador = () => {
              controlId="exampleForm.ControlTextarea1"
            >
              <Form.Label>Detalle</Form.Label>
-             <Form.Control  as="textarea"  maxlength="100"
+             <Form.Control    ref={refDetalle}  as="textarea"  maxLength="100"
                minLength="1" rows={3} />
            </Form.Group>
           
@@ -369,7 +396,7 @@ const Administrador = () => {
          <Button variant="secondary" onClick={handlePutClose}>
            Cerrar
          </Button>
-         <Button variant="primary" onClick={handlePutClose}>
+         <Button variant="primary" onClick={actualizarMenus}>
            Guardar
          </Button>
        </Modal.Footer>
