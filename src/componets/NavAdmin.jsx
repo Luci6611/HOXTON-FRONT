@@ -8,7 +8,7 @@ const NavAdmin = () => {
         <ul  className=' nav-admin__ul'>
          <li className=" nav-admin__li"> <a className=" nav-admin__a" href="#menus">menus</a></li>
           <li className=" nav-admin__li"><a className=" nav-admin__a" href="#usuarios">usuarios</a></li>
-          <li className=" nav-admin__li"><a className=" nav-admin__a" href="#usuarios">pedidos</a></li>
+          <li className=" nav-admin__li"><a className=" nav-admin__a" href="#pedidos">pedidos</a></li>
          
         </ul>
     </div>
