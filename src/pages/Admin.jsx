@@ -30,10 +30,10 @@ const Administrador = () => {
 
   const recibirData = async  () => {
 
-    const  datosMenu = await  traer('menus');
+    const  datosMenu = await  traer('menus?limite=0&desde=0');
     const dataMenu = datosMenu.data.menus;
     setProductos(dataMenu);   
-    const datosUsuarios= await  traer('usuarios');
+    const datosUsuarios= await  traer('usuarios?limite=0&desde=0');
     const dataUsuarios = datosUsuarios.data.usuarios;
     setUsuarios(dataUsuarios); 
   };
