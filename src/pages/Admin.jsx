@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import Spinner from "react-bootstrap/Spinner";
+import axios from 'axios';
 
 const Administrador = () => {
 
@@ -52,16 +53,19 @@ const Administrador = () => {
     const refPrecio = useRef();
     const refEstado = useRef();
     const refDetalle = useRef();
-  const actualizarMenus = async () => {
+    const refMenuid = useRef();
+  const actualizarMenus =  () => {
  
 
     // referencias:
+ 
     const imagen = refImagen.current.value;
     const nombre = refNombre.current.value;
     const precio = refPrecio.current.value;
     const estado = refEstado.current.value;
     const detalle = refDetalle.current.value;
-    console.log(imagen,nombre,precio,estado,detalle);
+    console.log(refMenuid.current.innerHTML);
+    actualizar("menus",imagen,nombre,precio,detalle,refMenuid.current.innerHTML);
     
     
 
@@ -121,7 +125,7 @@ const Administrador = () => {
               <>
             
               <tr key={producto._id}>
-                <th className="intro-celda" >{producto._id}</th>
+                <th className="intro-celda" ref={refMenuid} >{producto._id}</th>
                 <th>
                   <img className="intro-img" src={producto.img} />
                 </th>
@@ -138,7 +142,7 @@ const Administrador = () => {
                     actualizar
                   </button>
                   <button
-                    id={producto._id}
+                    
                     onClick={menusDelete}
                     className="btn btn-danger"
                   >
