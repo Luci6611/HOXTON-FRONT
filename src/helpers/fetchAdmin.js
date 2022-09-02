@@ -10,7 +10,9 @@ const admin = axios.create({
 
 export const eliminar = async (area, id) => {
   const response = await admin.delete(`${area}/${id}`, {
-    headers: { Authorization: JSON.parse(localStorage.getItem("token")) },
+    headers: { Authorization: JSON.parse(localStorage.getItem("token"))
+    
+  },
   });
   location.reload(true);
 };
@@ -27,27 +29,14 @@ export const traer = async (area) => {
 
 /* Funcion Put */
 
-export const actualizar = async (area, nombre, precio, detalle, imagen, id) => {
+export const actualizar = async (area, imagen, nombre, precio, estado,detalle, id) => {
    
 
-  const response = await admin.put(
-    `/${area}/${id}`, {
-      body: JSON.stringify({
-       nombre:` ${nombre}`,
-        precio: ` ${precio}`,
-        detalle: ` ${detalle}`,
-        img: ` ${imagen}`
-      }),
-      headers: { 
-        'Content-type': 'application/json; charset=UTF-8',
-        Authorization: JSON.parse(localStorage.getItem("token")),
-       
-       },
-
+  const response =  await admin.put(
+    `/${area}/${id}`,   {
+      headers: {  "Authorization": JSON.parse(localStorage.getItem("token"))},
+      data:{'nombre':nombre,'precio':precio,'detalle':detalle,'estado':estado, 'img':imagen}
     });
 
-  location.reload(true);
-  console.log(response.headers.Authorization)
-  return response;
-  
+  console.log(response.data, response.headers)
 };

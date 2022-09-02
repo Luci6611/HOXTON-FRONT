@@ -59,13 +59,8 @@ const Administrador = () => {
 
     // referencias:
  
-    const imagen = refImagen.current.value;
-    const nombre = refNombre.current.value;
-    const precio = refPrecio.current.value;
-    const estado = refEstado.current.value;
-    const detalle = refDetalle.current.value;
     console.log(refMenuid.current.innerHTML);
-    actualizar("menus",imagen,nombre,precio,detalle,refMenuid.current.innerHTML);
+    actualizar("menus",refImagen.current.value,refNombre.current.value,refPrecio.current.value,refEstado.current.value,refDetalle.current.value,refMenuid.current.innerHTML);
     
     
 
@@ -291,7 +286,7 @@ const Administrador = () => {
               <Form.Label>Nombre</Form.Label>
               <Form.Control
                 type="string"
-                maxlength="15"
+                maxLength="15"
                 minLength="1"
                 placeholder=" ingresar nombre"
                 autoFocus
@@ -299,7 +294,7 @@ const Administrador = () => {
                 <Form.Label>Precio</Form.Label>
               <Form.Control
                 type="string"
-                maxlength="6"
+                maxLength="6"
                 minLength="1"
                 placeholder="ingresar precio"
                 
@@ -320,7 +315,7 @@ const Administrador = () => {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Detalle</Form.Label>
-              <Form.Control  as="textarea"  maxlength="100"
+              <Form.Control  as="textarea"  maxLength="100"
                 minLength="1" rows={3} />
             </Form.Group>
            
@@ -420,7 +415,7 @@ const Administrador = () => {
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
                   type="string"
-                  maxlength="15"
+                  maxLength="15"
                   minLength="1"
                   placeholder=" ingresar nombre"
                   autoFocus
@@ -428,7 +423,7 @@ const Administrador = () => {
                   <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
-                  maxlength="40"
+                  maxLength="40"
                   minLength="1"
                   placeholder="ingresar email"
                   
