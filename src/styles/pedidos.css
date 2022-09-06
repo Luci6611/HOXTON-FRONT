@@ -1,0 +1,19 @@
+.pedidos__titulo{
+    color: #fff;
+    width: 100%;
+}
+
+.cuerpo_pedido{
+    width: 370px;
+    background:linear-gradient(rgb(61, 60, 60),rgb(56, 51, 51),rgb(68, 68, 68));
+}
+
+.nombre-menu__pedido{
+    text-align: center;
+    color:rgb(242, 242, 242);
+    text-shadow: 3px 3px 3px #000;
+}
+.usuario__pedido{
+    color: rgb(240, 232, 232);
+    font-weight: bold   ;
+}
