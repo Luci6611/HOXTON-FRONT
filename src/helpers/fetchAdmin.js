@@ -29,14 +29,14 @@ export const traer = async (area) => {
 
 /* Funcion Put */
 
-export const actualizar = async (area, imagen, nombre, precio, estado,detalle, id) => {
-   
+export const actualizar = async (area,productoselecionadoid,productoselecionado ) => {
+   /* 42656071 */
 
   const response =  await admin.put(
-    `/${area}/${id}`,   {
-      headers: {  "Authorization": JSON.parse(localStorage.getItem("token"))},
-      data:{'nombre':nombre,'precio':precio,'detalle':detalle,'estado':estado, 'img':imagen}
-    });
+    `/${area}/${productoselecionadoid}`+productoselecionadoid, productoselecionado,  {
+      headers: {  Authorization: JSON.parse(localStorage.getItem("token"))}    });
 
   console.log(response.data, response.headers)
+  return response;
+
 };
