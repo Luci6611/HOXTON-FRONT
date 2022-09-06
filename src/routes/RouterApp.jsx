@@ -11,6 +11,7 @@ import Footer from "../componets/Footer";
 import Navegacion from "../componets/Navegacion";
 import Error from "../pages/Error";
 import Menus from "../pages/Menus";
+import Pedidos from "../Pages/Pedidos";
 
 
 const RouterApp = () => {
@@ -29,7 +30,7 @@ const RouterApp = () => {
         <Route path="/Registro" element={<Registro />} />
         <Route path="/Admi" element={<Admin/>} />
         <Route path="/Menus" element={<Menus/>} />
-        
+        <Route path="/Pedidos" element={<Pedidos/>} />
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Error/>}/>
         <Route path='About' element={<SobreNosotros/>}/>
