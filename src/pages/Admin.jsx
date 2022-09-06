@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { traer, eliminar, actualizar } from "../helpers/fetchAdmin";
+import { traer, eliminar, actualizar, Crear } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
 import NavAdmin from "../componets/NavAdmin";
 import Table from "react-bootstrap/Table";
@@ -7,10 +7,11 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
+import traerCategorias from "../helpers/fetchCategorias"
+
 import axios from "axios";
 
 const Administrador = () => {
-
   const [productos, setProductos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [pedidos, setPedidos] = useState([]);
@@ -23,9 +24,7 @@ const Administrador = () => {
   // estado Modal actualizar menus
   const [showPut, setShowPut] = useState(false);
   const handlePutClose = () => setShow(false);
-  const handlePutShow= () => setShow(true);
-
-  
+  const handlePutShow = () => setShow(true);
 
   // estado Modal Crear Usuarios
   const [showUsersPost, setShowUsersPost] = useState(false);
@@ -34,14 +33,14 @@ const Administrador = () => {
   const handleUsersPostShow = () => setShowUsersPost(true);
   // estado para guardar datos
   const [productoSeleccionado, setProductoSeleccionado] = useState({
-    id:"",
+    id: "",
     img: "",
     nombre: "",
     detalle: "",
     precio: "",
     disponible: "",
+    categoria:"",
   });
-
 
   /* Traer datos */
 
@@ -62,20 +61,21 @@ const Administrador = () => {
   };
 
   /* Actualizar Menus */
-  const abrirCerrarModalEditar=()=>{
-    setShowPut(!showPut)
-  }
+  const abrirCerrarModalEditar = () => {
+    setShowPut(!showPut);
+  };
 
-    const actualizarDatos = (datos)=>{
-      setProductoSeleccionado(datos);
-        abrirCerrarModalEditar()   
-    }
-    const handleChange=e=>{ const {name, value}=e.target; setProductoSeleccionado(prevState=>({ ...prevState, [name]: value }))
-  console.log(productoSeleccionado.id)
-  }
+  const actualizarDatos = (datos) => {
+    setProductoSeleccionado(datos);
+    abrirCerrarModalEditar();
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProductoSeleccionado((prevState) => ({ ...prevState, [name]: value }));
+    console.log(productoSeleccionado.categoria);
+  };
 
-    // actualizar(menPut, 'menus')
-
+  // actualizar(menPut, 'menus')
 
   // funcion para inactivar menus
 
@@ -98,7 +98,7 @@ const Administrador = () => {
   };
   return (
     <>
-            {/* inicio de la tabla menus */}
+      {/* inicio de la tabla menus */}
       <NavAdmin />
       <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center" id="menus">
@@ -129,10 +129,7 @@ const Administrador = () => {
               {productos.map((producto) => (
                 <>
                   <tr key={producto._id}>
-                    <th className="intro-celda"
-                    >
-                      {producto._id}
-                    </th>
+                    <th className="intro-celda">{producto._id}</th>
                     <th>
                       <img className="intro-img" src={producto.img} />
                     </th>
@@ -144,8 +141,7 @@ const Administrador = () => {
                     </th>
                     <th>
                       <button
-
-                        onClick={()=> actualizarDatos(producto)}
+                        onClick={() => actualizarDatos(producto)}
                         className="btn btn-primary "
                       >
                         actualizar
@@ -294,6 +290,7 @@ const Administrador = () => {
                   placeholder="ingresar url"
                   autoFocus
                   name="img"
+                  onChange={handleChange}
                 />
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
@@ -301,10 +298,11 @@ const Administrador = () => {
                   maxLength="15"
                   minLength="1"
                   placeholder=" ingresar nombre"
-                  autoFocus 
+                  autoFocus
                   name="nombre"
-               
+                  onChange={handleChange}
                 />
+
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
                   type="string"
@@ -313,13 +311,35 @@ const Administrador = () => {
                   placeholder="ingresar precio"
                   autoFocus
                   name="precio"
+                  onChange={handleChange}
                 />
+                <Form.Label className="m-2">Categoria</Form.Label>
+
+                <select
+                onClick={handleChange}
+                  name="categoria"
+                  id="categoria"
+                  form="categoria"
+                 
+                  
+                >
+                  <option   value="62faa604697b01919cfa4f30">PIZZAS</option>
+                  <option value="62faa627697b01919cfa4f34">PAPAS</option>
+                  <option value="62faa63a697b01919cfa4f38">HAMBURGUESAS</option>
+                  <option  value="62faa67b697b01919cfa4f3c">BEBIDAS SIN ALCOHOL</option>
+                  <option value="62faa690697b01919cfa4f40">TRAGOS</option>
+                  <option value="62faa6a3697b01919cfa4f44">POSTRES</option>
+                </select>
                 <Form.Label className="m-2">Estado</Form.Label>
 
-                <select name="disponible" id="disponible" form="disponible" 
-                 >
-                  <option value="false">No disponible</option>
-                  <option value="true">disponible</option>
+                <select
+                  name="disponible"
+                  id="disponible"
+                  form="disponible"
+                 
+                >
+                  <option onChange={handleChange} value="false">No disponible</option>
+                  <option onChange={handleChange} value="true">disponible</option>
                 </select>
               </Form.Group>
               <Form.Group
@@ -327,12 +347,13 @@ const Administrador = () => {
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Detalle</Form.Label>
-                <Form.Control 
+                <Form.Control
                   as="textarea"
                   maxLength="100"
                   minLength="1"
                   rows={3}
                   name="detalle"
+                  onChange={handleChange}
                 />
               </Form.Group>
             </Form>
@@ -343,14 +364,14 @@ const Administrador = () => {
             </Button>
             <Button
               variant="primary"
-              onClick={actualizarDatos}
+              onClick={() => Crear("menus", productoSeleccionado)}
               id={productos._id}
             >
               Guardar
             </Button>
           </Modal.Footer>
         </Modal>
-      </> 
+      </>
       {/* fin Modal CREAR Menu */}
 
       {/* inicio Modal ACTUALIZAR Menu */}
@@ -367,50 +388,52 @@ const Administrador = () => {
               >
                 <Form.Label>id</Form.Label>
                 <Form.Control
-                  
                   type="string"
                   placeholder="ingresar url"
                   autoFocus
                   name="id"
-                  value={ productoSeleccionado.id}
-                  onChange={handleChange} 
+                  value={productoSeleccionado.id}
+                  onChange={handleChange}
                 />
                 <Form.Label>Imagen</Form.Label>
                 <Form.Control
-                  
                   type="string"
                   placeholder="ingresar url"
                   autoFocus
                   name="img"
-                  value={ productoSeleccionado.img}
-                  onChange={handleChange} 
+                  value={productoSeleccionado.img}
+                  onChange={handleChange}
                 />
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
-                
                   type="string"
                   maxLength="15"
                   minLength="1"
                   placeholder=" ingresar nombre"
                   autoFocus
                   name="nombre"
-                  onChange={handleChange} 
-                  value={ productoSeleccionado.nombre}
+                  onChange={handleChange}
+                  value={productoSeleccionado.nombre}
                 />
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
-             
                   type="string"
                   maxLength="6"
                   minLength="1"
                   placeholder="ingresar precio"
                   autoFocus
                   name="precio"
-                  value={ productoSeleccionado.precio}
-                  onChange={handleChange} 
+                  value={productoSeleccionado.precio}
+                  onChange={handleChange}
                 />
-                <Form.Label className="m-2">Estado</Form.Label>               
-                <select  name="estado" id="estado" form="estado"  onChange={handleChange}  value={ productoSeleccionado.estado}>
+                <Form.Label className="m-2">Estado</Form.Label>
+                <select
+                  name="estado"
+                  id="estado"
+                  form="estado"
+                  onChange={handleChange}
+                  value={productoSeleccionado.estado}
+                >
                   <option value="false">No disponible</option>
                   <option value="true">disponible</option>
                 </select>
@@ -421,14 +444,13 @@ const Administrador = () => {
               >
                 <Form.Label>Detalle</Form.Label>
                 <Form.Control
-                 
                   as="textarea"
                   maxLength="100"
                   minLength="1"
                   rows={3}
                   name="detalle"
-                  onChange={handleChange} 
-                  value={ productoSeleccionado.detalle}
+                  onChange={handleChange}
+                  value={productoSeleccionado.detalle}
                 />
               </Form.Group>
             </Form>
@@ -437,7 +459,10 @@ const Administrador = () => {
             <Button variant="secondary" onClick={abrirCerrarModalEditar}>
               Cerrar
             </Button>
-            <Button variant="primary" onClick={()=> actualizar("menus",  productoSeleccionado)} >
+            <Button
+              variant="primary"
+              onClick={() => actualizar("menus", productoSeleccionado)}
+            >
               Guardar
             </Button>
           </Modal.Footer>
@@ -445,8 +470,8 @@ const Administrador = () => {
       </>
       {/* fin Modal ACTUALIZAR Menu */}
       {/* inicio Modal CREAR USUARIO */}
-       <> 
-       <Modal show={showUsersPost} onHide={handleUsersPostClose}>
+      <>
+        <Modal show={showUsersPost} onHide={handleUsersPostClose}>
           <Modal.Header closeButton>
             <Modal.Title>Dar de alta nuevo usuario</Modal.Title>
           </Modal.Header>
@@ -492,7 +517,7 @@ const Administrador = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </> 
+      </>
       {/* fin Modal CREAR USUARIO */}
     </>
   );
