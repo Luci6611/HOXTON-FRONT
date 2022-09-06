@@ -34,6 +34,7 @@ const Administrador = () => {
   const handleUsersPostShow = () => setShowUsersPost(true);
   // estado para guardar datos
   const [productoSeleccionado, setProductoSeleccionado] = useState({
+    id:"",
     img: "",
     nombre: "",
     detalle: "",
@@ -70,7 +71,7 @@ const Administrador = () => {
         abrirCerrarModalEditar()   
     }
     const handleChange=(e)=>{ const {name, value}=e.target; setProductoSeleccionado(prevState=>({ ...prevState, [name]: value }))
-    console.log(productoSeleccionado); }
+    console.log(productoSeleccionado,"este es el console logeo"); }
 
     // actualizar(menPut, 'menus')
 
@@ -373,7 +374,7 @@ const Administrador = () => {
                   placeholder="ingresar url"
                   autoFocus
                   name="img"
-                  value={productoSeleccionado && productoSeleccionado.img}
+                  value={ productoSeleccionado.img}
                   onChange={handleChange} 
                 />
                 <Form.Label>Nombre</Form.Label>
@@ -386,7 +387,7 @@ const Administrador = () => {
                   autoFocus
                   name="nombre"
                   onChange={handleChange} 
-                  value={productoSeleccionado && productoSeleccionado.nombre}
+                  value={ productoSeleccionado.nombre}
                 />
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
@@ -397,11 +398,11 @@ const Administrador = () => {
                   placeholder="ingresar precio"
                   autoFocus
                   name="precio"
-                  value={productoSeleccionado && productoSeleccionado.precio}
+                  value={ productoSeleccionado.precio}
                   onChange={handleChange} 
                 />
                 <Form.Label className="m-2">Estado</Form.Label>               
-                <select  name="estado" id="estado" form="estado"  onChange={handleChange}  value={productoSeleccionado && productoSeleccionado.estado}>
+                <select  name="estado" id="estado" form="estado"  onChange={handleChange}  value={ productoSeleccionado.estado}>
                   <option value="false">No disponible</option>
                   <option value="true">disponible</option>
                 </select>
@@ -419,7 +420,7 @@ const Administrador = () => {
                   rows={3}
                   name="detalle"
                   onChange={handleChange} 
-                  value={productoSeleccionado && productoSeleccionado.detalle}
+                  value={ productoSeleccionado.detalle}
                 />
               </Form.Group>
             </Form>
