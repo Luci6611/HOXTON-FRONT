@@ -29,12 +29,16 @@ export const traer = async (area) => {
 
 /* Funcion Put */
 
-export const actualizar = async (area,productoselecionadoid,productoselecionado ) => {
+export const actualizar = async (area,productoselecionado ) => {
    /* 42656071 */
 const response = await fetch(`https://hoxton-backend.herokuapp.com/api/${area}/62faad8f697b01919cfa4f75`, {
   method: 'PUT',
   body: JSON.stringify({
-    productoselecionado
+   img: productoselecionado.img,
+   nombre: productoselecionado.nombre,
+   precio:productoselecionado.precio,
+   detalle: productoselecionado.detalle,
+   disponible:productoselecionado.disponible,
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
@@ -44,6 +48,7 @@ const response = await fetch(`https://hoxton-backend.herokuapp.com/api/${area}/6
   .then((response) => response.json())
   .then((json) => console.log(json))
 
+   console.log("El area es: "+ area+ " producto: "+" producto: " + productoselecionado.img)
 
 
 
@@ -69,7 +74,6 @@ const response = await fetch(`https://hoxton-backend.herokuapp.com/api/${area}/6
   //     headers: { "Authorization": `Bearer ${ JSON.parse(localStorage.getItem("token"))}`    }},)
 
   // console.log(response.data, response.headers)
-  // location.reload()
-  return response;
+  location.reload()
 
 }

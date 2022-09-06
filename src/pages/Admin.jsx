@@ -70,8 +70,9 @@ const Administrador = () => {
       setProductoSeleccionado(datos);
         abrirCerrarModalEditar()   
     }
-    const handleChange=(e)=>{ const {name, value}=e.target; setProductoSeleccionado(prevState=>({ ...prevState, [name]: value }))
-    console.log(productoSeleccionado,"este es el console logeo"); }
+    const handleChange=e=>{ const {name, value}=e.target; setProductoSeleccionado(prevState=>({ ...prevState, [name]: value }))
+  console.log(productoSeleccionado.id)
+  }
 
     // actualizar(menPut, 'menus')
 
@@ -293,7 +294,6 @@ const Administrador = () => {
                   placeholder="ingresar url"
                   autoFocus
                   name="img"
-                 value={productoSeleccionado && productoSeleccionado.img}
                 />
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
@@ -303,7 +303,7 @@ const Administrador = () => {
                   placeholder=" ingresar nombre"
                   autoFocus 
                   name="nombre"
-                  value={productoSeleccionado && productoSeleccionado.nombre}
+               
                 />
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
@@ -313,12 +313,11 @@ const Administrador = () => {
                   placeholder="ingresar precio"
                   autoFocus
                   name="precio"
-                value={productoSeleccionado && productoSeleccionado.precio}
                 />
                 <Form.Label className="m-2">Estado</Form.Label>
 
                 <select name="disponible" id="disponible" form="disponible" 
-                 value={productoSeleccionado && productoSeleccionado.disponible}>
+                 >
                   <option value="false">No disponible</option>
                   <option value="true">disponible</option>
                 </select>
@@ -334,7 +333,6 @@ const Administrador = () => {
                   minLength="1"
                   rows={3}
                   name="detalle"
-      value={productoSeleccionado && productoSeleccionado.detalle}
                 />
               </Form.Group>
             </Form>
@@ -357,7 +355,7 @@ const Administrador = () => {
 
       {/* inicio Modal ACTUALIZAR Menu */}
       <>
-        <Modal show={showPut} onHide={handlePutClose}>
+        <Modal show={showPut} onHide={abrirCerrarModalEditar}>
           <Modal.Header closeButton>
             <Modal.Title>Actualizar menu</Modal.Title>
           </Modal.Header>
@@ -367,6 +365,16 @@ const Administrador = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
+                <Form.Label>id</Form.Label>
+                <Form.Control
+                  
+                  type="string"
+                  placeholder="ingresar url"
+                  autoFocus
+                  name="id"
+                  value={ productoSeleccionado.id}
+                  onChange={handleChange} 
+                />
                 <Form.Label>Imagen</Form.Label>
                 <Form.Control
                   
@@ -426,10 +434,10 @@ const Administrador = () => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handlePutClose}>
+            <Button variant="secondary" onClick={abrirCerrarModalEditar}>
               Cerrar
             </Button>
-            <Button variant="primary" onClick={()=> actualizar("menus", productoSeleccionado.id, productoSeleccionado)} >
+            <Button variant="primary" onClick={()=> actualizar("menus",  productoSeleccionado)} >
               Guardar
             </Button>
           </Modal.Footer>
