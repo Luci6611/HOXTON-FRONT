@@ -79,7 +79,7 @@ const Menus = () => {
               <>  <span className="badge  p-2  rounded-pill bg-warning ms-2 disponible">
                   Disponible
                 </span>
-                <button className="btn btn-danger m-3 ">Agregar al carrito</button></>  
+                <button className="btn btn-danger m-3 ">Hacer Pedido</button></>  
               ) : (
               <span className="badge rounded-pill bg-danger ms-2">
                   No disponible

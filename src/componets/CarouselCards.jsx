@@ -55,7 +55,7 @@ const CarouselCards = () => {
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
                  <a href="#" className="btn btn-danger">
-                   añadir al carrito
+                  Hacer Pedido
                  </a>
                </div>
              </Card>
