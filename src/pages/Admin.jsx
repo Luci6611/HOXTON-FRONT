@@ -316,14 +316,14 @@ const Administrador = () => {
                 <Form.Label className="m-2">Categoria</Form.Label>
 
                 <select
-                onClick={handleChange}
+                onChange={handleChange}
                   name="categoria"
                   id="categoria"
                   form="categoria"
                  
                   
                 >
-                  <option   value="62faa604697b01919cfa4f30">PIZZAS</option>
+                  <option  value="62faa604697b01919cfa4f30">PIZZAS</option>
                   <option value="62faa627697b01919cfa4f34">PAPAS</option>
                   <option value="62faa63a697b01919cfa4f38">HAMBURGUESAS</option>
                   <option  value="62faa67b697b01919cfa4f3c">BEBIDAS SIN ALCOHOL</option>
