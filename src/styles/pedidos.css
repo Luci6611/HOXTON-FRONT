@@ -1,6 +1,21 @@
+.contenedor__pedidos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .pedidos__titulo{
     color: #fff;
     width: 100%;
+}
+
+.fila__pedidos{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .cuerpo_pedido{

@@ -43,19 +43,19 @@ const Pedidos = () => {
     <link rel="shortcut icon" href={favicon} type="image/x-icon" />
     <title>Pedidos</title>
   </Helmet>
-    <div className="container m-0 d-flex flex-column justify-content-center align-items-center ">
+    <div className="container p-0 m-0 m-auto contenedor__pedidos justify-content-center align-items-center ">
         <h1 className="pedidos__titulo text-center">Pedidos</h1>
     <div className="row">
       <div className="col">
         <hr />
       </div>
     </div>
-    <div className="row d-flex  row-cols-1 row-cols-md-3 g-4 mb-2">
+    <div className="row  fila__pedidos row-cols-1 row-cols-md-3 g-4 mb-2">
       {pedidos.map((pedido) => (
         <div className="col" key={pedido._id}>
           <div className="card h-100">
             
-            <div className="card-body d-flex flex-column cuerpo_pedido    ">
+            <div className="card-body d-flex flex-column  cuerpo_pedido    ">
               
               <h5 className="card-title nombre-menu__pedido ">{pedido.menu.nombre}</h5>
             
