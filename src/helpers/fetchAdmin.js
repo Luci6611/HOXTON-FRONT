@@ -11,11 +11,12 @@ const admin = axios.create({
 
 export const eliminar = async (area, id) => {
   const response = await admin.delete(`${area}/${id}`, {
-    headers: { Authorization: JSON.parse(localStorage.getItem("token"))
-    
+    headers: { Authorization: JSON.parse(localStorage.getItem("token"))   
   },
   });
+
   location.reload(true);
+  return response;
 };
 
 /* Funcion Traer */

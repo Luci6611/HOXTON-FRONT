@@ -124,7 +124,6 @@ const Administrador = () => {
                 </th>
               </tr>
             </thead>
-
             <tbody>
               {productos.map((producto) => (
                 <>
@@ -146,7 +145,7 @@ const Administrador = () => {
                       >
                         actualizar
                       </button>
-                      <button onClick={menusDelete} className="btn btn-danger">
+                      <button onClick={menusDelete} id={producto._id} className="btn btn-danger">
                         eliminar
                       </button>
                     </th>
