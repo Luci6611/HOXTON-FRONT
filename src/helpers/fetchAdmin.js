@@ -33,7 +33,7 @@ export const traer = async (area) => {
 
 export const actualizar = async (area,productoselecionado ) => {
    /* 42656071 */
-const response = await fetch(`https://hoxton-backend.herokuapp.com/api/${area}/62faad8f697b01919cfa4f75`, {
+const response =await fetch(`https://hoxton-backend.herokuapp.com/api/${area}/62faad8f697b01919cfa4f75`, {
   method: 'PUT',
   body: JSON.stringify({
    img: productoselecionado.img,
