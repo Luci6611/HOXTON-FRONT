@@ -337,6 +337,7 @@ const Administrador = () => {
                  
                   
                 >
+                  <option  value="62faa604697b01919cfa4f30">Elegir</option>
                   <option  value="62faa604697b01919cfa4f30">PIZZAS</option>
                   <option value="62faa627697b01919cfa4f34">PAPAS</option>
                   <option value="62faa63a697b01919cfa4f38">HAMBURGUESAS</option>
@@ -352,6 +353,7 @@ const Administrador = () => {
                   form="disponible"
                  
                 >
+                  <option  value="false">Elegir</option>
                   <option onChange={handleChange} value="false">No disponible</option>
                   <option onChange={handleChange} value="true">disponible</option>
                 </select>
@@ -448,8 +450,10 @@ const Administrador = () => {
                   onChange={handleChange}
                   value={productoSeleccionado.estado}
                 >
+                  <option  value="false">Elegir</option>
                   <option value="false">No disponible</option>
                   <option value="true">disponible</option>
+
                 </select>
               </Form.Group>
               <Form.Group
@@ -524,6 +528,7 @@ const Administrador = () => {
                   onChange={usuariosChange}
                   value={usuariosSelecionados.role}
                 >
+                  <option  value="" >Elegir</option>
                   <option value="ADMIN_ROLE">administrador</option>
                   <option value="USER_ROLE">usuario</option>
                 </select>
