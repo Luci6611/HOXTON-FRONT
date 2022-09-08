@@ -7,8 +7,6 @@ import Spinner from "react-bootstrap/Spinner";
 import ModalCrearMenus from "../componets/ModalCrearMenus";
 import ModalActualizarmenus from "../componets/ModalActualizarmenus";
 import ModalCrearUsuario from "../componets/ModalCrearUsuario";
-import ModalEliminarMenus from "../componets/ModalEliminarMenus";
-import ModalEliminarUsuarios from "../componets/ModalEliminarUsuarios";
 
 
 const Administrador = () => {
@@ -28,19 +26,6 @@ const Administrador = () => {
   const [showUsersPost, setShowUsersPost] = useState(false);
   const handleUsersPostShow = () => setShowUsersPost(true);
 
-  /* ESTADO MODALES ELIMINAR */
-
-  const [showEliminar, setshowEliminar] = useState(false);
-
-  const closeEliminar = () => setshowEliminar(false);
-  const showEliminarmenu = () => setshowEliminar(true);
-
-  const [showEliminarUsuario, setshowEliminarUsuario] = useState(false);
-
-  /* Eliminar usuarios */
-
-  const closeEliminarusuarios = () => setshowEliminarUsuario(false);
-  const showEliminarmenuusuarios = () => setshowEliminarUsuario(true);
 
   // estado para guardar datos
 
