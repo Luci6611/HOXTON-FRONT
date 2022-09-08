@@ -5,6 +5,7 @@ import favicon from "../assets/favicon_(1).ico";
 import { Helmet } from "react-helmet";
 import CarouselCards from "../componets/CarouselCards";
 import "../styles/menus.css"
+import { crearPedido } from "../helpers/fetchPedidos";
 
 const Menus = () => {
   const [menus, setMenus] = useState([]);
@@ -22,7 +23,10 @@ const Menus = () => {
     setMenus(menus);
     setTotal(total);
   };
-
+// tomar id de menu para crear pedido
+const pedidoListo = (e) => {
+  let pedidoPut = e.target.id;
+  crearPedido(pedidoPut)};
   const nextPag = () => {
   
     if (total - registro >= 5) {
@@ -82,7 +86,7 @@ const Menus = () => {
               {menus.disponible ? (
               <>  <span className="badge  p-2  rounded-pill bg-warning ms-2 disponible">
                   Disponible
-                </span>
+               </span>  {/*onClick={pedidoListo} id={menus._id} */}
                 <button className="btn btn-danger m-3 ">Hacer Pedido</button></>  
               ) : (
               <span className="badge rounded-pill bg-danger ms-2">

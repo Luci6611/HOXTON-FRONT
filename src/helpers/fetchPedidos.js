@@ -1,5 +1,7 @@
 const url = "https://hoxton-backend.herokuapp.com/api/pedidos";
 
+
+// traer pedidos
  const traerPedidos = async (registro = 0) => {
   const response = await fetch(`${url}?desde=${registro}`, {
     method: "GET",
@@ -11,5 +13,26 @@ const url = "https://hoxton-backend.herokuapp.com/api/pedidos";
   const data = await response.json();
 
   return data;
+};
+
+export const crearPedido = async ( id) => {
+
+  const response = await fetch(
+    `${url}`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        id:id,
+
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: JSON.parse(localStorage.getItem("token")),
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+     location.reload();
 };
 export default traerPedidos
