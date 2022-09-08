@@ -6,7 +6,7 @@ import { actualizar } from '../helpers/fetchAdmin'
 
 const ModalActualizarmenus = (props) => {
 
-    const {menus,funcionRecibir, setShowPut, show} = props;
+    const {menus,funcionRecibir, setShowPut, show, showPut,} = props;
 
     const handleUsersPostClose = () => setShowPut(false);
 

@@ -6,7 +6,7 @@ import { Crear } from '../helpers/fetchAdmin'
 
 const ModalCrearMenus = (props) => {
    
-   const {menus,funcionRecibir, setShow , show} = props;
+   const {menus,funcionRecibir, setShow , showPut} = props;
    const handleClose = () => setShow(false);
     
   return (

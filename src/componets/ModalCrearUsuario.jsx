@@ -6,7 +6,7 @@ import { crearUsuarios } from '../helpers/fetchAdmin'
 
 const ModalCrearUsuario = (props) => {
 
-    const {menus, changeUsuario , setShowUsersPost , show} = props;
+    const {menus, changeUsuario , setShowUsersPost , show , showUsersPost } = props;
     const handleUsersPostClose = () => setShowUsersPost(false);
 
   return (

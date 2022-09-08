@@ -296,14 +296,14 @@ const Administrador = () => {
 
       {/* Modal CREAR Menu */}
 
-      <ModalCrearMenus menus={productoSeleccionado}  funcionRecibir={handleChange} setShow={setShow} show={show}/>
+      <ModalCrearMenus menus={productoSeleccionado}  funcionRecibir={handleChange} setShow={setShow} show={show} />
      
       {/* Modal ACTUALIZAR Menu */}
 
-       <ModalActualizarmenus menus={productoSeleccionado}  funcionRecibir={handleChange}  setShowPut={setShowPut} show={show}/>
+       <ModalActualizarmenus menus={productoSeleccionado}  funcionRecibir={handleChange}  setShowPut={setShowPut} show={show} showPut={showPut}/>
 
       {/* Modal CREAR USUARIO */}
-      <ModalCrearUsuario menus={usuariosSelecionados}  changeUsuario={usuariosChange} setShowUsersPost={setShowUsersPost} show={show}/>
+      <ModalCrearUsuario menus={usuariosSelecionados}  changeUsuario={usuariosChange} setShowUsersPost={setShowUsersPost} show={show} showUsersPost={showUsersPost} />
 
     </>
   );
