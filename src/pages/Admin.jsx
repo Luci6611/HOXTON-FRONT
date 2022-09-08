@@ -292,7 +292,7 @@ const Administrador = () => {
       </div>
       <NavAdmin />
 
-      {/* ---------------------------MODALES :-------------------------------- */}
+      {/* --------------------------- MODALES :-------------------------------- */}
 
       {/* Modal CREAR Menu */}
 
@@ -303,7 +303,7 @@ const Administrador = () => {
        <ModalActualizarmenus menus={productoSeleccionado}  funcionRecibir={handleChange}  setShowPut={setShowPut} show={show} showPut={showPut}/>
 
       {/* Modal CREAR USUARIO */}
-      <ModalCrearUsuario menus={usuariosSelecionados}  changeUsuario={usuariosChange} setShowUsersPost={setShowUsersPost} show={show} showUsersPost={showUsersPost} />
+      <ModalCrearUsuario menus={usuariosSelecionados}  changeUsuario={usuariosChange} setShowUsersPost={setShowUsersPost} showUsersPost={showUsersPost} />
 
     </>
   );

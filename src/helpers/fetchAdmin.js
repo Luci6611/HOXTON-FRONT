@@ -58,7 +58,8 @@ export const actualizar = async (area, productoselecionado) => {
   )
     .then((response) => response.json())
     .then((json) => console.log(json));
-
+    location.reload();
+  
 };
 
 /* Funcion POST */
@@ -111,6 +112,6 @@ export const crearUsuarios = async (area, usuariosSelecionados) => {
   )
     .then((response) => response.json())
     .then((json) => console.log(json));
-/*     location.reload();
- */ 
+   location.reload();
+ 
 };
