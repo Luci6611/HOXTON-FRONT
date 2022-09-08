@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,9 +6,7 @@ import { Crear } from '../helpers/fetchAdmin'
 
 const ModalCrearMenus = (props) => {
    
-   const {menus,funcionRecibir} = props;
-    
-   const [show, setShow] = useState(false);
+   const {menus,funcionRecibir, setShow , show} = props;
    const handleClose = () => setShow(false);
     
   return (

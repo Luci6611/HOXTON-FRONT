@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,9 +6,7 @@ import { crearUsuarios } from '../helpers/fetchAdmin'
 
 const ModalCrearUsuario = (props) => {
 
-    const {menus, changeUsuario } = props;
-
-    const [showUsersPost, setShowUsersPost] = useState(false);
+    const {menus, changeUsuario , setShowUsersPost , show} = props;
     const handleUsersPostClose = () => setShowUsersPost(false);
 
   return (
