@@ -20,17 +20,15 @@ const RouterApp = () => {
       <Navegacion/>
 
       <Routes>
-        <Route
-          path="/cosa"
-          element={
-            <ProtectedRoutes/>
-          }
-        />
+       
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/Registro" element={<Registro />} />
         <Route path="/Admi" element={<Admin/>} />
         <Route path="/Menus" element={<Menus/>} />
-        <Route path="/Pedidos" element={<Pedidos/>} />
+        <Route path="/Pedidos" element={ <ProtectedRoutes>
+                                         <Pedidos/>
+                                         </ProtectedRoutes>
+                                                 } />
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Error/>}/>
         <Route path='About' element={<SobreNosotros/>}/>
