@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { traer, eliminar, actualizar, Crear } from "../helpers/fetchAdmin";
+import { traer, eliminar, actualizar, Crear , crearUsuarios } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
 import NavAdmin from "../componets/NavAdmin";
 import Table from "react-bootstrap/Table";
@@ -9,9 +9,8 @@ import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
 
 
-import axios from "axios";
-
 const Administrador = () => {
+
   const [productos, setProductos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [pedidos, setPedidos] = useState([]);
@@ -23,8 +22,6 @@ const Administrador = () => {
   const handleShow = () => setShow(true);
   // estado Modal actualizar menus
   const [showPut, setShowPut] = useState(false);
-  const handlePutClose = () => setShow(false);
-  const handlePutShow = () => setShow(true);
 
   // estado Modal Crear Usuarios
   const [showUsersPost, setShowUsersPost] = useState(false);
@@ -40,6 +37,13 @@ const Administrador = () => {
     precio: "",
     disponible: "",
     categoria:"",
+  });
+
+  const [usuariosSelecionados, setusuariosSelecionados] = useState({
+    nombre: "",
+    role: "",
+    email: "",
+    password: "",
   });
 
   /* Traer datos */
@@ -69,14 +73,23 @@ const Administrador = () => {
     setProductoSeleccionado(datos);
     abrirCerrarModalEditar();
   };
+
+    /* recibir datos de los modales */
+
+    /* menus */
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProductoSeleccionado((prevState) => ({ ...prevState, [name]: value }));
-    console.log(productoSeleccionado.categoria);
   };
 
-  // actualizar(menPut, 'menus')
+  /* usuarios */
 
+  const usuariosChange = (e) => {
+    const { name, value } = e.target;
+    setusuariosSelecionados((prevState) => ({ ...prevState, [name]: value }));
+    console.log(usuariosSelecionados)
+  };
   // funcion para inactivar menus
 
   const menusDelete = (e) => {
@@ -89,6 +102,8 @@ const Administrador = () => {
       recibirData();
     }, 2000);
   }, []);
+
+
   // function para entregar pedido
   const pedidoListo = (e) => {
     let pedidoPut = e.target.id;
@@ -322,6 +337,7 @@ const Administrador = () => {
                  
                   
                 >
+                  <option  value="62faa604697b01919cfa4f30">Elegir</option>
                   <option  value="62faa604697b01919cfa4f30">PIZZAS</option>
                   <option value="62faa627697b01919cfa4f34">PAPAS</option>
                   <option value="62faa63a697b01919cfa4f38">HAMBURGUESAS</option>
@@ -337,6 +353,7 @@ const Administrador = () => {
                   form="disponible"
                  
                 >
+                  <option  value="false">Elegir</option>
                   <option onChange={handleChange} value="false">No disponible</option>
                   <option onChange={handleChange} value="true">disponible</option>
                 </select>
@@ -433,8 +450,10 @@ const Administrador = () => {
                   onChange={handleChange}
                   value={productoSeleccionado.estado}
                 >
+                  <option  value="false">Elegir</option>
                   <option value="false">No disponible</option>
                   <option value="true">disponible</option>
+
                 </select>
               </Form.Group>
               <Form.Group
@@ -486,8 +505,10 @@ const Administrador = () => {
                   maxLength="15"
                   minLength="1"
                   placeholder=" ingresar nombre"
+                  name="nombre"
                   autoFocus
-                />
+                  onChange={usuariosChange}
+                />  
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
@@ -495,7 +516,22 @@ const Administrador = () => {
                   minLength="1"
                   placeholder="ingresar email"
                   autoFocus
+                  required
+                  name="email"
+                  onChange={usuariosChange}
                 />
+                  <Form.Label className="m-2">Rol</Form.Label>
+                <select
+                  name="role"
+                  id="role"
+                  form="role"
+                  onChange={usuariosChange}
+                  value={usuariosSelecionados.role}
+                >
+                  <option  value="" >Elegir</option>
+                  <option value="ADMIN_ROLE">administrador</option>
+                  <option value="USER_ROLE">usuario</option>
+                </select>
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="password"
@@ -503,6 +539,8 @@ const Administrador = () => {
                   minLength="8"
                   placeholder="ingresar contraseña"
                   autoFocus
+                  name="password"
+                  onChange={usuariosChange}
                 />
               </Form.Group>
             </Form>
@@ -511,7 +549,7 @@ const Administrador = () => {
             <Button variant="secondary" onClick={handleUsersPostClose}>
               Cerrar
             </Button>
-            <Button variant="primary" onClick={handleUsersPostClose}>
+            <Button variant="primary" onClick={()=> crearUsuarios("usuarios",usuariosSelecionados)}>
               Guardar
             </Button>
           </Modal.Footer>
