@@ -37,15 +37,17 @@ const Menus = () => {
   };
 
   return (
-   <> <Helmet>
+   <>
+    <Helmet>
     <meta charSet="utf-8" />
     <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-  
     <title>Menus</title>
   </Helmet>
   <div className="row fila-titulo">
       <div className="col">
+
         <h1 className="menus-titulo">Nuestros Menus</h1>
+
         <hr />
       </div>
     </div>
@@ -68,7 +70,9 @@ const Menus = () => {
               
               <h5 className="card-title nombre-menu ">{menus.nombre}</h5>
             
+
               <p className="card-text mt-2 menus-detalle" >{menus.detalle}</p>
+
               
               
               <span className="badge mb-3 p-2  rounded-pill bg-success precio">
