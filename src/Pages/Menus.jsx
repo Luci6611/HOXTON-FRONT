@@ -43,15 +43,19 @@ const Menus = () => {
     <link rel="shortcut icon" href={favicon} type="image/x-icon" />
     <title>Menus</title>
   </Helmet>
-    <div className="container my-5">
-    <div className="row">
+  <div className="row fila-titulo">
       <div className="col">
+
+        <h1 className="menus-titulo">Nuestros Menus</h1>
+
         <hr />
       </div>
     </div>
-    <div className="row row-cols-1 row-cols-md-3 g-4 mb-2">
+    <div className="container contenedor-menus  ">
+   
+    <div className="row fila-menus   row-cols-1 row-cols-md-3 g-4 mb-2">
       {menus.map((menus) => (
-        <div className="col" key={menus._id}>
+        <div className="col columnas-menus" key={menus._id}>
           <div className="card h-100">
             <img
               src={
@@ -66,7 +70,9 @@ const Menus = () => {
               
               <h5 className="card-title nombre-menu ">{menus.nombre}</h5>
             
-              <p className="card-text ">{menus.detalle}</p>
+
+              <p className="card-text mt-2 menus-detalle" >{menus.detalle}</p>
+
               
               
               <span className="badge mb-3 p-2  rounded-pill bg-success precio">
@@ -77,29 +83,31 @@ const Menus = () => {
               <>  <span className="badge  p-2  rounded-pill bg-warning ms-2 disponible">
                   Disponible
                 </span>
-                <button className="btn btn-danger ">Agregar al carrito</button></>  
+                <button className="btn btn-danger m-3 ">Hacer Pedido</button></>  
               ) : (
               <span className="badge rounded-pill bg-danger ms-2">
                   No disponible
                 </span>
                 
               )}
+              
             </div>
           </div>
         </div>
       ))}
     </div>
-    <div className="row">
-      <div className="col">
-        <BtnPagination
+   
+  </div>
+  <div className="row ">
+      <div className="col d-flex justify-content-center ">
+        <BtnPagination  
           registro={registro}
           total={total}
           prevPag={prevPag}
           nextPag={nextPag}
         />
       </div>
-    </div>
-  </div></>
+    </div></>
 );
 };
 

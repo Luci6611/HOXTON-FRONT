@@ -54,6 +54,9 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/Menus">
                   Menus
                 </NavLink>
+                <NavLink className="nav-link" to="/Pedidos">
+                 Pedidos
+                </NavLink>
                 <NavLink className="nav-link" to="/About">
                   Nosotros
                 </NavLink>
@@ -73,8 +76,8 @@ function Navegacion() {
                 />{" "}
                  <Link to="*">
                 <BsSearch className="text-light icons " /></Link>
-                <Link to="*">   
-                <BsCart4 className="text-light icons " /></Link>
+                {/* <Link to="*">   
+                <BsCart4 className="text-light icons " /></Link> */}
                       <Link to="/login">
                <BsFillPersonFill  className="text-light icons"/></Link>
                <Link  to="/Registro">
