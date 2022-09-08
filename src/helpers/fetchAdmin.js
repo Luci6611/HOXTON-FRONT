@@ -35,7 +35,9 @@ export const traer = async (area) => {
   return response;
 };
 
-/* Funcion Put */
+/* Funciones Put */
+
+/* Actualizar menus */
 
 export const actualizar = async (area, productoselecionado) => {
 
@@ -62,7 +64,32 @@ export const actualizar = async (area, productoselecionado) => {
   
 };
 
-/* Funcion POST */
+/* Actualizar pedido */
+
+export const actualizarEstado = async (area, id,estadoMenu) => {
+
+  const response = await fetch(
+    `https://hoxton-backend.herokuapp.com/api/${area}/${id}`,
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        entrega: estadoMenu,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: JSON.parse(localStorage.getItem("token")),
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+    location.reload();
+  
+};
+
+/* Funciones POST */
+
+  /* crear menus */
 
 export const Crear = async (area, productoselecionado) => {
 
@@ -90,7 +117,7 @@ export const Crear = async (area, productoselecionado) => {
      location.reload();
 };
 
-
+ /* crear usuarios */
 
 export const crearUsuarios = async (area, usuariosSelecionados) => {
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { traer, eliminar, actualizar } from "../helpers/fetchAdmin";
+import { traer, eliminar, actualizar, actualizarEstado } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
 import NavAdmin from "../componets/NavAdmin";
 import Table from "react-bootstrap/Table";
@@ -111,9 +111,11 @@ const Administrador = () => {
 
 
   // function para entregar pedido
+
   const pedidoListo = (e) => {
     let pedidoPut = e.target.id;
-    actualizar(pedidoPut, "pedidos");
+    let estado= !true;
+    actualizarEstado( "pedidos", pedidoPut, estado);
 
   };
   
