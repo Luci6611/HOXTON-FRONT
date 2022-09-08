@@ -45,15 +45,11 @@ const Pedidos = () => {
   </Helmet>
     <div className="container p-0 m-0 m-auto contenedor__pedidos justify-content-center align-items-center ">
         <h1 className="pedidos__titulo text-center">Pedidos</h1>
-    <div className="row">
-      <div className="col">
-        <hr />
-      </div>
-    </div>
-    <div className="row  fila__pedidos row-cols-1 row-cols-md-3 g-4 mb-2">
+  
+    <div className="row  fila__pedidos row-cols-1   row-cols-md-2 row-cols-lg-3 1 m-0">
       {pedidos.map((pedido) => (
-        <div className="col" key={pedido._id}>
-          <div className="card h-100">
+        <div className="col columna__pedidos my-auto" key={pedido._id}>
+          <div className="card h-100 d-flex mx-auto ">
             
             <div className="card-body d-flex flex-column  cuerpo_pedido    ">
               
