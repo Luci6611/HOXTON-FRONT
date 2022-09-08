@@ -114,6 +114,7 @@ export const Crear = async (area, productoselecionado) => {
   )
     .then((response) => response.json())
     .then((json) => console.log(json));
+    alert("menu dado de alta correctamente");
      location.reload();
 };
 
@@ -139,6 +140,7 @@ export const crearUsuarios = async (area, usuariosSelecionados) => {
   )
     .then((response) => response.json())
     .then((json) => console.log(json));
+    alert("usuario dado de alta correctamente");
    location.reload();
  
 };

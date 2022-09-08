@@ -8,7 +8,6 @@ import "react-bootstrap";
 
 
 const Home = () => {
-
   return (
     <>
       <Helmet>

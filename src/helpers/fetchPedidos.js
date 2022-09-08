@@ -15,14 +15,14 @@ const url = "https://hoxton-backend.herokuapp.com/api/pedidos";
   return data;
 };
 
-export const crearPedido = async ( id) => {
+export const crearPedido = async ( _id) => {
 
   const response = await fetch(
     `${url}`,
     {
       method: "POST",
       body: JSON.stringify({
-        id:id,
+        menu:_id,
 
       }),
       headers: {

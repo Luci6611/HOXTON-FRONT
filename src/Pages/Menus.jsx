@@ -3,7 +3,7 @@ import  traerMenusPag  from "../helpers/fetchMenuspag";
 import BtnPagination from "../componets/BtnPagination";
 import favicon from "../assets/favicon_(1).ico";
 import { Helmet } from "react-helmet";
-import CarouselCards from "../componets/CarouselCards";
+
 import "../styles/menus.css"
 import { crearPedido } from "../helpers/fetchPedidos";
 
@@ -19,14 +19,18 @@ const Menus = () => {
 
   const cargarMenus = async () => {
     const { menus, total } = await traerMenusPag(registro);
-    console.log(menus);
+   
     setMenus(menus);
     setTotal(total);
   };
 // tomar id de menu para crear pedido
 const pedidoListo = (e) => {
   let pedidoPut = e.target.id;
-  crearPedido(pedidoPut)};
+  console.log(pedidoPut);
+  crearPedido(pedidoPut)
+  alert("pedido agregado correctamente")
+};
+
   const nextPag = () => {
   
     if (total - registro >= 5) {
@@ -86,8 +90,8 @@ const pedidoListo = (e) => {
               {menus.disponible ? (
               <>  <span className="badge  p-2  rounded-pill bg-warning ms-2 disponible">
                   Disponible
-               </span>  {/*onClick={pedidoListo} id={menus._id} */}
-                <button className="btn btn-danger m-3 ">Hacer Pedido</button></>  
+               </span> 
+                <button className="btn btn-danger m-3 " onClick={pedidoListo} id={menus._id}>Hacer Pedido</button></>  
               ) : (
               <span className="badge rounded-pill bg-danger ms-2">
                   No disponible

@@ -71,6 +71,7 @@ const Administrador = () => {
   const actualizarDatos = (datos) => {
     setProductoSeleccionado(datos);
     abrirCerrarModalEditar();
+    alert("menu actualizado correctamente");
   };
 
     /* recibir datos de los modales */
@@ -94,6 +95,7 @@ const Administrador = () => {
   const menusDelete = (e) => {
     const menDelete = e.target.id;
     eliminar("menus", menDelete);
+    alert("menu eliminado correctamente");
   };
 
   /* funcion inactivar usuarios */  
@@ -101,6 +103,7 @@ const Administrador = () => {
   const usuariosDelete = (e) => {
     const userDelete = e.target.id;
     eliminar("usuarios", userDelete);
+    alert("usuario inactivado correctamente");
   };
 
   useEffect(() => {
@@ -116,6 +119,7 @@ const Administrador = () => {
     let pedidoPut = e.target.id;
     let estado= !true;
     actualizarEstado( "pedidos", pedidoPut, estado);
+    alert("pedido actualizado correctamente");
 
   };
   
