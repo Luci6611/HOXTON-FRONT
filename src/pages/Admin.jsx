@@ -7,6 +7,8 @@ import Spinner from "react-bootstrap/Spinner";
 import ModalCrearMenus from "../componets/ModalCrearMenus";
 import ModalActualizarmenus from "../componets/ModalActualizarmenus";
 import ModalCrearUsuario from "../componets/ModalCrearUsuario";
+import ModalEliminarMenus from "../componets/ModalEliminarMenus";
+import ModalEliminarUsuarios from "../componets/ModalEliminarUsuarios";
 
 
 const Administrador = () => {
@@ -26,6 +28,20 @@ const Administrador = () => {
   const [showUsersPost, setShowUsersPost] = useState(false);
   const handleUsersPostShow = () => setShowUsersPost(true);
 
+  /* ESTADO MODALES ELIMINAR */
+
+  const [showEliminar, setshowEliminar] = useState(false);
+
+  const closeEliminar = () => setshowEliminar(false);
+  const showEliminarmenu = () => setshowEliminar(true);
+
+  const [showEliminarUsuario, setshowEliminarUsuario] = useState(false);
+
+  /* Eliminar usuarios */
+
+  const closeEliminarusuarios = () => setshowEliminarUsuario(false);
+  const showEliminarmenuusuarios = () => setshowEliminarUsuario(true);
+
   // estado para guardar datos
 
   const [productoSeleccionado, setProductoSeleccionado] = useState({
@@ -39,6 +55,7 @@ const Administrador = () => {
   });
 
   const [usuariosSelecionados, setusuariosSelecionados] = useState({
+    _id:"",
     nombre: "",
     role: "",
     email: "",
@@ -92,17 +109,15 @@ const Administrador = () => {
 
   // funcion para inactivar menus
 
-  const menusDelete = (e) => {
-    const menDelete = e.target.id;
-    eliminar("menus", menDelete);
+  const menusDelete = (area,id) => {
+    eliminar("menus", id);
     alert("menu eliminado correctamente");
   };
 
   /* funcion inactivar usuarios */  
 
-  const usuariosDelete = (e) => {
-    const userDelete = e.target.id;
-    eliminar("usuarios", userDelete);
+  const usuariosDelete = (area,id) => {
+    eliminar(area, id);
     alert("usuario inactivado correctamente");
   };
 
@@ -172,7 +187,7 @@ const Administrador = () => {
                       >
                         actualizar
                       </button>
-                      <button onClick={menusDelete} id={producto._id} className="btn btn-danger">
+                      <button onClick={showEliminarmenu}  className="btn btn-danger">
                         eliminar
                       </button>
                     </th>
@@ -226,8 +241,7 @@ const Administrador = () => {
                     </th>
                     <th>
                       <button
-                        id={usuario.userId}
-                        onClick={usuariosDelete}
+                        onClick={showEliminarmenuusuarios}
                         className="btn btn-danger"
                       >
                         Inactivar
@@ -299,6 +313,11 @@ const Administrador = () => {
       <NavAdmin />
 
       {/* --------------------------- MODALES :-------------------------------- */}
+
+      {/* Modal Eliminar */}
+
+      <ModalEliminarMenus menus={productoSeleccionado._id} eliminar={menusDelete}  cerrar={closeEliminar} showMenu={showEliminar} setMenu={setshowEliminar}/>
+      <ModalEliminarUsuarios usuarios={usuariosSelecionados._id} eliminar={usuariosDelete} cerrar={closeEliminarusuarios} showUsuario={showEliminarUsuario} setUsuario={setshowEliminarUsuario}/>
 
       {/* Modal CREAR Menu */}
 
