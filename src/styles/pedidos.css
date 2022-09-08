@@ -15,13 +15,17 @@
 .fila__pedidos{
    
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    
 }
 .columna__pedidos{
     display: flex;
+    width: 400px;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0%;
+    margin: 10px;
 
 }
 
