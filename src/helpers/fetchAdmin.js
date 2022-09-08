@@ -7,9 +7,19 @@ const admin = axios.create({
 /* Funcion eliminar */
 
 export const eliminar = async (area, id) => {
-  const response = await admin.delete(`${area}/${id}`, {
-    headers: { Authorization: JSON.parse(localStorage.getItem("token")) },
-  });
+
+  const response = await fetch(
+    `https://hoxton-backend.herokuapp.com/api/${area}/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: JSON.parse(localStorage.getItem("token")),
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((json) => console.log(json));
 
   location.reload(true);
   return response;
@@ -49,8 +59,8 @@ export const actualizar = async (area, productoselecionado) => {
     .then((response) => response.json())
     .then((json) => console.log(json));
 
-  location.reload();
 };
+
 /* Funcion POST */
 
 export const Crear = async (area, productoselecionado) => {
@@ -76,9 +86,10 @@ export const Crear = async (area, productoselecionado) => {
   )
     .then((response) => response.json())
     .then((json) => console.log(json));
-    location.reload();
-
+     location.reload();
 };
+
+
 
 export const crearUsuarios = async (area, usuariosSelecionados) => {
 

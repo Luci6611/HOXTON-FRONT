@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { traer, eliminar, actualizar, Crear , crearUsuarios } from "../helpers/fetchAdmin";
+import { traer, eliminar, actualizar } from "../helpers/fetchAdmin";
 import "../styles/admin.css";
 import NavAdmin from "../componets/NavAdmin";
 import Table from "react-bootstrap/Table";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
+import ModalCrearMenus from "../componets/ModalCrearMenus";
+import ModalActualizarmenus from "../componets/ModalActualizarmenus";
+import ModalCrearUsuario from "../componets/ModalCrearUsuario";
 
 
 const Administrador = () => {
@@ -17,18 +17,17 @@ const Administrador = () => {
 
   // estado Modal crear menus
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+   const [show, setShow] = useState(false);
+   const handleShow = () => setShow(true);
   // estado Modal actualizar menus
   const [showPut, setShowPut] = useState(false);
 
   // estado Modal Crear Usuarios
   const [showUsersPost, setShowUsersPost] = useState(false);
-
-  const handleUsersPostClose = () => setShowUsersPost(false);
   const handleUsersPostShow = () => setShowUsersPost(true);
+
   // estado para guardar datos
+
   const [productoSeleccionado, setProductoSeleccionado] = useState({
     id: "",
     img: "",
@@ -88,13 +87,20 @@ const Administrador = () => {
   const usuariosChange = (e) => {
     const { name, value } = e.target;
     setusuariosSelecionados((prevState) => ({ ...prevState, [name]: value }));
-    console.log(usuariosSelecionados)
   };
+
   // funcion para inactivar menus
 
   const menusDelete = (e) => {
     const menDelete = e.target.id;
     eliminar("menus", menDelete);
+  };
+
+  /* funcion inactivar usuarios */  
+
+  const usuariosDelete = (e) => {
+    const userDelete = e.target.id;
+    eliminar("usuarios", userDelete);
   };
 
   useEffect(() => {
@@ -109,8 +115,8 @@ const Administrador = () => {
     let pedidoPut = e.target.id;
     actualizar(pedidoPut, "pedidos");
 
-    console.log(pedidoPut);
   };
+  
   return (
     <>
       {/* inicio de la tabla menus */}
@@ -176,6 +182,7 @@ const Administrador = () => {
         )}
         {/* fin de la tabla menus */}
       </div>
+      <NavAdmin />
       {/* inicio tabla usuarios */}
       <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center" id="usuarios">
@@ -202,7 +209,7 @@ const Administrador = () => {
             <tbody>
               {usuarios.map((usuario) => (
                 <>
-                  <tr>
+                  <tr key={usuario.userId}>
                     <th className="intro-celda">{usuario.userId}</th>
                     <th className="intro-celda">{usuario.nombre}</th>
                     <th className="intro-celda">{usuario.email}</th>
@@ -213,8 +220,8 @@ const Administrador = () => {
                     </th>
                     <th>
                       <button
-                        id={usuario._id}
-                        onClick={menusDelete}
+                        id={usuario.userId}
+                        onClick={usuariosDelete}
                         className="btn btn-danger"
                       >
                         Inactivar
@@ -232,6 +239,7 @@ const Administrador = () => {
         )}
         {/* fin de la tabla usuarios */}
       </div>
+      <NavAdmin />
       {/* inicio de tabla pedidos */}
       <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center" id="pedidos">
@@ -252,7 +260,7 @@ const Administrador = () => {
             <tbody>
               {pedidos.map((pedido) => (
                 <>
-                  <tr>
+                  <tr key={pedido.id}>
                     <th className="intro-celda">{Date(pedido.fecha)}</th>
                     <th className="intro-celda">{pedido.menu.nombre}</th>
                     <th className="intro-celda">{pedido.menu.precio}</th>
@@ -280,277 +288,22 @@ const Administrador = () => {
             <Spinner animation="border" variant="light" />
           </div>
         )}
-        {/* fin de la tabla usuarios */}
+       
       </div>
+      <NavAdmin />
 
       {/* ---------------------------MODALES :-------------------------------- */}
 
-      {/* inicio Modal CREAR Menu */}
+      {/* Modal CREAR Menu */}
 
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Crear Menu nuevo</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Imagen</Form.Label>
-                <Form.Control
-                  type="string"
-                  placeholder="ingresar url"
-                  autoFocus
-                  name="img"
-                  onChange={handleChange}
-                />
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control
-                  type="string"
-                  maxLength="15"
-                  minLength="1"
-                  placeholder=" ingresar nombre"
-                  autoFocus
-                  name="nombre"
-                  onChange={handleChange}
-                />
+      <ModalCrearMenus menus={productoSeleccionado}  funcionRecibir={handleChange} />
+     
+      {/* Modal ACTUALIZAR Menu */}
 
-                <Form.Label>Precio</Form.Label>
-                <Form.Control
-                  type="string"
-                  maxLength="6"
-                  minLength="1"
-                  placeholder="ingresar precio"
-                  autoFocus
-                  name="precio"
-                  onChange={handleChange}
-                />
-                <Form.Label className="m-2">Categoria</Form.Label>
+       <ModalActualizarmenus menus={productoSeleccionado}  funcionRecibir={handleChange}  />
 
-                <select
-                onChange={handleChange}
-                  name="categoria"
-                  id="categoria"
-                  form="categoria"
-                 
-                  
-                >
-                  <option  value="62faa604697b01919cfa4f30">PIZZAS</option>
-                  <option value="62faa627697b01919cfa4f34">PAPAS</option>
-                  <option value="62faa63a697b01919cfa4f38">HAMBURGUESAS</option>
-                  <option  value="62faa67b697b01919cfa4f3c">BEBIDAS SIN ALCOHOL</option>
-                  <option value="62faa690697b01919cfa4f40">TRAGOS</option>
-                  <option value="62faa6a3697b01919cfa4f44">POSTRES</option>
-                </select>
-                <Form.Label className="m-2">Estado</Form.Label>
-
-                <select
-                  name="disponible"
-                  id="disponible"
-                  form="disponible"
-                 
-                >
-                  <option onChange={handleChange} value="false">No disponible</option>
-                  <option onChange={handleChange} value="true">disponible</option>
-                </select>
-              </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label>Detalle</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  maxLength="100"
-                  minLength="1"
-                  rows={3}
-                  name="detalle"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Cerrar
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => Crear("menus", productoSeleccionado)}
-              id={productos._id}
-            >
-              Guardar
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-      {/* fin Modal CREAR Menu */}
-
-      {/* inicio Modal ACTUALIZAR Menu */}
-      <>
-        <Modal show={showPut} onHide={abrirCerrarModalEditar}>
-          <Modal.Header closeButton>
-            <Modal.Title>Actualizar menu</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>id</Form.Label>
-                <Form.Control
-                  type="string"
-                  placeholder="ingresar url"
-                  autoFocus
-                  name="id"
-                  value={productoSeleccionado.id}
-                  onChange={handleChange}
-                />
-                <Form.Label>Imagen</Form.Label>
-                <Form.Control
-                  type="string"
-                  placeholder="ingresar url"
-                  autoFocus
-                  name="img"
-                  value={productoSeleccionado.img}
-                  onChange={handleChange}
-                />
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control
-                  type="string"
-                  maxLength="15"
-                  minLength="1"
-                  placeholder=" ingresar nombre"
-                  autoFocus
-                  name="nombre"
-                  onChange={handleChange}
-                  value={productoSeleccionado.nombre}
-                />
-                <Form.Label>Precio</Form.Label>
-                <Form.Control
-                  type="string"
-                  maxLength="6"
-                  minLength="1"
-                  placeholder="ingresar precio"
-                  autoFocus
-                  name="precio"
-                  value={productoSeleccionado.precio}
-                  onChange={handleChange}
-                />
-                <Form.Label className="m-2">Estado</Form.Label>
-                <select
-                  name="estado"
-                  id="estado"
-                  form="estado"
-                  onChange={handleChange}
-                  value={productoSeleccionado.estado}
-                >
-                  <option value="false">No disponible</option>
-                  <option value="true">disponible</option>
-                </select>
-              </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label>Detalle</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  maxLength="100"
-                  minLength="1"
-                  rows={3}
-                  name="detalle"
-                  onChange={handleChange}
-                  value={productoSeleccionado.detalle}
-                />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={abrirCerrarModalEditar}>
-              Cerrar
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => actualizar("menus", productoSeleccionado)}
-            >
-              Guardar
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-      {/* fin Modal ACTUALIZAR Menu */}
-      {/* inicio Modal CREAR USUARIO */}
-      <>
-        <Modal show={showUsersPost} onHide={handleUsersPostClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Dar de alta nuevo usuario</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control
-                  type="string"
-                  maxLength="15"
-                  minLength="1"
-                  placeholder=" ingresar nombre"
-                  name="nombre"
-                  autoFocus
-                  onChange={usuariosChange}
-                />  
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  maxLength="40"
-                  minLength="1"
-                  placeholder="ingresar email"
-                  autoFocus
-                  required
-                  name="email"
-                  onChange={usuariosChange}
-                />
-                  <Form.Label className="m-2">Rol</Form.Label>
-                <select
-                  name="role"
-                  id="role"
-                  form="role"
-                  onChange={usuariosChange}
-                  value={usuariosSelecionados.role}
-                >
-                  <option value="ADMIN_ROLE">administrador</option>
-                  <option value="USER_ROLE">usuario</option>
-                </select>
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control
-                  type="password"
-                  maxlength="15"
-                  minLength="8"
-                  placeholder="ingresar contraseña"
-                  autoFocus
-                  name="password"
-                  onChange={usuariosChange}
-                />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleUsersPostClose}>
-              Cerrar
-            </Button>
-            <Button variant="primary" onClick={()=> crearUsuarios("usuarios",usuariosSelecionados)}>
-              Guardar
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-      {/* fin Modal CREAR USUARIO */}
+      {/* Modal CREAR USUARIO */}
+      <ModalCrearUsuario menus={usuariosSelecionados}  changeUsuario={usuariosChange}/>
     </>
   );
 };
