@@ -48,7 +48,7 @@ const Pedidos = () => {
   
     <div className="row  fila__pedidos row-cols-1   row-cols-md-2 row-cols-lg-3 1 m-0">
       {pedidos.map((pedido) => (
-        <div className="col columna__pedidos my-auto" key={pedido._id}>
+        <div className="col columna__pedidos my-2" key={pedido._id}>
           <div className="card h-100 d-flex mx-auto ">
             
             <div className="card-body d-flex flex-column  cuerpo_pedido    ">
@@ -61,10 +61,10 @@ const Pedidos = () => {
               <p className="card-text  usuario__pedido">Horario:{Date(pedido.fecha)}</p>
               <p className="card-text  usuario__pedido ">Precio: ${pedido.menu.precio}</p>
               
+              {pedido.entrega === false ?  <span className="badge mb-3 p-2  rounded-pill bg-danger precio">Pendiente</span> :  <span className="badge mb-3 p-2  rounded-pill bg-success precio">Entregado</span> }
+             
               
-              <span className="badge mb-3 p-2  rounded-pill bg-danger precio">
-              {pedido.entrega === false ? "Pendiente" : "Entregado" }
-              </span>
+              
            
               
             </div>
