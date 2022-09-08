@@ -42,7 +42,7 @@ export const traer = async (area) => {
 export const actualizar = async (area, productoselecionado) => {
 
   const response = await fetch(
-    `https://hoxton-backend.herokuapp.com/api/${area}/62faad8f697b01919cfa4f75`,
+    `https://hoxton-backend.herokuapp.com/api/${area}/${productoselecionado._id}`,
     {
       method: "PUT",
       body: JSON.stringify({
@@ -61,7 +61,6 @@ export const actualizar = async (area, productoselecionado) => {
     .then((response) => response.json())
     .then((json) => console.log(json));
     location.reload();
-  
 };
 
 /* Actualizar pedido */

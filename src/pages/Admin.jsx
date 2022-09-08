@@ -29,7 +29,7 @@ const Administrador = () => {
   // estado para guardar datos
 
   const [productoSeleccionado, setProductoSeleccionado] = useState({
-    id: "",
+    _id: "",
     img: "",
     nombre: "",
     detalle: "",
