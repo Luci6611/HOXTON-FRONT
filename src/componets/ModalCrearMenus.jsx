@@ -58,6 +58,7 @@ const ModalCrearMenus = (props) => {
               id="categoria"
               form="categoria"        
             >
+               <option >Seleccionar</option>
               <option value="62faa604697b01919cfa4f30">PIZZAS</option>
               <option value="62faa627697b01919cfa4f34">PAPAS</option>
               <option value="62faa63a697b01919cfa4f38">HAMBURGUESAS</option>
@@ -73,6 +74,7 @@ const ModalCrearMenus = (props) => {
               form="disponible"
              
             >
+                <option >Seleccionar</option>
               <option onChange={funcionRecibir} value="false">No disponible</option>
               <option onChange={funcionRecibir} value="true">disponible</option>
             </select>

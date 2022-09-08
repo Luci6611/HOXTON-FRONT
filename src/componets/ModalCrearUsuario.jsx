@@ -50,9 +50,11 @@ const ModalCrearUsuario = (props) => {
                   onChange={changeUsuario}
                   value={menus.role}
                 >
+                    <option >Seleccionar</option>
                   <option value="ADMIN_ROLE">administrador</option>
                   <option value="USER_ROLE">usuario</option>
                 </select>
+                
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="password"

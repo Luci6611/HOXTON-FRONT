@@ -70,6 +70,7 @@ const ModalActualizarmenus = (props) => {
               onChange={funcionRecibir}
               value={menus.estado}
             >
+                <option >Seleccionar</option>
               <option value="false">No disponible</option>
               <option value="true">disponible</option>
             </select>
