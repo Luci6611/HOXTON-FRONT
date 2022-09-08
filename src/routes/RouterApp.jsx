@@ -20,10 +20,15 @@ const RouterApp = () => {
       <Navegacion/>
 
       <Routes>
-       
+
+        
+
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/Registro" element={<Registro />} />
-        <Route path="/Admi" element={<Admin/>} />
+        <Route path="/Admi" element={<ProtectedRoutes>
+                                      <Admin/>
+                                      </ProtectedRoutes>
+                          } />
         <Route path="/Menus" element={<Menus/>} />
         <Route path="/Pedidos" element={ <ProtectedRoutes>
                                          <Pedidos/>

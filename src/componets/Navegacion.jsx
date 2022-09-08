@@ -63,6 +63,9 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/Contacto">
                   Contacto
                 </NavLink>
+                <NavLink className="nav-link" to="/Admi">
+                  Administrador
+                </NavLink>
               </Nav>
               <Form className="d-flex align-items-center ">
                 <Form.Control
