@@ -49,14 +49,8 @@ import favicon from "../assets/favicon_(1).ico";
                         <img className="foto" src={nicolas} alt="Nico"/>
                         <h3>Nicolas Morales</h3>
                     </div>
-                    <div className="carta">
-                        <img className="foto" src={roman} alt="Roman"/>
-                        <h3>Roman Alvarez</h3>
-                    </div>
-                    <div className="carta">
-                        <img className="foto" src={sol} alt="Sol"/>
-                        <h3>Sol Dahud</h3>
-                    </div>
+                  
+                 
                     <div className="carta">
                         <img className="foto" src={carlos} alt="Carlos"/>
                         <h3>Carlos Molina</h3>

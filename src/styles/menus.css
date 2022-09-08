@@ -1,8 +1,41 @@
+.fila-titulo{
+text-align: center;
+}
+.contenedor-menus{
+  padding: 0%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.fila-menus{
+width: 100%;
+
+}
+.columnas-menus{
+  display: flex;
+  justify-content: center;
+}
+
 .precio{
     margin-left: 9px;
   
 }
+.menus-detalle{
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ddd;
+  text-shadow: 1px 1px 1px #000;
+}
+.menus-titulo{
+  color: #fff;
+  text-shadow: 3px 3px 3px #000;
+}
 .nombre-menu{
     text-align: center  ;
   text-shadow: 3px 2px 5px #000;
+}
+.botones-de-menus{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

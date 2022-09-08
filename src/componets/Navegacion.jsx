@@ -73,8 +73,8 @@ function Navegacion() {
                 />{" "}
                  <Link to="*">
                 <BsSearch className="text-light icons " /></Link>
-                <Link to="*">   
-                <BsCart4 className="text-light icons " /></Link>
+                {/* <Link to="*">   
+                <BsCart4 className="text-light icons " /></Link> */}
                       <Link to="/login">
                <BsFillPersonFill  className="text-light icons"/></Link>
                <Link  to="/Registro">
