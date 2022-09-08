@@ -4,12 +4,14 @@ import Card from "react-bootstrap/Card";
 import Placeholder from "react-bootstrap/Placeholder";
 import "../styles/carousel-cards.css";
 import { homeProducts } from "../helpers/homeProducts";
+import { useNavigate } from "react-router-dom";
 import "axios";
 
 const CarouselCards = () => {
   const [productos, setProductos] = useState([]);
   const [papas, setPapas] = useState([]);
   const [hamburguesas, setHamburguesas] = useState([]);
+  const navigate = useNavigate();
 
   const cambiar = async () => {
     /* pizzas */
@@ -55,9 +57,9 @@ const CarouselCards = () => {
                  <h5 className="card-title">{producto.nombre}</h5>
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
-                 <a href="#" className="btn btn-danger">
-                  Hacer Pedido
-                 </a>
+                 <button  onClick={()=> navigate("/menus")}  className="btn btn-danger my-3">
+                  Ver menus
+                 </button>
                </div>
              </Card>
               
@@ -79,9 +81,9 @@ const CarouselCards = () => {
                  <h5 className="card-title">{producto.nombre}</h5>
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
-                 <a href="#" className="btn btn-danger">
-                 Hacer Pedido
-                 </a>
+                 <button  onClick={()=> navigate("/menus")}  className="btn btn-danger my-3">
+                  Ver menus
+                 </button>
                </div>
              </Card>
               
@@ -102,9 +104,9 @@ const CarouselCards = () => {
                  <h5 className="card-title">{producto.nombre}</h5>
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
-                 <a href="#" className="btn btn-danger">
-                 Hacer Pedido
-                 </a>
+                 <button onClick={()=> navigate("/menus")}  className="btn btn-danger my-3">
+                  Ver menus
+                 </button>
               </div>
              </Card>
          ))} 
