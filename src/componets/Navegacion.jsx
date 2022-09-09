@@ -24,10 +24,13 @@ function Navegacion() {
   /*  funcion verificar usuario Administrador */
 
   const verificarAuth = async () => {
- 
+    setInterval(() => {
     let datos = usuarios.usuario;
-    console.log(usuariosRecibidos.role)
-     setusuariosRecibidos(datos)
+    console.log(datos)
+   
+      setusuariosRecibidos(datos)
+    }, 1000);
+     
    }
 
 
