@@ -13,7 +13,7 @@ export const login = async (datos) => {
   });
   const data = await response.json();
   usuarios.usuario=data.usuario;
-  console.log(data)
+  console.log(usuarios)
 
   return data;
 };

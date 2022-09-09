@@ -26,7 +26,7 @@ function Navegacion() {
   const verificarAuth = async () => {
  
     let datos = usuarios.usuario;
-    console.log(datos.role)
+    console.log(usuariosRecibidos.role)
      setusuariosRecibidos(datos)
    }
 
@@ -85,7 +85,7 @@ function Navegacion() {
                 </NavLink>
 
                  {
-                  usuariosRecibidos.role === "ADMIN_ROLE"  ? <NavLink className="nav-link" to="/Admi">  Administrador  </NavLink>: 
+                  usuariosRecibidos.role == "ADMIN_ROLE"  ? <NavLink className="nav-link" to="/Admi">  Administrador  </NavLink>: 
                     <NavLink className="nav-link d-none" to="/Admi">
                     Administrador
                   </NavLink>
