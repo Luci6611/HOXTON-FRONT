@@ -26,13 +26,12 @@ function Navegacion() {
     let recibirUsuario = await usuario();
     let emailUsuarios = recibirUsuario.usuarios;
     setusuariosRecibidos(emailUsuarios)
-    console.log(emailUsuarios.email)
   }
 
 
   useEffect(() => {
     verificarUsuario();
-  }, [usuariosRecibidos]);
+  }, []);
 
   return (
     <>
@@ -87,12 +86,12 @@ function Navegacion() {
                 ) : (
                 
                 )}  */}
-                {usuariosRecibidos.map((element) => (
-                  element.email == login && element.role == "ADMIN_ROLE" ? <NavLink className="nav-link d-none" to="/Admi">  Administrador  </NavLink>: 
+                {
+                  usuariosRecibidos.includes(login)  &&  usuariosRecibidos.includes("Admi_rol")  ? <NavLink className="nav-link d-none" to="/Admi">  Administrador  </NavLink>: 
                     <NavLink className="nav-link " to="/Admi">
                     Administrador
                   </NavLink>
-                  ))}
+                  }
 
               </Nav>
               <Form className="d-flex align-items-center ">
