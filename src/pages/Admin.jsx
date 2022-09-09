@@ -55,7 +55,7 @@ const Administrador = () => {
   });
 
   const [usuariosSelecionados, setusuariosSelecionados] = useState({
-    _id:"",
+    userId:"",
     nombre: "",
     role: "",
     email: "",
@@ -110,7 +110,7 @@ const Administrador = () => {
   // funcion para inactivar menus
 
   const menusDelete = (area,id) => {
-    eliminar("menus", id);
+    eliminar(area, id);
     alert("menu eliminado correctamente");
   };
 
@@ -317,7 +317,7 @@ const Administrador = () => {
       {/* Modal Eliminar */}
 
       <ModalEliminarMenus menus={productoSeleccionado._id} eliminar={menusDelete}  cerrar={closeEliminar} showMenu={showEliminar} setMenu={setshowEliminar}/>
-      <ModalEliminarUsuarios usuarios={usuariosSelecionados._id} eliminar={usuariosDelete} cerrar={closeEliminarusuarios} showUsuario={showEliminarUsuario} setUsuario={setshowEliminarUsuario}/>
+      <ModalEliminarUsuarios usuarios={usuariosSelecionados.userId} eliminar={usuariosDelete} cerrar={closeEliminarusuarios} showUsuario={showEliminarUsuario} setUsuario={setshowEliminarUsuario}/>
 
       {/* Modal CREAR Menu */}
 

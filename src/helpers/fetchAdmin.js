@@ -12,7 +12,7 @@ export const eliminar = async (area, id) => {
     `https://hoxton-backend.herokuapp.com/api/${area}/${id}`,
     {
       method: "DELETE",
-      headers: {
+      headers:  {
         "Content-type": "application/json; charset=UTF-8",
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
@@ -22,6 +22,7 @@ export const eliminar = async (area, id) => {
     .then((json) => console.log(json));
 
   location.reload(true);
+ 
   return response;
 };
 
