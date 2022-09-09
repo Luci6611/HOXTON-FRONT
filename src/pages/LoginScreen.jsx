@@ -13,15 +13,13 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState([]);
-   
-  
+
 
   const handleSubmit = async (e) => {
    
     e.preventDefault();
     const datos = await login({ email, password });
-     
-      
+
     if (datos?.token) {
       localStorage.setItem("token", JSON.stringify(datos.token)); 
 

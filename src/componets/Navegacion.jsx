@@ -14,22 +14,20 @@ import { NavLink, Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "../styles/style.css";
 
-import { login } from "../helpers/fetchAuth";
+import { login, usuarios } from "../helpers/fetchAuth";
 
 
 function Navegacion() {
 
-  const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
-
+   const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
+ 
  
   const verificarAuth = async () => {
-    const datos = await login({ email, password });
-    let roleUno =  recibirUsuario.usuario
  
-    let emailUsuarios = recibirUsuario
-    console.log(emailUsuarios);
-    setusuariosRecibidos(emailUsuarios)
-  }
+    let datos = usuarios.usuario;
+    console.log(usuariosRecibidos.role)
+     setusuariosRecibidos(datos)
+   }
 
 
   useEffect(() => {
@@ -84,17 +82,13 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/Contacto">
                   Contacto
                 </NavLink>
-                {/*    {usuario === false ? (
-                  
-                ) : (
-                
-                )}  */}
-                {/* {
-                  usuariosRecibidos.includes(login)  &&  usuariosRecibidos.role == "ADMIN_ROLE"  ? <NavLink className="nav-link d-none" to="/Admi">  Administrador  </NavLink>: 
-                    <NavLink className="nav-link " to="/Admi">
+
+                 {
+                  usuariosRecibidos.role === "ADMIN_ROLE"  ? <NavLink className="nav-link" to="/Admi">  Administrador  </NavLink>: 
+                    <NavLink className="nav-link d-none" to="/Admi">
                     Administrador
                   </NavLink>
-                  } */}
+                  } 
 
               </Nav>
               <Form className="d-flex align-items-center ">
