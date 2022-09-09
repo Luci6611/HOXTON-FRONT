@@ -1,4 +1,7 @@
+
 const url = "https://hoxton-backend.herokuapp.com/api/auth/login";
+export const usuarios = {usuario:""};
+
 
 export const login = async (datos) => {
   const response = await fetch(url, {
@@ -9,6 +12,8 @@ export const login = async (datos) => {
     },
   });
   const data = await response.json();
+  usuarios.usuario=data.usuario;
+  console.log(usuarios)
 
   return data;
 };

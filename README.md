@@ -1,70 +1,218 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+####  PROYECTO RESTAURANTE HOXTON 
 
-## Available Scripts
 
-In the project directory, you can run:
+#### Referencias a la api
 
-### `npm start`
+#### para levantar el proyecto tanto en el back como en el front se usa el comando:
+**npm run dev**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+#### TRAER TODOS LOS USUARIOS
+#### URL: https://hoxton-backend.herokuapp.com/
+```
+  GET: ${URL}/api/usuarios
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `jwt` | **Requerido**. necesitas un token |
+| `role` | `ADMIN_ROLE` |**Requerido** tener el rol de admin
+ |
 
-### `npm run build`
+#### CREAR USUARIOS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+ POST: ${URL}/api/usuarios
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ 
+#### Parametros a pasar
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `nombre` | `string` | **Requerido**. el nombre es obligatorio |
+| `email` | `string` |**Requerido** **unico**  el email debe ser unico y es obligatorio
+| `password` | `string` | **Requerido**. la contraseña es obligatorio |
+| `role` | `string` | el rol default es: **USER_ROLE** (usuario) aunque tambien se encuentra el **ADMIN_ROLE** (administrador)
+| `estado` | `Boolean` | **el valor default** : es **true** (significa que esto esta activado) pero tambien puedes poner **false** que es inactivado
 
-### `npm run eject`
+#### ACTUALIZAR USUARIO
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+  PUT: ${URL}/api/usuarios/${id}
+```
+#### Parametro **obligatorio**:
+| Parameter | Description                
+| :-------- | :------- | 
+| `_id` |  `se debe tomar el id del usuario que se quiere actualizar`  | 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Parametros a pasar
+| Parameter | Type     |          
+| :-------- | :------- | 
+| `nombre` | `string` | 
+| `email` | `string` |
+| `password` | `string` |
+| `role` | `string` | 
+| `estado` | `Boolean` | 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### INACTIVAR USUARIO
 
-## Learn More
+```
+  DELETE: ${URL}/api/usuarios/${id}
+```
+#### Parametro **obligatorio**:
+| Parameter | Description                
+| :-------- | :------- | 
+| `_id` |  `se debe tomar el id del usuario que se quiere inactivar`  | 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### AUTENTIFICACION DE USUARIOS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### URL: https://hoxton-backend.herokuapp.com/
+```
+  ruta: ${URL}/api/auth/login
+  ```
 
-### Code Splitting
+#### Parametros a pasar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Parameter | Type     |          
+| :-------- | :------- |  
+| `email` | `es necesario el email para la autentificacion` |
+| `password` | `es necesaria una contraseña para la auntentificacion` |
 
-### Analyzing the Bundle Size
+#### TRAER TODOS LOS MENUS  
+#### URL: https://hoxton-backend.herokuapp.com/
+```
+  GET: ${URL}/api/menus
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+ **para traer los menus no es necesario el token (estar logueado)**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+#### TRAER UN MENU  
+#### URL: https://hoxton-backend.herokuapp.com/
+```
+  GET: ${URL}/api/menus/${id}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+ **para traer los menus  **es necesario** pasar el id  del menu**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### CREAR MENU
+
+```
+ POST: ${URL}/api/menus
+```
+**NECESARIO:**
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `jwt` | **Requerido**. necesitas un token |
+| `role` | `ADMIN_ROLE` |**Requerido** tener el rol de admin
+ 
+
+
+ 
+#### Parametros a pasar
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `nombre` | `string` | **Requerido**. el nombre es obligatorio |
+| `precio` | `number` |**opcional**   
+| `categoria` | `id` | **Requerido**.   se debe pasar el id de la categoria que se desee (es obligatorio) |
+| `detalle` | `string` | **opcional** es opcional pasar el detalle (una descripcion del producto)
+| `img` | `string` |  **opcional** (imagen del menu)
+
+#### ACTUALIZAR MENU
+
+```
+  PUT: ${URL}/api/menus/${id}
+```
+#### Parametro **obligatorio**:
+| Parameter | Description                
+| :-------- | :------- | 
+| `_id` |  `se debe tomar el id del menu que se quiere actualizar`  | 
+| `token` | `jwt` | **Requerido**. necesitas un token |
+| `role` | `ADMIN_ROLE` |**Requerido** tener el rol de admin
+ 
+
+
+#### Parametros a pasar
+| Parameter | Type     |          
+| :-------- | :------- | 
+| `nombre` | `string` | 
+| `precio` | `number` |
+| `categoria` | `id` |
+|`detalle` | `string` | 
+| `img` | `string` | 
+
+
+#### INACTIVAR USUARIO
+
+```
+  DELETE: ${URL}/api/menus/${id}
+```
+#### Parametro **obligatorio**:
+| Parameter | Description                
+| :-------- | :------- | 
+| `_id` |  `se debe tomar el id del menu que se quiere inactivar`  | 
+
+#### TRAER TODOS LOS PEDIDOS
+#### URL: https://hoxton-backend.herokuapp.com/
+```
+  GET: ${URL}/api/pedidos
+```
+**requerido:**
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `jwt` | **Requerido**. necesitas un token para ver los pedidos|
+
+ #### CREAR PEDIDO
+
+```
+ POST: ${URL}/api/pedidos
+```
+**NECESARIO:**
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `jwt` | **Requerido**. necesitas un token para crear un pedido |
+ 
+ 
+
+#### Parametros a pasar
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `menu` | `_id` | **Requerido**.   se debe pasar el id del menu del que se desee hacer un pedido (es obligatorio) |
+ 
+ #### ACTUALIZAR PEDIDO
+
+```
+  PUT: ${URL}/api/pedidos/${id}
+```
+#### Parametro **obligatorio**:
+| Parameter | Description                
+| :-------- | :------- | 
+| `_id` |  `se debe tomar el id del pedido que se quiere actualizar`  | 
+| `token` | `jwt` | **Requerido**. necesitas un token |
+| `role` | `ADMIN_ROLE` |**Requerido** tener el rol de admin
+ 
+
+#### Parametros a pasar
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `entrega` | `boolean` | pasar la entrega que en **default es: false** ,es para actualizar si el pedido esta **pendiente( false ) o entregado (true)**  |
+
+#### INACTIVAR PEDIDO
+
+```
+  DELETE: ${URL}/api/pedidos/${id}
+```
+#### Parametro **obligatorio**:
+| Parameter | Description                
+| :-------- | :------- | 
+| `_id` |  `se debe tomar el id del pedido que se quiere inactivar`  | 
+
+#### autores: **luciano rivera**, **nicolas morales** , **carlos molina**

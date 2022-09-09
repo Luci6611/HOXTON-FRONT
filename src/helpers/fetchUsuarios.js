@@ -14,3 +14,18 @@ export const crearUsuario = async (datos) => {
   return data;
   
 };
+
+export const usuario = async () => {
+  const resp = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      Authorization: JSON.parse(localStorage.getItem("token")),
+    },
+  });
+
+  const data = await resp.json();
+
+  return data;
+  
+};

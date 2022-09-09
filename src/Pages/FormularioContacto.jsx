@@ -66,17 +66,18 @@ import favicon from "../assets/favicon_(1).ico";
       <meta charSet="utf-8" />
       <link rel="shortcut icon" href={favicon} type="image/x-icon" />
     
-      <title>Registro</title>
+      <title>Contacto</title>
     </Helmet>
-        <div> 
-        <h2> Formulario de contacto</h2>
-        <form action="" onSubmit={handlerOnSubmit} className="FormFormulario">
+        <div className="container-contact"> 
+        <h2>Contactanos</h2>
+        <form  action="https://formsubmit.co/hoxtonrestaurante2022@gmail.com" method="post" className="FormFormulario">
         
-        <input className='inputContact' type="text" onChange={handlerNameOnChange} placeholder="Nombre" required/>
-        <input className='inputContact' type="email" onChange={handlerMailOnChange} placeholder="E-Mail" required/>
-        <input className='inputContact' type="text" onChange={handlerIssueOnChange} placeholder="Asunto" required/>
+        <input className='inputContact' maxLength={12} minLength={4} placeholdertype="text" onChange={handlerNameOnChange} placeholder="Nombre" required/>
+        <input className='inputContact' maxLength={30} placeholdertype="email" onChange={handlerMailOnChange} placeholder="E-Mail" required/>
 
-        <textarea className='inputContact' onChange={handlerIssueTextOnChange} placeholder="Por favor, escriba su mensaje" required/>
+        <input className='inputContact' maxLength={20} type="text" onChange={handlerIssueOnChange} placeholder="Asunto" required/>
+
+        <textarea className='inputContact' maxLength={300} onChange={handlerIssueTextOnChange} placeholder="Por favor, escriba su mensaje" required/>
         <button>
             <div className="svg-wrapper-1">
               <div className="svg-wrapper">

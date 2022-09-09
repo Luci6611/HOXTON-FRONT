@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Placeholder from "react-bootstrap/Placeholder";
 import "../styles/carousel-cards.css";
 import { homeProducts } from "../helpers/homeProducts";
+import { Navigate,useNavigate } from "react-router-dom";
 import "axios";
 
 const CarouselCards = () => {
@@ -29,17 +30,18 @@ const CarouselCards = () => {
   useEffect(() => {
     setTimeout(() => {
       cambiar();
-    }, 5000);
+    }, 2000);
     
   }, []);
-
+  const navigate = useNavigate();
   return (
-
+   
     <>
     <div>
+      <h1 className="card__vendido">Lo mas Vendido</h1>
     {productos.length > 0  ?
      <>
-      <h1 className="text-light text-center">Pizzas</h1>
+      <h2 className="text-light text-center">Pizzas</h2>
        <div className="cards-wrapper item ">
       
          {productos.map((producto) => (
@@ -54,9 +56,9 @@ const CarouselCards = () => {
                  <h5 className="card-title">{producto.nombre}</h5>
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
-                 <a href="#" className="btn btn-danger">
-                   añadir al carrito
-                 </a>
+                 <button onClick={()=>navigate("/menus")}    className="btn btn-danger my-2">
+                      Ver en menus 
+                 </button>
                </div>
              </Card>
               
@@ -64,7 +66,7 @@ const CarouselCards = () => {
          
        </div>
       
-       <h1 className="text-light text-center">Papas</h1>
+       <h2 className="text-light text-center">Papas</h2>
        <div className="cards-wrapper item ">
          {papas.map((producto) => (
              
@@ -78,16 +80,16 @@ const CarouselCards = () => {
                  <h5 className="card-title">{producto.nombre}</h5>
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
-                 <a href="#" className="btn btn-danger">
-                   añadir al carrito
-                 </a>
+                 <button onClick={()=>navigate("/menus")}    className="btn btn-danger my-2">
+                      Ver en menus 
+                 </button>
                </div>
              </Card>
               
           ))}
          
        </div>
-       <h1 className="text-light text-center">Hamburguesas</h1>
+       <h2 className="text-light text-center">Hamburguesas</h2>
        <div className="cards-wrapper item ">
          {hamburguesas.map((producto) => (
              
@@ -101,17 +103,15 @@ const CarouselCards = () => {
                  <h5 className="card-title">{producto.nombre}</h5>
                  <p className="card-text">{producto.detalle}</p>
                  <h5 className="card-title">$ {producto.precio}</h5>
-                 <a href="#" className="btn btn-danger">
-                   añadir al carrito
-                 </a>
+                 <button onClick={()=>navigate("/menus")}  className="btn btn-danger my-2">
+                      Ver en menus 
+                 </button>
               </div>
              </Card>
          ))} 
        </div> 
     </>
-    
     :
-      
     <div className="d-flex justify-content-around placeholder" >
     <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />

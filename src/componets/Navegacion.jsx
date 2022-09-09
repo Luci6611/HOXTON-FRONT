@@ -1,17 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
-import { BsSearch } from "react-icons/bs";
-import {BsCart4} from "react-icons/bs";
-import { NavLink } from "react-router-dom";
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import "../styles/Navegacion.css";
+/* import { BsSearch } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs"; */
+import { BsFillPersonFill } from "react-icons/bs";
+import { BsPersonPlusFill } from "react-icons/bs";
+import { NavLink, Link } from "react-router-dom";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import "../styles/style.css";
+import {  usuarios } from "../helpers/fetchAuth";
+import Administrador from "../pages/Admin";
+
 
 function Navegacion() {
+
+   const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
+ 
+  /*  funcion verificar usuario Administrador */
+
+  const verificarAuth = async () => {
+    setInterval(() => {
+    let datos = usuarios.usuario;
+    console.log(datos)
+   
+      setusuariosRecibidos(datos)
+    }, 1000);
+     
+   }
+
+
+  useEffect(() => {
+    verificarAuth();
+  }, []);
+
   return (
     <>
       <Header />
@@ -23,7 +49,7 @@ function Navegacion() {
         className=" nav mb-3"
       >
         <Container className="d-flex">
-          <Navbar.Brand>
+          <Navbar.Brand href="/">
             <img
               src={logo}
               width="130"
@@ -36,9 +62,9 @@ function Navegacion() {
             id="offcanvasNavbar-expand-sm"
             aria-labelledby="offcanvasNavbarLabel-expand-sm"
             placement="end"
-            className='bg-dark text-light '
+            className="bg-dark text-light "
           >
-            <Offcanvas.Header closeButton >
+            <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-sm">
                 Menu
               </Offcanvas.Title>
@@ -51,24 +77,35 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/Menus">
                   Menus
                 </NavLink>
+                <NavLink className="nav-link" to="/Pedidos">
+                  Pedidos
+                </NavLink>
                 <NavLink className="nav-link" to="/About">
                   Nosotros
                 </NavLink>
                 <NavLink className="nav-link" to="/Contacto">
                   Contacto
                 </NavLink>
+
+                 {
+                  usuariosRecibidos.role == "ADMIN_ROLE"  ? <NavLink className="nav-link" to="/Admi">  Administrador  </NavLink>: 
+                    <NavLink className="nav-link d-none" to="/Admi">
+                    Administrador
+                  </NavLink>
+                  } 
+
               </Nav>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Buscar"
-                  className="me-2"
-                  aria-label="Search"
-                />{" "}
-                <BsSearch className="text-light icons " />
-                <BsCart4 className="text-light icons " />
+              <Form className="d-flex align-items-center ">
+
+                {/* <Link to="*">   
+                <BsCart4 className="text-light icons " /></Link> */}
+                <Link to="/login">
+                  <BsFillPersonFill className="text-light icons" />
+                </Link>
+                <Link to="/Registro">
+                  <BsPersonPlusFill className="text-light icons " />
+                </Link>{" "}
               </Form>
-              
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
