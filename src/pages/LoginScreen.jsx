@@ -2,24 +2,29 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate, Link } from "react-router-dom";
 import favicon from "../assets/favicon_(1).ico";
+import Navegacion from "../componets/Navegacion";
 import { login } from "../helpers/fetchAuth";
 
 
-const LoginScreen = () => {
-  const navigate = useNavigate();
 
+const LoginScreen = () => {
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState([]);
+   
   
 
   const handleSubmit = async (e) => {
+   
     e.preventDefault();
-    // const datos = await login({ email, password });
     const datos = await login({ email, password });
-
+      localStorage.setItem("correo", JSON.stringify(email));
+      console.log(email)
     if (datos?.token) {
-      localStorage.setItem("token", JSON.stringify(datos.token));
+      localStorage.setItem("token", JSON.stringify(datos.token)); 
+
       console.log(datos.token);
       navigate("/");
     } else {

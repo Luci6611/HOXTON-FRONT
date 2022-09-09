@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,15 +6,34 @@ import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
 import "../styles/Navegacion.css";
-import { BsSearch } from "react-icons/bs";
-import { BsCart4 } from "react-icons/bs";
+/* import { BsSearch } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs"; */
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { NavLink, Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "../styles/style.css";
+import { usuario } from "../helpers/fetchUsuarios";
+
 
 function Navegacion() {
+
+  const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
+
+  const login = JSON.parse(localStorage.getItem("correo"));
+
+  const verificarUsuario = async () => {
+    let recibirUsuario = await usuario();
+    let emailUsuarios = recibirUsuario.usuarios;
+    setusuariosRecibidos(emailUsuarios)
+    console.log(emailUsuarios.email)
+  }
+
+
+  useEffect(() => {
+    verificarUsuario();
+  }, [usuariosRecibidos]);
+
   return (
     <>
       <Header />
@@ -63,19 +82,21 @@ function Navegacion() {
                 <NavLink className="nav-link" to="/Contacto">
                   Contacto
                 </NavLink>
-                {/* {pedido.entrega === false ? (
-                  <NavLink className="nav-link d-none" to="/Admi">
+                {/*    {usuario === false ? (
+                  
+                ) : (
+                
+                )}  */}
+                {usuariosRecibidos.map((element) => (
+                  element.email == login && element.role == "ADMIN_ROLE" ? <NavLink className="nav-link d-none" to="/Admi">  Administrador  </NavLink>: 
+                    <NavLink className="nav-link " to="/Admi">
                     Administrador
                   </NavLink>
-                ) : (
-                  <NavLink className="nav-link " to="/Admi">
-                  Administrador
-                </NavLink>
-                )} */}
+                  ))}
 
               </Nav>
               <Form className="d-flex align-items-center ">
-                
+
                 {/* <Link to="*">   
                 <BsCart4 className="text-light icons " /></Link> */}
                 <Link to="/login">
