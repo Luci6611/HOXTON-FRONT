@@ -13,24 +13,27 @@ import { BsPersonPlusFill } from "react-icons/bs";
 import { NavLink, Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "../styles/style.css";
-import { usuario } from "../helpers/fetchUsuarios";
+
+import { login } from "../helpers/fetchAuth";
 
 
 function Navegacion() {
 
   const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
 
-  const login = JSON.parse(localStorage.getItem("correo"));
-
-  const verificarUsuario = async () => {
-    let recibirUsuario = await usuario();
-    let emailUsuarios = recibirUsuario.usuarios;
+ 
+  const verificarAuth = async () => {
+    const datos = await login({ email, password });
+    let roleUno =  recibirUsuario.usuario
+ 
+    let emailUsuarios = recibirUsuario
+    console.log(emailUsuarios);
     setusuariosRecibidos(emailUsuarios)
   }
 
 
   useEffect(() => {
-    verificarUsuario();
+    verificarAuth();
   }, []);
 
   return (
@@ -86,12 +89,12 @@ function Navegacion() {
                 ) : (
                 
                 )}  */}
-                {
-                  usuariosRecibidos.includes(login)  &&  usuariosRecibidos.includes("Admi_rol")  ? <NavLink className="nav-link d-none" to="/Admi">  Administrador  </NavLink>: 
+                {/* {
+                  usuariosRecibidos.includes(login)  &&  usuariosRecibidos.role == "ADMIN_ROLE"  ? <NavLink className="nav-link d-none" to="/Admi">  Administrador  </NavLink>: 
                     <NavLink className="nav-link " to="/Admi">
                     Administrador
                   </NavLink>
-                  }
+                  } */}
 
               </Nav>
               <Form className="d-flex align-items-center ">

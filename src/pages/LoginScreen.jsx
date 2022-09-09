@@ -20,12 +20,14 @@ const LoginScreen = () => {
    
     e.preventDefault();
     const datos = await login({ email, password });
-      localStorage.setItem("correo", JSON.stringify(email));
-      console.log(email)
+     
+      
     if (datos?.token) {
       localStorage.setItem("token", JSON.stringify(datos.token)); 
 
       console.log(datos.token);
+      
+
       navigate("/");
     } else {
       if (datos?.errors) {
