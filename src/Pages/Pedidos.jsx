@@ -56,9 +56,9 @@ const Pedidos = () => {
               <h5 className="card-title nombre-menu__pedido ">{pedido.menu.nombre}</h5>
             
               <p className="card-text usuario__pedido">Cliente: {pedido.usuario.nombre}</p>
-              <p className="card-text  usuario__pedido "> identificacion:{pedido.usuario.userId}</p>
+              <p className="card-text  usuario__pedido "> identificacion: {pedido.usuario.userId}</p>
 
-              <p className="card-text  usuario__pedido">Horario:{Date(pedido.fecha)}</p>
+              <p className="card-text  usuario__pedido">Horario: {pedido.fecha.split("T",1)}</p>
               <p className="card-text  usuario__pedido ">Precio: ${pedido.menu.precio}</p>
               
               {pedido.entrega === false ?  <span className="badge mb-3 p-2  rounded-pill bg-danger precio">Pendiente</span> :  <span className="badge mb-3 p-2  rounded-pill bg-success precio">Entregado</span> }

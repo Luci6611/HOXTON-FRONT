@@ -13,19 +13,20 @@ import { BsPersonPlusFill } from "react-icons/bs";
 import { NavLink, Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "../styles/style.css";
-
-import { login, usuarios } from "../helpers/fetchAuth";
+import {  usuarios } from "../helpers/fetchAuth";
+import Administrador from "../pages/Admin";
 
 
 function Navegacion() {
 
    const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
  
- 
+  /*  funcion verificar usuario Administrador */
+
   const verificarAuth = async () => {
  
     let datos = usuarios.usuario;
-    console.log(usuariosRecibidos.role)
+    console.log(datos.role)
      setusuariosRecibidos(datos)
    }
 

@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 import ModalCrearMenus from "../componets/ModalCrearMenus";
 import ModalActualizarmenus from "../componets/ModalActualizarmenus";
 import ModalCrearUsuario from "../componets/ModalCrearUsuario";
+import { Helmet } from "react-helmet";
 
 
 const Administrador = () => {
@@ -127,6 +128,11 @@ const Administrador = () => {
   
   return (
     <>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Administracion</title>
+            </Helmet>
+
       {/* inicio de la tabla menus */}
       <NavAdmin />
       <div className="table-responsive-lg">
@@ -170,11 +176,11 @@ const Administrador = () => {
                     <th>
                       <button
                         onClick={() => actualizarDatos(producto)}
-                        className="btn btn-primary "
+                        className="btn btn-primary botones_tablas"
                       >
                         actualizar
                       </button>
-                      <button onClick={menusDelete} id={producto._id}  className="btn btn-danger">
+                      <button onClick={menusDelete} id={producto._id}  className="btn btn-danger .botones_tablas">
                         eliminar
                       </button>
                     </th>
@@ -269,9 +275,9 @@ const Administrador = () => {
               {pedidos.map((pedido) => (
                 <>
                   <tr key={pedido.id}>
-                    <th className="intro-celda">{Date(pedido.fecha)}</th>
+                    <th className="intro-celda">{pedido.fecha.split("T",1)}</th>
                     <th className="intro-celda">{pedido.menu.nombre}</th>
-                    <th className="intro-celda">{pedido.menu.precio}</th>
+                    <th className="intro-celda">${pedido.menu.precio}</th>
                     <th className="intro-celda">{pedido.usuario.nombre}</th>
                     <th className="intro-celda">{pedido.usuario.userId}</th>
                     <th className="intro-celda">

@@ -26,7 +26,22 @@ table img {
 .titulo__seccion{
   text-shadow: 3px 3px 3px #000;
 }
+
+/* botones tablas */
+
+.btn{
+  width: 6em;
+}
+.botones_tablas{
+  margin: 5px 0 0;
+}
+
+.btn-danger{
+  margin-top: 1rem;
+}
+
 /* navegacion entre administracion */
+
 .nav-admin__cont{
   width: 300px;
   border-radius: 5px;
@@ -58,6 +73,7 @@ table img {
   font-size: 1.4rem;
   transition: all .2s;
 }
+
 /* Modal */
 
 .modal .btn-close{
