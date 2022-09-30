@@ -73,8 +73,6 @@ const Administrador = () => {
 
   const actualizarDatos = (datos) => {
     setProductoSeleccionado(datos);
-   
-    alert("menu actualizado correctamente");
      abrirCerrarModalEditar();
   };
 

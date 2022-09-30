@@ -62,6 +62,7 @@ export const actualizar = async (area, productoselecionado) => {
     .then((response) => response.json())
    
     location.reload();
+    alert("menu actualizado correctamente");
 };
 
 

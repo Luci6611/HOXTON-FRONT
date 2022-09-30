@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
-import "../styles/Navegacion.css";
+
 
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsPersonPlusFill } from "react-icons/bs";
