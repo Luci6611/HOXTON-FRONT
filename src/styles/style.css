@@ -22,7 +22,7 @@ li {
 body {
   background-color: var(--fondo__pagina);
 }
-/* nav*/
+
 
 .header {
   color: var(--color__letra);
@@ -34,7 +34,7 @@ body {
 }
 
 .nav {
-  background-color: /* var(--fondo__menus) */ #313030;
+  background-color:  #313030;
   justify-content: space-evenly;
 }
 
@@ -81,21 +81,21 @@ nav input , .icons {
   
 }
 
-/* error */
+
 
 .error {
   margin: 0 28% 0;
   max-width: 50% ;
 }
 
-/* footer */
+
 
 .footer__container{
   width: 100%;
   height: 1.5rem;
 }
 
-/* medias querys home */
+
 
 @media (max-width: 800px) {
 

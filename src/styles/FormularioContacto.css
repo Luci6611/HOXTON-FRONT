@@ -36,7 +36,7 @@ input, textarea{
     outline: none;
     border: none;
     background-color: rgba(0,0,0,0.2);
-    /* color: white; */
+
     
 }::placeholder {
     color: white;

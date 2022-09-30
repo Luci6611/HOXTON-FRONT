@@ -18,7 +18,7 @@ const Pedidos = () => {
 
   const cargarPedidos = async () => {
     const { pedidos, total } = await traerPedidos(registro);
-    console.log(pedidos);
+  
     setPedidos(pedidos);
     setTotal(total);
   };

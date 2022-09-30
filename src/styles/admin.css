@@ -27,7 +27,7 @@ table img {
   text-shadow: 3px 3px 3px #000;
 }
 
-/* botones tablas */
+
 
 .btn{
   width: 6em;
@@ -40,7 +40,7 @@ table img {
   margin-top: 1rem;
 }
 
-/* navegacion entre administracion */
+
 
 .nav-admin__cont{
   width: 300px;
@@ -74,13 +74,12 @@ table img {
   transition: all .2s;
 }
 
-/* Modal */
+
 
 .modal .btn-close{
   color: white;
 }
 
-/*  mobile*/
 
 @media (max-width: 768px) {
  table  {

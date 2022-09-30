@@ -4,7 +4,7 @@ const admin = axios.create({
   baseURL: "https://hoxton-backend.herokuapp.com/api/",
 });
 
-/* Funcion eliminar */
+
 
 export const eliminar = async (area, id) => {
 
@@ -19,14 +19,14 @@ export const eliminar = async (area, id) => {
     }
   )
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    
 
   location.reload(true);
  
   return response;
 };
 
-/* Funcion Traer */
+
 
 export const traer = async (area) => {
   const response = await admin.get(`/${area}`, {
@@ -36,9 +36,9 @@ export const traer = async (area) => {
   return response;
 };
 
-/* Funciones Put */
 
-/* Actualizar menus */
+
+
 
 export const actualizar = async (area, productoselecionado) => {
 
@@ -60,11 +60,11 @@ export const actualizar = async (area, productoselecionado) => {
     }
   )
     .then((response) => response.json())
-    .then((json) => console.log(json));
+   
     location.reload();
 };
 
-/* Actualizar pedido */
+
 
 export const actualizarEstado = async (area, id,estadoMenu) => {
 
@@ -82,14 +82,12 @@ export const actualizarEstado = async (area, id,estadoMenu) => {
     }
   )
     .then((response) => response.json())
-    .then((json) => console.log(json));
+   
     location.reload();
   
 };
 
-/* Funciones POST */
 
-  /* crear menus */
 
 export const Crear = async (area, productoselecionado) => {
 
@@ -113,12 +111,12 @@ export const Crear = async (area, productoselecionado) => {
     }
   )
     .then((response) => response.json())
-    .then((json) => console.log(json));
+
     alert("menu dado de alta correctamente");
      location.reload();
 };
 
- /* crear usuarios */
+
 
 export const crearUsuarios = async (area, usuariosSelecionados) => {
 
@@ -139,7 +137,7 @@ export const crearUsuarios = async (area, usuariosSelecionados) => {
     }
   )
     .then((response) => response.json())
-    .then((json) => console.log(json));
+   
     alert("usuario dado de alta correctamente");
    location.reload();
  

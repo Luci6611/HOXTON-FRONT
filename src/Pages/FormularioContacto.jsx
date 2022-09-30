@@ -14,32 +14,7 @@ import favicon from "../assets/favicon_(1).ico";
   async function handlerOnSubmit(e){
     e.preventDefault();
     
-    console.log(form)
-    // try {
-    //   let result = await fetch("PASARME EL ENDPOINT", {
-    //     method: "post",
-    //     //mode: "no-cors",
-    //     headers: {
-    //       accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(form),
-    //   });
 
-    //   let response = await result.json();
-    
-    //   if (response.isError === true) {
-
-    //   }
-    //   else{
-    //     
-    //  }
-        
-      
-    // } catch (error) {
-    //     console.log(error);
-    //   return error;
-    // }
   };
 
   function handlerNameOnChange(e){

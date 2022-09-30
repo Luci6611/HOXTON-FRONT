@@ -16,19 +16,19 @@ const Administrador = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [pedidos, setPedidos] = useState([]);
 
-  // estado Modal crear menus
+  
 
    const [show, setShow] = useState(false);
    const handleShow = () => setShow(true);
-  // estado Modal actualizar menus
+
   const [showPut, setShowPut] = useState(false);
 
-  // estado Modal Crear Usuarios
+
   const [showUsersPost, setShowUsersPost] = useState(false);
   const handleUsersPostShow = () => setShowUsersPost(true);
 
 
-  // estado para guardar datos
+
 
   const [productoSeleccionado, setProductoSeleccionado] = useState({
     _id: "",
@@ -48,52 +48,51 @@ const Administrador = () => {
     password: "",
   });
 
-  /* Traer datos */
+
 
   const recibirData = async () => {
-    // menus
+
     const datosMenu = await traer("menus?limite=0&desde=0");
     const dataMenu = datosMenu.data.menus;
     setProductos(dataMenu);
-    // usuarios
+ 
     const datosUsuarios = await traer("usuarios?limite=0&desde=0");
     const dataUsuarios = datosUsuarios.data.usuarios;
     setUsuarios(dataUsuarios);
-    // pedidos
+
     const datosPedidos = await traer("pedidos?limite=0&desde=0");
     const dataPedidos = datosPedidos.data.pedidos;
 
     setPedidos(dataPedidos);
   };
 
-  /* Actualizar Menus */
+
   const abrirCerrarModalEditar = () => {
     setShowPut(!showPut);
   };
 
   const actualizarDatos = (datos) => {
     setProductoSeleccionado(datos);
-    abrirCerrarModalEditar();
+   
     alert("menu actualizado correctamente");
+     abrirCerrarModalEditar();
   };
 
-    /* recibir datos de los modales */
-
-    /* menus */
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProductoSeleccionado((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  /* usuarios */
+
 
   const usuariosChange = (e) => {
     const { name, value } = e.target;
     setusuariosSelecionados((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  // funcion para inactivar menus
+
 
   const menusDelete = (e) => {
     let id = e.target.id;
@@ -101,7 +100,7 @@ const Administrador = () => {
     alert("menu eliminado correctamente");
   };
 
-  /* funcion inactivar usuarios */  
+  
 
   const usuariosDelete = (e) => {
     let id = e.target.id;
@@ -116,7 +115,7 @@ const Administrador = () => {
   }, []);
 
 
-  // function para entregar pedido
+
 
   const pedidoListo = (e) => {
     let pedidoPut = e.target.id;
@@ -133,7 +132,7 @@ const Administrador = () => {
                 <title>Administracion</title>
             </Helmet>
 
-      {/* inicio de la tabla menus */}
+
       <NavAdmin />
       <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center" id="menus">
@@ -194,10 +193,10 @@ const Administrador = () => {
             <Spinner animation="border" variant="light" />
           </div>
         )}
-        {/* fin de la tabla menus */}
+       
       </div>
       <NavAdmin />
-      {/* inicio tabla usuarios */}
+ 
       <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center" id="usuarios">
           Usuarios
@@ -251,10 +250,10 @@ const Administrador = () => {
             <Spinner animation="border" variant="light" />
           </div>
         )}
-        {/* fin de la tabla usuarios */}
+       
       </div>
       <NavAdmin />
-      {/* inicio de tabla pedidos */}
+   
       <div className="table-responsive-lg">
         <h1 className="titulo__seccion text-light text-center" id="pedidos">
           Pedidos
@@ -306,18 +305,18 @@ const Administrador = () => {
       </div>
       <NavAdmin />
 
-      {/* --------------------------- MODALES :-------------------------------- */}
+    
 
 
-      {/* Modal CREAR Menu */}
+    
 
       <ModalCrearMenus menus={productoSeleccionado}  funcionRecibir={handleChange} setShow={setShow} show={show} />
      
-      {/* Modal ACTUALIZAR Menu */}
+
 
        <ModalActualizarmenus menus={productoSeleccionado}  funcionRecibir={handleChange}  setShowPut={setShowPut} show={show} showPut={showPut}/>
 
-      {/* Modal CREAR USUARIO */}
+
       <ModalCrearUsuario menus={usuariosSelecionados}  changeUsuario={usuariosChange} setShowUsersPost={setShowUsersPost} showUsersPost={showUsersPost} />
 
     </>
