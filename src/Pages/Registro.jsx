@@ -59,7 +59,6 @@ const Registro = () => {
     }
     
 
-    // console.log(respuesta);
   };
 
   return (

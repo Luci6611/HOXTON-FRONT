@@ -26,7 +26,6 @@ const Menus = () => {
 // tomar id de menu para crear pedido
 const pedidoListo = (e) => {
   let pedidoPut = e.target.id;
-  console.log(pedidoPut);
   crearPedido(pedidoPut)
   alert("pedido agregado correctamente")
 };

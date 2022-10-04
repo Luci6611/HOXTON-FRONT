@@ -26,7 +26,6 @@ function Navegacion() {
   const verificarAuth = async () => {
     setInterval(() => {
     let datos = usuarios.usuario;
-    console.log(datos)
    
       setusuariosRecibidos(datos)
     }, 1000);

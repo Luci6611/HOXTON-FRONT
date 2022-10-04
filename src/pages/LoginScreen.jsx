@@ -23,7 +23,6 @@ const LoginScreen = () => {
     if (datos?.token) {
       localStorage.setItem("token", JSON.stringify(datos.token)); 
 
-      console.log(datos.token);
       
 
       navigate("/");

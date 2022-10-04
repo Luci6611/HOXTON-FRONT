@@ -14,7 +14,6 @@ import favicon from "../assets/favicon_(1).ico";
   async function handlerOnSubmit(e){
     e.preventDefault();
     
-    console.log(form)
     // try {
     //   let result = await fetch("PASARME EL ENDPOINT", {
     //     method: "post",
@@ -35,11 +34,7 @@ import favicon from "../assets/favicon_(1).ico";
     //     
     //  }
         
-      
-    // } catch (error) {
-    //     console.log(error);
-    //   return error;
-    // }
+
   };
 
   function handlerNameOnChange(e){

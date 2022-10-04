@@ -18,8 +18,7 @@ export const eliminar = async (area, id) => {
       },
     }
   )
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((response) => response.json());
 
   location.reload(true);
  
@@ -58,9 +57,7 @@ export const actualizar = async (area, productoselecionado) => {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
     }
-  )
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+  ).then((response) => response.json());
     location.reload();
 };
 
@@ -81,8 +78,7 @@ export const actualizarEstado = async (area, id,estadoMenu) => {
       },
     }
   )
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((response) => response.json());
     location.reload();
   
 };
@@ -112,8 +108,8 @@ export const Crear = async (area, productoselecionado) => {
       },
     }
   )
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((response) => response.json());
+
     alert("menu dado de alta correctamente");
      location.reload();
 };
@@ -138,8 +134,8 @@ export const crearUsuarios = async (area, usuariosSelecionados) => {
       },
     }
   )
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((response) => response.json());
+
     alert("usuario dado de alta correctamente");
    location.reload();
  
