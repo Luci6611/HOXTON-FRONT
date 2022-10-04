@@ -5,7 +5,7 @@ import imagen3 from '../assets/pizza-napolitana-sin-gluten.jpg'
 import Cardsportada from './CardsPortada';
 import '../styles/style.css'
 
-/* carousel */
+
 
 function Carousel() {
   return (

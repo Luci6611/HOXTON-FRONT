@@ -4,7 +4,7 @@ const admin = axios.create({
   baseURL: "https://hoxton-backend.herokuapp.com/api/",
 });
 
-/* Funcion eliminar */
+
 
 export const eliminar = async (area, id) => {
 
@@ -17,15 +17,14 @@ export const eliminar = async (area, id) => {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
     }
-  )
-    .then((response) => response.json());
+  ).then((response) => response.json());
 
   location.reload(true);
  
   return response;
 };
 
-/* Funcion Traer */
+
 
 export const traer = async (area) => {
   const response = await admin.get(`/${area}`, {
@@ -35,9 +34,9 @@ export const traer = async (area) => {
   return response;
 };
 
-/* Funciones Put */
 
-/* Actualizar menus */
+
+
 
 export const actualizar = async (area, productoselecionado) => {
 
@@ -58,10 +57,13 @@ export const actualizar = async (area, productoselecionado) => {
       },
     }
   ).then((response) => response.json());
+
+   
     location.reload();
+    alert("menu actualizado correctamente");
 };
 
-/* Actualizar pedido */
+
 
 export const actualizarEstado = async (area, id,estadoMenu) => {
 
@@ -77,15 +79,13 @@ export const actualizarEstado = async (area, id,estadoMenu) => {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
     }
-  )
-    .then((response) => response.json());
+  ).then((response) => response.json());
+
     location.reload();
   
 };
 
-/* Funciones POST */
 
-  /* crear menus */
 
 export const Crear = async (area, productoselecionado) => {
 
@@ -107,14 +107,14 @@ export const Crear = async (area, productoselecionado) => {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
     }
-  )
-    .then((response) => response.json());
+  ).then((response) => response.json());
+
 
     alert("menu dado de alta correctamente");
      location.reload();
 };
 
- /* crear usuarios */
+
 
 export const crearUsuarios = async (area, usuariosSelecionados) => {
 
@@ -133,8 +133,8 @@ export const crearUsuarios = async (area, usuariosSelecionados) => {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
     }
-  )
-    .then((response) => response.json());
+  ).then((response) => response.json());
+
 
     alert("usuario dado de alta correctamente");
    location.reload();

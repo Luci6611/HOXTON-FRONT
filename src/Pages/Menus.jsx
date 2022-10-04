@@ -23,7 +23,7 @@ const Menus = () => {
     setMenus(menus);
     setTotal(total);
   };
-// tomar id de menu para crear pedido
+
 const pedidoListo = (e) => {
   let pedidoPut = e.target.id;
   crearPedido(pedidoPut)

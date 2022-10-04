@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 
-/* variables */
+
 
 :root {
   --fondo__pagina: #262626;
@@ -52,7 +52,7 @@
   }
 
 
-/*  mobile*/
+
 
   @media (max-width: 768px) {
     .card img {

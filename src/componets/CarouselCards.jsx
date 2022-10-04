@@ -13,15 +13,15 @@ const CarouselCards = () => {
   const [hamburguesas, setHamburguesas] = useState([]);
 
   const cambiar = async () => {
-    /* pizzas */
+   
     const datos = (await homeProducts.get(`menus?limite=3&desde=0`)).data;
     const data = datos.menus;
     setProductos(data);
-    /* papas */
+ 
     const papas = (await homeProducts.get(`menus?limite=3&desde=6`)).data;
     const data_papas = papas.menus;
     setPapas(data_papas);
-    /* hamburguesas */
+    
     const hamburguesas = (await homeProducts.get(`menus?limite=3&desde=12`)).data;
     const data_hamburguesas = hamburguesas.menus;
     setHamburguesas(data_hamburguesas);

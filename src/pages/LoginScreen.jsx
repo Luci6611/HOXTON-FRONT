@@ -21,10 +21,7 @@ const LoginScreen = () => {
     const datos = await login({ email, password });
 
     if (datos?.token) {
-      localStorage.setItem("token", JSON.stringify(datos.token)); 
-
-      
-
+      localStorage.setItem("token", JSON.stringify(datos.token));       
       navigate("/");
     } else {
       if (datos?.errors) {

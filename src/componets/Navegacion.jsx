@@ -5,9 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
-import "../styles/Navegacion.css";
-/* import { BsSearch } from "react-icons/bs";
-import { BsCart4 } from "react-icons/bs"; */
+
+
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { NavLink, Link } from "react-router-dom";
@@ -21,7 +20,7 @@ function Navegacion() {
 
    const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
  
-  /*  funcion verificar usuario Administrador */
+ 
 
   const verificarAuth = async () => {
     setInterval(() => {
@@ -96,8 +95,7 @@ function Navegacion() {
               </Nav>
               <Form className="d-flex align-items-center ">
 
-                {/* <Link to="*">   
-                <BsCart4 className="text-light icons " /></Link> */}
+              
                 <Link to="/login">
                   <BsFillPersonFill className="text-light icons" />
                 </Link>

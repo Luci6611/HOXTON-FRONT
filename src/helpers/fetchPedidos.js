@@ -1,7 +1,7 @@
 const url = "https://hoxton-backend.herokuapp.com/api/pedidos";
 
 
-// traer pedidos
+
  const traerPedidos = async (registro = 0) => {
   const response = await fetch(`${url}?desde=${registro}`, {
     method: "GET",
@@ -30,9 +30,7 @@ export const crearPedido = async ( _id) => {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
     }
-  )
-    .then((response) => response.json());
-
+  ).then((response) => response.json());
      location.reload();
 };
 export default traerPedidos
