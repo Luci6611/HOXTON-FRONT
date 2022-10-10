@@ -5,8 +5,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
+ 
 
-
+import { BsPersonDashFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { NavLink, Link } from "react-router-dom";
@@ -20,7 +21,6 @@ function Navegacion() {
 
    const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
  
- 
 
   const verificarAuth = async () => {
     setInterval(() => {
@@ -28,6 +28,11 @@ function Navegacion() {
    
       setusuariosRecibidos(datos)
     }, 1000);
+     
+   }
+   const cerrarSesion = async () => {
+    localStorage.removeItem('token')
+    location.reload();
      
    }
 
@@ -38,7 +43,7 @@ function Navegacion() {
 
   return (
     <>
-      <Header />
+      <Header  />
       <Navbar
         key="sm"
         bg="dark"
@@ -94,11 +99,15 @@ function Navegacion() {
 
               </Nav>
               <Form className="d-flex align-items-center ">
-
+              {
+                 localStorage.getItem("token") === null  ?  <Link to="/login">
+                 <BsFillPersonFill className="text-light icons" />
+               </Link>: 
               
-                <Link to="/login">
-                  <BsFillPersonFill className="text-light icons" />
-                </Link>
+                     <BsPersonDashFill className=" icons  icono-deslogueo" onClick={()=>cerrarSesion() } />
+                  } 
+          
+              
                 <Link to="/Registro">
                   <BsPersonPlusFill className="text-light icons " />
                 </Link>{" "}

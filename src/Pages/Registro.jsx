@@ -1,6 +1,8 @@
 import React, { useState,useRef ,useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { crearUsuario } from "../helpers/fetchUsuarios";
+import { Helmet } from "react-helmet";
+import favicon from "../assets/favicon_(1).ico";
 import "../styles/Registro.css"
 
 const Registro = () => {
@@ -62,6 +64,12 @@ const Registro = () => {
   };
 
   return (
+    <>
+    <Helmet>
+    <meta charSet="utf-8" />
+    <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    <title>Registro</title>
+  </Helmet>
     <div className="contenedor">
     <div className="container  ">
       <div className="row registro-cuerpo">
@@ -136,7 +144,7 @@ const Registro = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
   );
 };
 

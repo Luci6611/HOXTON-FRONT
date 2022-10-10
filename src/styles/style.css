@@ -82,7 +82,17 @@ nav input , .icons {
   
 }
 
-
+.icono-deslogueo{
+  cursor: pointer;
+  font-size: 27px;
+  color: #dd3333;
+}
+.icono-deslogueo:hover{
+  cursor: pointer;
+  color: #d1501d;
+  font-size: 32px;
+  transition: .4s;
+}
 
 .error {
   margin: 0 28% 0;
