@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Placeholder from "react-bootstrap/Placeholder";
 import "../styles/carousel-cards.css";
 import { homeProducts } from "../helpers/homeProducts";
-import { Navigate,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "axios";
 
 const CarouselCards = () => {
