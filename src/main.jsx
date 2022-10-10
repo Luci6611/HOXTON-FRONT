@@ -9,9 +9,7 @@ import "../src/styles/SobreNosotros.css"
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <RouterApp />
-  </React.StrictMode>
 );
 
 

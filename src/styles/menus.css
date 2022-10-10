@@ -1,5 +1,7 @@
+
 .fila-titulo{
 text-align: center;
+
 }
 .contenedor-menus{
   padding: 0%;
@@ -7,6 +9,7 @@ text-align: center;
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .fila-menus{
 width: 100%;
 

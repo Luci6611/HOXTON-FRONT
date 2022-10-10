@@ -21,6 +21,7 @@ li {
 
 body {
   background-color: var(--fondo__pagina);
+  width: 100% !important;
 }
 
 
