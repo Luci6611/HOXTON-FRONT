@@ -26,6 +26,7 @@ const Menus = () => {
 
 const pedidoListo = (e) => {
   let pedidoPut = e.target.id;
+  
   crearPedido(pedidoPut)
   alert("pedido agregado correctamente")
 };
@@ -58,7 +59,7 @@ const pedidoListo = (e) => {
         <hr />
       </div>
     </div>
-    <div className="container contenedor-menus  ">
+    <div className=" contenedor-menus  ">
    
     <div className="row fila-menus   row-cols-1 row-cols-md-3 g-4 mb-2">
       {menus.map((menus) => (

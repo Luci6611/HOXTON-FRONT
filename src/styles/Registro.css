@@ -68,7 +68,6 @@
     width: 40%;
     display: block;
     margin-left: auto;
-    padding: 18px 28px;
     color: white;
     border-radius: 6px;
     cursor: pointer;
@@ -120,7 +119,6 @@
       display: block;
       margin-left: auto;
       padding: 10px 20px;
-    
       color: white;
       border-radius: 6px;
       cursor: pointer;

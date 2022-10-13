@@ -57,6 +57,7 @@ const LoginScreen = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   autoFocus={true}
+                  required
                 />
                 <input
                   className="form-control mb-4 p-2"
@@ -64,6 +65,7 @@ const LoginScreen = () => {
                   placeholder="ingrese constraseña"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <div className="d-flex justify-content-center my-3">
                   <button className="btn btn-dark btn-outline-danger   fs-5 fw-bold text-light mt-auto boton-est">Iniciar</button>
