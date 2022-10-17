@@ -101,7 +101,7 @@ function Navegacion() {
               <Form className="d-flex align-items-center ">
               {
                  localStorage.getItem("token") === null  ?  <Link to="/login">
-                 <BsFillPersonFill className="text-light icons" />
+                 <BsFillPersonFill className="text-light fs-4 icons" />
                </Link>: 
               
                      <BsPersonDashFill className=" icons  icono-deslogueo" onClick={()=>cerrarSesion() } />
@@ -109,7 +109,7 @@ function Navegacion() {
           
               
                 <Link to="/Registro">
-                  <BsPersonPlusFill className="text-light icons " />
+                  <BsPersonPlusFill className="text-light fs-4 icons " />
                 </Link>{" "}
               </Form>
             </Offcanvas.Body>

@@ -31,6 +31,6 @@ export const crearPedido = async ( _id) => {
       },
     }
   ).then((response) => response.json());
-     location.reload();
+    
 };
 export default traerPedidos
