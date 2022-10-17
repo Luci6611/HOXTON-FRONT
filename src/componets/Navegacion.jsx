@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "../componets/Header";
 import logo from "../assets/hoxton_logo_recortado.png";
- 
 
 import { BsPersonDashFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -13,37 +12,33 @@ import { BsPersonPlusFill } from "react-icons/bs";
 import { NavLink, Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "../styles/style.css";
-import {  usuarios } from "../helpers/fetchAuth";
+import { usuarios } from "../helpers/fetchAuth";
 import Administrador from "../pages/Admin";
 
-
 function Navegacion() {
-
-   const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
- 
+  const [usuariosRecibidos, setusuariosRecibidos] = useState([]);
 
   const verificarAuth = async () => {
     setInterval(() => {
-    let datos = usuarios.usuario;
-   
-      setusuariosRecibidos(datos)
-    }, 1000);
-     
-   }
-   const cerrarSesion = async () => {
-    localStorage.removeItem('token')
-    location.reload();
-     
-   }
+      let datos = usuarios.usuario;
 
+      setusuariosRecibidos(datos);
+    }, 100);
+  };
+
+
+  const cerrarSesion = async () => {
+    localStorage.removeItem("token");
+    location.reload();
+  };
 
   useEffect(() => {
-    verificarAuth();
+     verificarAuth();
   }, []);
 
   return (
     <>
-      <Header  />
+      <Header />
       <Navbar
         key="sm"
         bg="dark"
@@ -90,13 +85,16 @@ function Navegacion() {
                   Contacto
                 </NavLink>
 
-                 {
-                  usuariosRecibidos.role == "ADMIN_ROLE"  ? <NavLink className="nav-link" to="/Admi">  Administrador  </NavLink>: 
-                    <NavLink className="nav-link d-none" to="/Admi">
+                {usuariosRecibidos.role == "ADMIN_ROLE" ? (
+                  <NavLink className="nav-link" to="/Admi">
+                    {" "}
+                    Administrador{" "}
+                  </NavLink>
+                ) : (
+                  <NavLink className="nav-link d-none" to="/Admi">
                     Administrador
                   </NavLink>
-                  } 
-
+                )}
               </Nav>
               <Form className="d-flex align-items-center ">
               {
@@ -118,6 +116,8 @@ function Navegacion() {
       </Navbar>
     </>
   );
+
 }
+
 
 export default Navegacion;

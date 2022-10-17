@@ -89,6 +89,7 @@ const Registro = () => {
                   value={formValues.nombre}
                   onChange={handleChange}
                   autoFocus={true}
+                  required
                   autoComplete="off"
                 />
                 <input
@@ -98,6 +99,7 @@ const Registro = () => {
                   name="email"
                   value={formValues.email}
                   onChange={handleChange}
+                  required
                 />
                 <input
                   className="form-control input mt-1"
@@ -106,6 +108,7 @@ const Registro = () => {
                   name="password" maxLength={15} minLength={5}
                   value={formValues.password}
                   id="contraseña"
+                  required
                   onChange={handleChange}
                 />
                   <input
