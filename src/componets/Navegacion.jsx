@@ -97,22 +97,17 @@ function Navegacion() {
                 )}
               </Nav>
               <Form className="d-flex align-items-center ">
-                {localStorage.getItem("token") === null ? (
-                  <Link to="/login">
-                    <BsFillPersonFill
-                      title="login"
-                      className="text-light icons"
-                    />
-                  </Link>
-                ) : (
-                  <BsPersonDashFill
-                    title="salir"
-                    className=" icons  icono-deslogueo"
-                    onClick={() => cerrarSesion()}
-                  />
-                )}
-                <Link title="nuevo usuario" to="/Registro">
-                  <BsPersonPlusFill className="text-light icons " />
+              {
+                 localStorage.getItem("token") === null  ?  <Link to="/login">
+                 <BsFillPersonFill className="text-light fs-4 icons" />
+               </Link>: 
+              
+                     <BsPersonDashFill className=" icons  icono-deslogueo" onClick={()=>cerrarSesion() } />
+                  } 
+          
+              
+                <Link to="/Registro">
+                  <BsPersonPlusFill className="text-light fs-4 icons " />
                 </Link>{" "}
               </Form>
             </Offcanvas.Body>
