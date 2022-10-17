@@ -100,7 +100,7 @@ const Registro = () => {
                   value={formValues.email}
                   onChange={handleChange}
                   required
-                />
+              />
                 <input
                   className="form-control input mt-1"
                   type="password"
