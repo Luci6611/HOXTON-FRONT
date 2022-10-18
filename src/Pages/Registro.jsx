@@ -1,12 +1,12 @@
 import React, { useState,useRef ,useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { crearUsuario } from "../helpers/fetchUsuarios";
 import { Helmet } from "react-helmet";
 import favicon from "../assets/favicon_(1).ico";
 import "../styles/Registro.css"
 
 const Registro = () => {
-  const navigate = useNavigate();
+
   const inputRef = useRef(null)
   const [formValues, setFormValues] = useState({
     nombre: "",
