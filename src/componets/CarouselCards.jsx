@@ -17,7 +17,7 @@ const CarouselCards = () => {
     const data = datos.menus;
     setProductos(data);
 
-    const papas = (await homeProducts.get(`menus?limite=3&desde=6`)).data;
+    const papas = (await homeProducts.get(`menus?limite=3&desde=5`)).data;
     const data_papas = papas.menus;
     setPapas(data_papas);
 
@@ -39,7 +39,7 @@ const CarouselCards = () => {
         <h1 className="card__vendido">Lo mas Vendido</h1>
         {productos.length > 0 ? (
           <>
-            <h2 className="text-light text-center">Pizzas</h2>
+            <h2 className="text-light text-center">Papas</h2>
             <div className="cards-wrapper item ">
               {productos.map((producto) => (
                 <Card className="card" key={producto._id}>
@@ -63,7 +63,7 @@ const CarouselCards = () => {
               ))}
             </div>
 
-            <h2 className="text-light text-center">Papas</h2>
+            <h2 className="text-light text-center">Hamburguesas</h2>
             <div className="cards-wrapper item ">
               {papas.map((producto) => (
                 <Card className="card" key={producto._id}>
@@ -86,7 +86,7 @@ const CarouselCards = () => {
                 </Card>
               ))}
             </div>
-            <h2 className="text-light text-center">Hamburguesas</h2>
+            <h2 className="text-light text-center">Bebidas</h2>
             <div className="cards-wrapper item ">
               {hamburguesas.map((producto) => (
                 <Card className="card" key={producto._id}>
