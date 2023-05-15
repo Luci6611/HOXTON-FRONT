@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "../pages/LoginScreen";
 import ProtectedRoutes from "./ProtectedRoutes";
-import Registro from "../pages/Registro";
+import Registro from "../Pages/Registro";
 import Admin from "../pages/Admin";
 import FormularioContacto from "../pages/FormularioContacto";
 import SobreNosotros from "../pages/SobreNosotros";
