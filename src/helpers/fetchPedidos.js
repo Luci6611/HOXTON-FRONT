@@ -1,4 +1,4 @@
-const url = "https://hoxton-backend.herokuapp.com/api/pedidos";
+const url = "https://hoxton-backend.vercel.app/api/pedidos";
 
 
 

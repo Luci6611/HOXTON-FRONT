@@ -1,4 +1,4 @@
-const url = "https://hoxton-backend.herokuapp.com/api/usuarios";
+const url = "https://hoxton-backend.vercel.app/api/usuarios";
 
 export const cargarUsuarios = async () => {
   const resp = await fetch(url, {

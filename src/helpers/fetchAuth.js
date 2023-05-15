@@ -1,5 +1,5 @@
 
-const url = "https://hoxton-backend.herokuapp.com/api/auth/login";
+const url = "https://hoxton-backend.vercel.app/api/auth/login";
 export const usuarios = {usuario:""};
 
 

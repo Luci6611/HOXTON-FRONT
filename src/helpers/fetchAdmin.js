@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const admin = axios.create({
-  baseURL: "https://hoxton-backend.herokuapp.com/api/",
+  baseURL: "https://hoxton-backend.vercel.app/api/",
 });
 
 
@@ -9,7 +9,7 @@ const admin = axios.create({
 export const eliminar = async (area, id) => {
 
   const response = await fetch(
-    `https://hoxton-backend.herokuapp.com/api/${area}/${id}`,
+    `https://hoxton-backend.vercel.app/api/${area}/${id}`,
     {
       method: "DELETE",
       headers:  {
@@ -41,7 +41,7 @@ export const traer = async (area) => {
 export const actualizar = async (area, productoselecionado) => {
 
   const response = await fetch(
-    `https://hoxton-backend.herokuapp.com/api/${area}/${productoselecionado._id}`,
+    `https://hoxton-backend.vercel.app/api/${area}/${productoselecionado._id}`,
     {
       method: "PUT",
       body: JSON.stringify({
@@ -68,7 +68,7 @@ export const actualizar = async (area, productoselecionado) => {
 export const actualizarEstado = async (area, id,estadoMenu) => {
 
   const response = await fetch(
-    `https://hoxton-backend.herokuapp.com/api/${area}/${id}`,
+    `https://hoxton-backend.vercel.app/api/${area}/${id}`,
     {
       method: "PUT",
       body: JSON.stringify({
@@ -90,7 +90,7 @@ export const actualizarEstado = async (area, id,estadoMenu) => {
 export const Crear = async (area, productoselecionado) => {
 
   const response = await fetch(
-    `https://hoxton-backend.herokuapp.com/api/${area}`,
+    `https://hoxton-backend.vercel.app/api/${area}`,
     {
       method: "POST",
       body: JSON.stringify({
@@ -119,7 +119,7 @@ export const Crear = async (area, productoselecionado) => {
 export const crearUsuarios = async (area, usuariosSelecionados) => {
 
   const response = await fetch(
-    `https://hoxton-backend.herokuapp.com/api/${area}`,
+    `https://hoxton-backend.vercel.app/api/${area}`,
     {
       method: "POST",
       body: JSON.stringify({

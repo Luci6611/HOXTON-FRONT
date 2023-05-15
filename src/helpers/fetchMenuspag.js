@@ -1,4 +1,4 @@
-const url = "https://hoxton-backend.herokuapp.com/api/menus";
+const url = "https://hoxton-backend.vercel.app/api/menus";
 
  const traerMenusPag = async (registro = 0) => {
   const response = await fetch(`${url}?desde=${registro}`, {
