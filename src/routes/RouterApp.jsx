@@ -4,13 +4,13 @@ import LoginScreen from "../pages/LoginScreen";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Registro from "../Pages/Registro";
 import Admin from "../pages/Admin";
-import FormularioContacto from "../pages/FormularioContacto";
-import SobreNosotros from "../pages/SobreNosotros";
+import FormularioContacto from "../Pages/FormularioContacto";
+import SobreNosotros from "../Pages/SobreNosotros";
 import Home from "../pages/Home";
 import Footer from "../componets/Footer";
 import Navegacion from "../componets/Navegacion";
 import Error from "../pages/Error";
-import Menus from "../pages/Menus";
+import Menus from "../Pages/Menus";
 import Pedidos from "../Pages/Pedidos";
 
 
