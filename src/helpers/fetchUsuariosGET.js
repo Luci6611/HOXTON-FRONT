@@ -1,4 +1,4 @@
-const url = "https://hoxton-backend.vercel.app/api/usuarios";
+const url = "https://hoxton-backend-65poh53y6-luci6611.vercel.app/api/usuarios";
 
 export const cargarUsuarios = async () => {
   const resp = await fetch(url, {
